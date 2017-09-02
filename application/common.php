@@ -41,7 +41,97 @@ if (!function_exists('get_file_path')) {
         return $path;
     }
 }
+/**
+ * 处理理各类设置信息的存储和读取
+ * @param null $name    配置项名
+ * @param null $val     配置项值
+ * @return array|bool|mixed|null
+ */
+function CONF($name = null, $val = null)
+{
+    static $_cache = null;
+    static $_isedit = false;
+    if($name === null && $val === null) {
+        return $_isedit;
+    }
 
+    //无缓存
+    if($_cache == null) {
+        $filename = APP_PATH.'common/file/config.php';
+        if(!file_exists($filename)) { //无缓存文件，读数据库
+            //读库
+            $data = Db::name('config')->column('data', 'name');
+            if($data) {
+                foreach($data as $key => &$gd) {
+                    $gd = unserialize($gd);
+                }
+            }
+            //更新缓存
+            $_cache = var_export($data, true);
+            //写入缓存文件
+            $fp = fopen($filename, 'w');
+            flock($fp, LOCK_EX);
+            fwrite($fp, "<?php\nreturn ".$_cache.";\n");
+            flock($fp, LOCK_UN);
+            fclose($fp);
+        } else { //有缓存文件，直接读文件
+            $fp = fopen($filename, 'r');
+            flock($fp, LOCK_SH); //读文件时使用共享锁锁定
+            $_cache = (include $filename);
+            flock($fp, LOCK_UN);
+            fclose($fp);
+        }
+    }
+    //返回所有配置项 如CONF(true)
+    if($name === true) {
+        return $_cache;
+    }
+    //仅查找配置项是否存在 如CONF('','name')
+    if($name === '') {
+        if($_cache === null || !isset($_cache[$val])) {
+            return false;
+        }
+        return true;
+    }
+    //新配置 如CONF('name', 'val')
+    if($val !== null && $name != '') {
+        if($_cache === null || !is_array($_cache)) {
+            $_cache = array();
+        }
+        //处理数据库
+        $Db = Db::name('config');
+        $Db->startTrans();
+        $data = $Db->where(['name' => $name])->lock(true)->find();
+        if($data) {
+            $Db->update(['id' => $data['id'], 'name' => $name, 'data' => serialize($val)]); //更新配置
+        } else {
+            $Db->insert(['name' => $name, 'data' => serialize($val)]); //入库配置
+        }
+        $Db->commit();
+        $_cache[$name] = $val; //更新缓存
+        $_isedit = true;
+    }
+    //返回配置项 如CONF('name')
+    if($_cache !== null) {
+        if(isset($_cache[$name])) {
+            return $_cache[$name];
+        } else {
+            //批量读取 如CONF('prefix*')
+            if(false !== strpos($name, '*')) {
+                if($_cache && is_array($_cache)) {
+                    $return = [];
+                    foreach($_cache as $k => $v) {
+                        if(false !== strpos($k, str_replace('*', '', $name))) {
+                            $return[$k] = $v;
+                        }
+                    }
+                    return $return ?: null;
+                }
+            }
+        }
+    }
+    return null;
+}
 if (!function_exists('get_files_path')) {
     /**
      * 批量获取附件路径
