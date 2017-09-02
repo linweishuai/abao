@@ -131,11 +131,26 @@
         <script src="__LIBS__/jquery-validation/jquery.validate.min.js"></script>
         <script src="__LIBS__/bootstrap-notify/bootstrap-notify.min.js"></script>
         <script src="__LIBS__/sweetalert/sweetalert.min.js"></script>
-
+        <script type="text/javascript" src="__ADMIN_JS__/canvas-particle.js"></script>
         <!-- Page JS Code -->
         <script src="__ADMIN_JS__/dolphin.js"></script>
         {:hook('signin_footer')}
         <script>
+            window.onload = function(){
+                var config = {
+                    vx: 4,
+                    vy:  4,
+                    height: 3,
+                    width: 2,
+                    count: 150,
+                    color: "255, 160, 244",
+                    stroke: "255,255,255",
+                    dist: 6000,
+                    e_dist: 20000,
+                    max_conn: 10
+                }
+                CanvasParticle(config);
+            }
             $(document).ready(function () {
                 $('.signin-form').on('submit', function () {
                     var $data = $(this).serialize();
