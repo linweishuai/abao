@@ -45,35 +45,48 @@
 
         <!-- END Stylesheets -->
     </head>
-    <body>
+    <body class="bg-image" style="background-image: url('__ADMIN_IMG__/bg.jpg');">
         <!-- Login Content -->
-        <div class="bg-white pulldown">
+        <div class="bg-white-op pulldown animated bounce">
             <div class="content content-boxed overflow-hidden">
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
                         <div class="push-30-t push-50 animated fadeIn">
                             <!-- Login Title -->
                             <div class="text-center">
-                                <img src="__ADMIN_IMG__/logo-signin.png" alt="海豚PHP框架">
-                                <p class="text-muted push-15-t">海豚PHP框架</p>
+                                <i class="fa fa-2x fa-circle-o-notch text-primary"></i>
+                                <h3 class="font-w300 push-15-t">阿宝化妆学校管理中心</h3>
                             </div>
                             <!-- END Login Title -->
 
                             <!-- Login Form -->
-                            <form class="js-validation-login form-horizontal push-30-t signin-form" name="signin-form" action="{:url('signin')}" method="post">
+                            <!-- jQuery Validation (.js-validation-login class is initialized in js/pages/base_pages_login.js) -->
+                            <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                            <form class="js-validation-login form-horizontal push-30-t signin-form" name="signin-form" action="{:url('signin')}" method="post" novalidate="novalidate">
                                 <div class="form-group">
-                                    <label class="col-xs-12" for="login-username">用户名</label>
                                     <div class="col-xs-12">
-                                        <input class="form-control" type="text" id="login-username" name="username" placeholder="请输入您的用户名">
+                                        <div class="form-material form-material-primary floating">
+                                            <input class="form-control" type="text" id="login-username" name="username">
+                                            <label for="login-username">用户名</label>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-xs-12" for="login-password">密码</label>
                                     <div class="col-xs-12">
-                                        <input class="form-control" type="password" id="login-password" name="password" placeholder="请输入您的密码">
+                                        <div class="form-material form-material-primary floating">
+                                            <input class="form-control" type="password" id="login-password" name="password">
+                                            <label for="login-password">密码</label>
+                                        </div>
                                     </div>
                                 </div>
-                                {notempty name="Think.config.captcha_signin"}
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label class="css-input switch switch-sm switch-primary">
+                                            <input type="checkbox" id="login-remember-me" name="remember-me"><span></span> 记住我?
+                                        </label>
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label class="col-xs-12" for="login-password">验证码</label>
                                     <div class="col-xs-7">
@@ -83,24 +96,9 @@
                                         <img src="{:captcha_src()}" class="pull-right" id="captcha" style="cursor: pointer;" onclick="this.src='{:captcha_src()}?d='+Math.random();" title="点击刷新" alt="captcha" />
                                     </div>
                                 </div>
-                                {/notempty}
-                                {// 登录框钩子}
-                                {:hook('signin_captcha')}
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label class="css-input switch switch-sm switch-primary">
-                                            <input type="checkbox" id="login-remember-me" name="remember-me"><span></span> 7天内自动登录?
-                                        </label>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <div class="font-s13 text-right push-5-t">
-                                            <a href="">忘记密码?</a>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="form-group push-30-t">
                                     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-                                        <button class="btn btn-block btn-primary" type="submit">登 录</button>
+                                        <button class="btn btn-minw btn-rounded btn-info" type="submit">登陆</button>
                                     </div>
                                 </div>
                             </form>
