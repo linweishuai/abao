@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="__HOME_CSS__/zhaomu.css">
+<main id="main">
+    <style type="text/css">
+        .title {
+            color: #575757;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 2;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .recruit-wrap {
+            margin: 10px 0 0;
+        }
+        .zhaomu-list li {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-top: 20px;
+            margin-left: 20px;
+            width: 400px;
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            float: left;
+            height: 400px;
+            overflow-y: auto;
+        }
+        .zhaomu-list h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .zhaomu-list p {
+            /*font-size: 18px;*/
+            margin-bottom: 10px;
+        }
+    </style>
+    <div class="wrapper">
+        <h2 class="title">
+            <a target="_blank" href="javascript:void(0)">招募区</a>
+        </h2>
+        <ul class="zhaomu-list">
+            {volist name='zhaomu' id='vo'}
+            <li>
+                <h2><a href="{:url('apply',['id'=>$vo.id])}">{$vo.key}</a></h2>
+                <p>发布人电话：{$vo.mobile}</p>
+                <p>佣金：{$vo.yongjin}</p>
+                <p>发布人用户名:{$vo.pushusername}</p>
+                <p>发布时间:{$vo.add_time|date="Y-m-d H:i",###}</p>
+                <p>需求分析:{$vo.detail}</p>
+            </li>
+            {/volist}
+        </ul>
+    </div>
+    <div class="bigPage">
+        {$page}
+    </div>
+</main>

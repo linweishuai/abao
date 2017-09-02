@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="__HOME_CSS__/news.css">
+<main id="main">
+    <div class="wrapper">
+        <div class="js-tabs">
+            <div class="news_list">
+                <ul class="tab" style="display: block;">
+                    {volist name='news_items' id='new_item'}
+                    <li>
+                        <p>
+                            <a class="news_tit" href="{:url('word/details',['id'=>$new_item['id']])}">{$new_item['title']}</a>
+                            <span class="news_data">{$new_item.create_time|date='Y-m-d',###}</span>
+                        </p>
+                        <p>
+                            <span class="news_art">{$new_item.description}</span>
+                            <a href="{:url('word/details',['id'=>$new_item['id']])}">[详情]</a>
+                        </p>
+                    </li>
+                    {/volist}
+                </ul>
+            </div>
+        </div>
+        <!-- 公共分页样式 -->
+        <div class="bigPage">
+            {$page}
+    </div>
+</main>

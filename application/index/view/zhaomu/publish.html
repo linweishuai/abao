@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="__HOME_CSS__/zhaomu.css">
+<link rel="stylesheet" href="__HOME_CSS__/recruit.css">
+<main id="main">
+    <section class="wrapper row">
+        <div class="pub-steps">
+            <ul class="list-unstyled clearfix">
+                <li id="pub-step-1-nav" class="header-step step-on ">
+                    <span class="step-deco"></span>
+                    <span class="step-val">1</span>
+                    <span class="step-title">选择类目</span>
+                </li>
+                <li id="pub-step-2-nav" class="header-step  step-next">
+                    <span class="step-deco"></span>
+                    <span class="step-val">2</span>
+                    <span class="step-title">描述您的需求</span>
+                </li>
+                <li id="pub-step-3-nav" class="header-step  step-next">
+                    <span class="step-deco"></span>
+                    <span class="step-val">3</span>
+                    <span class="step-title">设置需求赏金</span>
+                </li>
+                <li id="pub-step-4-nav" class="header-step  step-next">
+                    <span class="step-deco"></span>
+                    <span class="step-val">4</span>
+                    <span class="step-title">确认需求，并托管赏金</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="wrapper row">
+        <div class="pub-content-hd"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="pub-content-bd">
+            <div class="pub-main-cat" id="j-main-cat">
+                <ul class="pub-cat-list clearfix">
+                    {foreach name='parent' item='vo'}
+                    <li class="j-industry-item" data-linkid="{$vo.id}">
+                        <a class="j-industry-item-a {eq name='key' value='0'}pub-sub-cat-hover{/eq}">{$vo.title}</a>
+                    </li>
+                    {/foreach}
+
+                </ul>
+            </div>
+            <div class="pub-sub-cat" id="j-sub-cat">
+                {volist name='cate' id='v'}
+                <div class="j-cat-list cat-list" data-id="{$key}">
+                    <dl>
+                        <dd>
+                            <ul class="catlist-item-ul">
+                                {foreach name='v' item='cat'}
+                                <li>
+                                    <a href="{:url('quest',['cate_id'=>$cat['id']])}" id="cat-id-1000243" data-id="1000243" data-channelid="1000090">{$cat.title}</a>
+                                </li>
+                                {/foreach}
+                            </ul>
+                        </dd>
+                    </dl>
+                </div>
+                {/volist}
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $shouwid=$(".pub-sub-cat-hover").parent().data('linkid');
+            $('#j-sub-cat .j-cat-list').each(function() {
+                if ($(this).attr('data-id') == $shouwid) {
+                    $('#j-sub-cat .j-cat-list').removeClass('cat-list-show');
+                    $(this).addClass('cat-list-show');
+                }
+            })
+
+        });
+        $('#j-main-cat .j-industry-item').hover(function() {
+            var id = $(this).attr('data-linkid');
+            $('.j-industry-item').find('.j-industry-item-a').removeClass('pub-sub-cat-hover');
+            $(this).find('.j-industry-item-a').addClass('pub-sub-cat-hover');
+            $('#j-sub-cat .j-cat-list').each(function() {
+                if ($(this).attr('data-id') == id) {
+                    $('#j-sub-cat .j-cat-list').removeClass('cat-list-show');
+                    $(this).addClass('cat-list-show');
+                }
+            })
+        }, function() {
+
+        });
+    </script>
+</main>

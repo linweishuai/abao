@@ -1,0 +1,865 @@
+<link rel="stylesheet" href="__HOME_CSS__/level_v7.css">
+<link rel="stylesheet" href="__HOME_CSS__/live-show.css">
+<script type="text/javascript " src="__HOME_JS__/layer/layer.js"></script>
+
+<main id="main">
+    <div class="wrapper">
+        <!-- 顶部广告 -->
+        {Advert:list cateid="4"}
+        <div class="room-ad-top clearfix">
+            <a href="#">
+                <img src="{$advert.src}" width="100%" height="100%">
+            </a>
+        </div>
+        {/Advert:list}
+        <!--房间左侧部分-->
+        <div id="js-live-room-normal-left" class="live-room-normal-left fl">
+            <!-- 主播信息区 -->
+            <div id="anchor-info" class="room-mes clearfix">
+                <div class="anchor-pic fl">
+                    <img src="{$zhuboInfo.head_logo}">
+                    <a target="_blank" class="anchor-cover-wrap" href="#">
+                        <div class="cover"></div>
+                        <div class="yuba-icon"></div>
+                        <div class="text">进入TA的鱼吧</div>
+                    </a>
+                    <!-- 隐藏的小组动态 -->
+                    <!--<div class="yuba-group-active">-->
+                        <!--<div class="triangle">-->
+                            <!--<div class="triangle-bg"></div>-->
+                        <!--</div>-->
+                        <!--<div class="hover-expand"></div>-->
+                        <!--<div class="group-title"><span>小组动态</span><a class="more fr" href="https://yuba.douyu.com/74706" target="_blank" data-tid="" data-fid="">更多</a></div>-->
+                        <!--<div class="list">-->
+                            <!--<div class="item"><a class="content" href="https://yuba.douyu.com/p/325662111491906119" target="_blank"><span class="label label-anchor">主播</span><span class="title">新浪微博大魔王夏天天：开车群号：221775353</span></a>-->
+                                <!--<div class="data-bar"><a class="watch-num" target="_blank" href="https://yuba.douyu.com/p/325662111491906119">6275</a><a class="reply-num" target="_blank" href="https://yuba.douyu.com/p/325662111491906119">5</a></div>-->
+                            <!--</div>-->
+                            <!--<div class="item"><a class="content" href="https://yuba.douyu.com/p/636338151491798926" target="_blank"><span class="label label-anchor">主播</span><span class="title">分享图片</span></a>-->
+                                <!--<div class="data-bar"><a class="watch-num" target="_blank" href="https://yuba.douyu.com/p/636338151491798926">1.5万</a><a class="reply-num" target="_blank" href="https://yuba.douyu.com/p/636338151491798926">27</a></div>-->
+                            <!--</div>-->
+                            <!--<div class="item"><a class="content" href="https://yuba.douyu.com/p/684067771491651388" target="_blank"><span class="label label-anchor">主播</span><span class="title">分享图片</span></a>-->
+                                <!--<div class="data-bar"><a class="watch-num" target="_blank" href="https://yuba.douyu.com/p/684067771491651388">2.4万</a><a class="reply-num" target="_blank" href="https://yuba.douyu.com/p/684067771491651388">34</a></div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+                <div class="relate-text fl">
+                    <div class="headline clearfix">
+                        <h1>{$zhuboInfo.title}</h1>
+                        <!--<a class="feedback-report-button fl" title="举报该房间" href="/member/report/?rid=74706" target="_blank" style="display: inline;">举报</a>-->
+                    </div>
+                    <div class="tag-fs-con clearfix">
+                        <dl class="r-else-tag clearfix">
+                            <dt></dt>
+                            <!--<dd>-->
+                                <!--<a class="head-room-tag fl first" href="/directory/columnRoom/wzry" target="_blank">王者荣耀</a>-->
+                                <!--<span class="arrow fl"></span>-->
+                                <!--<a class="head-room-tag fl second" href="/directory/game/wzry" target="_blank" title="王者荣耀">王者荣耀</a>-->
+                                <!--<span class="arrow fl"></span>-->
+                                <!--<a class="head-room-tag fl second" href="/directory/subCate/wzry/224" target="_blank" title="李白">李白</a>-->
+                            <!--</dd>-->
+                        </dl>
+                    </div>
+                    <div class="acinfo-fs-con  clearfix">
+                        <ul class="r-else clearfix">
+                            <li>
+                                <div class="zb-name-con">
+                                    <i class="zb-name-icon"></i>
+                                    <a class="zb-name" title="{$zhuboInfo.nickname}" href="http://yuba.douyu.com/api/dy/anchor/anchorTopic?room_id=74706&amp;uri=" target="_blank">{$zhuboInfo.nickname}</a>
+                                    <div class="tip">
+                                        <div class="arrow"></div>进入TA的鱼吧</div>
+                                </div>
+                                <!--<i class="zb-sendmsg-icon" title="发站内信"></i>-->
+                            </li>
+                            <li>
+                                <div class="num-box" data-tip-title="tip">
+                                    <div class="num-v-con">
+                                        <i class="num-v-icon"></i>
+                                        <a class="num-v" data-anchor-info="ol-num">{$zhuboInfo.focus_num}</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="weight-box" data-tip-title="tip">
+                                    <div class="weight-v-con">
+                                        <i class="weight-v-icon"></i>
+                                        <a class="weight-v" data-anchor-info="weighttit">{$zhuboInfo.coin_sum}</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--关注、分享按钮-->
+                <div class="btn-group fr">
+                    <!-- 关注 -->
+                    <div class="focus-box">
+                        <div class="focus-box-bg"></div>
+                        <div class="focus-box-con clearfix">
+                            <a class="r-com-btn follow-btn  {eq name='is_focus' value='1'}hide{/eq} fl" href="javascript:;" title="关注" data-anchor-info="follow"><i></i><span>关注</span></a>
+                            <a class="r-com-btn follow-btn yet {eq name='is_focus' value='0'}hide{/eq} fl" href="javascript:;" data-anchor-info="followed"><i></i><span>已关注</span></a>
+                            <p class="r-num fl">
+                                <span data-anchor-info="nic">{$zhuboInfo.focus_num}</span>
+                            </p>
+                        </div>
+                    </div>
+                    <!--<div class="sq-wrap">-->
+                        <!--&lt;!&ndash; 分享按钮 &ndash;&gt;-->
+                        <!--<div id="share-content" class="share-box fl clearfix">-->
+                            <!--<p class="tit">-->
+                                <!--<em class="share-icon"></em>-->
+                                <!--<span>分享</span>-->
+                            <!--</p>-->
+                            <!--<div class="con hide" data-share-content="content"> <i class="arrow-icon"></i>-->
+                                <!--<div class="share-more clearfix">-->
+                                    <!--<div class="share-third-list">-->
+                                        <!--<h3 class="h3">呼唤小伙伴们前来围观吧</h3>-->
+                                        <!--<div class="s-more" data-share-btn="more">-->
+                                            <!--<ul class="trd-ullist clearfix">-->
+                                                <!--<li>-->
+                                                    <!--<a class="sm1" href="javascript:;" title="分享到新浪微博" data-to="tsina" target="_blank"></a>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<a class="sm4" href="javascript:;" title="分享到QQ" data-to="cqq" target="_blank"></a>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<a class="sm3" href="javascript:;" title="分享到QQ空间" data-to="qzone" target="_blank"></a>-->
+                                                <!--</li>-->
+                                            <!--</ul>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="wx-qcode">-->
+                                        <!--<div class="wxqrimgbg">-->
+                                            <!--<div class="wxqrimg"></div>-->
+                                            <!--<i class="wex-icon"></i>-->
+                                        <!--</div>-->
+                                        <!--<p>-->
+                                            <!--微信扫码分享-->
+                                        <!--</p>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="addr">-->
+                                    <!--<div class="tt">-->
+                                        <!--<ul>-->
+                                            <!--<li class="hover" data-share-path="url">直播间地址</li>-->
+                                            <!--<li data-share-path="flash">flash地址</li>-->
+                                            <!--<li data-share-path="embed">通用代码</li>-->
+                                        <!--</ul>-->
+                                    <!--</div>-->
+                                    <!--<div class="s-box">-->
+                                        <!--<div class="cc" style="display:block;">-->
+                                            <!--<input class="inn" name="" id="js_page_url" type="text" data-share-input="path" value="" readonly="" size="30">-->
+                                            <!--<a href="javascript:;" id="share-copy-btn" class="s_copy btn" data-share-copy="btn">复制链接</a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <!-- 视频区 -->
+            <div class="dire-wrap">
+                <link rel="stylesheet" href="http://g.alicdn.com/de/prismplayer/1.5.6/skins/default/index.css" />
+                <script type="text/javascript" src="http://g.alicdn.com/de/prismplayer/1.5.6/prism-min.js"></script>
+                <div id="J_prismPlayer" class="prism-player" style="margin-top: 5px;height: 594px"></div>
+                <!-- prism-player为h5播放器皮肤的钩子类名，请务必加上 -->
+                <script>
+                    // 初始化播放器
+                    var player = new prismplayer({
+                        id: "J_prismPlayer", // 容器id
+                        source: "{$playurl}",// 视频地址
+                        autoplay: false,    //自动播放：否
+                        width: "100%",       // 播放器宽度
+                        height: "594px",      // 播放器高度
+
+                    });
+                    // 监听播放器的pause事件
+                    player.on("pause", function() {
+                        alert("播放器暂停啦！");
+                    });
+                    // 视频由暂停恢复为播放时触发
+                    player.on("play", function() {
+                        if(confirm("开始播放啦！请确定obs直播软件已经点击过“开始串流”!详细obs配置请点击页面中的“如何设置”")){
+                            return true;
+                        }
+                    });
+                    //直播流中断时触发
+                    player.on("liveStreamStop", function() {
+                        alert("直播软件未开启或直播已经关闭！");
+                        window.location.reload();
+                    });
+                </script>
+            </div>
+            <!-- 礼物区 -->
+            <div id="js-stats-and-actions" class="stats-and-actions">
+                <!-- 礼物区-任务 -->
+                <div class="give-gift fr" id="gift-content">
+                    <div class="g-list clearfix" data-slider="slider">
+                        <!--固定礼物-->
+                        <div class="gift-info-panel js-gift-panel">
+                            <div class="gift-info-panel-cont clearfix">
+                                <div class="gift-not-batch">
+                                    <div class="gift-info-panel-brief">
+                                        <div class="gift-info-panel-img"><img src="#"><i></i></div>
+                                        <h4></h4>
+                                        <p></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <i class="gift-info-panel-fill"></i>
+                            <i class="gift-info-panel-arrow1"></i>
+                            <i class="gift-info-panel-arrow2"></i>
+                        </div>
+                        <ul class="clearfix fl" data-slider="list">
+                            {volist name='gifts' id='gift'}
+                            <li class="gift-item" data-type="gift"  data-giftid="{$gift.id}" data-giftname="{$gift.giftname}" data-coin="{$gift.needcoin}" data-img="{$gift.giftIcon}">
+                                <img class="g-img" src="{$gift.giftIcon}">
+                            </li>
+                            {/volist}
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 竞猜 -->
+            </div>
+            <div id="js-live-room-normal-equal-left" class="live-room-normal-equal-left">
+                <!--播放器下方广告-->
+                {Advert:list cateid="5"}
+                <div  class="room-ad-video-down">
+                    <a href="#">
+                        <img src="{$advert.src}" width="100%" height="100%">
+                    </a>
+                </div>
+                {/Advert:list}
+                <!--热门推广标签页-->
+                <div id="js-recommand" class="tab recommand">
+                    <!--标签页切换按钮-->
+                    <div class="tab-header">
+                        <i class="icon video-icon"></i>直播推荐
+                        <a href="https://v.douyu.com/member/mycreate/upload" target="_blank" class="contribute"><i class="icon"></i>我要投稿</a>
+                    </div>
+                    <!--标签切换页内容区域-->
+                    <div class="tab-body">
+                        <!--推荐视频-->
+                        <div class="tab-content video">
+                            <ul class="lives" data-type="lives">
+                                {volist name='recommedn_zhubos' id='zhubo'}
+                                <li class="live">
+                                    <div class="">
+                                        <a href="{:url('room/details',['username'=>$zhubo['username']])}" target="_blank" title="{$zhubo.title}" data-rt="" data-subrt="" data-vid="20090" data-type="1" data-tid="" data-rpos="" data-hashid="p2V0JMVG86WRY5kq">
+                                            <div class="live-preview">
+                                                <div class="img-box-cont"><img src="{$zhubo.album}"><i class="play" style="left: 92.7px; top: 41.2062px;"></i></div>
+                                            </div>
+                                            <div class="live-details">
+                                                <h3 class="live-title">{$zhubo.title}</h3>
+                                                <div class="live-info"><span class="u-name"><i class="icon"></i>{$zhubo.nickname}</span></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                                {/volist}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="js-live-room-normal-right" class="live-room-normal-right fl">
+            <div class="chat">
+                <!-- 个人信息区广告展示 -->
+                <!-- 未登录 -->
+                <div class="no-login hide">
+                    <a href="/lapi/sign/signapi/click?roomid=74706&amp;aid=609301&amp;posid=17&amp;projid=1769" target="_blank"><img src="https://staticlive.douyucdn.cn/upload/signs/201612161003206001.png"></a>
+                </div>
+                <!-- 粉丝贡献榜 -->
+                <!--<div id="js-fans-rank" class="fans-rank">-->
+                    <!--<div class="fans-list">-->
+                        <!--<div class="f-tit" data-fans="trigger">-->
+                            <!--<ul class="clearfix">-->
+                                <!--<li class="" data-fans="week">贡献周榜</li>-->
+                                <!--<li data-fans="all" class="">贡献总榜</li>-->
+                                <!--<li class="vip" data-fans="noble">贵族<span>(<em data-noble="number">11</em>)</span></li>-->
+                                <!--<li class="fans cur" data-fans="fans">粉丝团</li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                        <!--<div class="f-con" data-fans="target">-->
+                            <!--<div class="f-cn charts-list-box">-->
+                                <!--<ul>-->
+                                    <!--<li class="order-1">-->
+                                        <!--<i class="num">1</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v1"></i>-->
+                                        <!--<a href="#" class="name ellipsis">性感女神～夏涵涵* </a>-->
+                                    <!--</li>-->
+                                    <!--<li class="order-2">-->
+                                        <!--<i class="num">2</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v2"></i>-->
+                                        <!--<a href="#" class="name ellipsis">国民初恋甜甜 </a>-->
+                                    <!--</li>-->
+                                    <!--<li class="order-3">-->
+                                        <!--<i class="num">3</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v3"></i>-->
+                                        <!--<a href="#" class="name ellipsis">国民初恋甜甜 </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">4</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v4"></i>-->
+                                        <!--<a href="#" class="name ellipsis">性感女神～国民初恋甜甜夏涵涵* </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">5</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v5"></i>-->
+                                        <!--<a href="#" class="name ellipsis">性感女神～夏涵涵* </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">6</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v6"></i>-->
+                                        <!--<a href="#" class="name ellipsis">国民初恋甜甜 </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">7</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v7"></i>-->
+                                        <!--<a href="#" class="name ellipsis">国民初恋甜甜 </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">8</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v8"></i>-->
+                                        <!--<a href="#" class="name ellipsis">性感女神～国民初恋甜甜夏涵涵* </a>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                            <!--<div class="f-cn charts-list-box" data-fans="all">-->
+                                <!--<ul>-->
+                                    <!--<li class="order-1">-->
+                                        <!--<i class="num">1</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v1"></i>-->
+                                        <!--<a href="#" class="name ellipsis">性感女神～夏涵涵* </a>-->
+                                    <!--</li>-->
+                                    <!--<li class="order-2">-->
+                                        <!--<i class="num">2</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v2"></i>-->
+                                        <!--<a href="#" class="name ellipsis">国民初恋甜甜 </a>-->
+                                    <!--</li>-->
+                                    <!--<li class="order-3">-->
+                                        <!--<i class="num">3</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v3"></i>-->
+                                        <!--<a href="#" class="name ellipsis">国民初恋甜甜 </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">4</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v4"></i>-->
+                                        <!--<a href="#" class="name ellipsis">性感女神～国民初恋甜甜夏涵涵* </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">5</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v5"></i>-->
+                                        <!--<a href="#" class="name ellipsis">性感女神～夏涵涵* </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">6</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v6"></i>-->
+                                        <!--<a href="#" class="name ellipsis">国民初恋甜甜 </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">7</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v7"></i>-->
+                                        <!--<a href="#" class="name ellipsis">国民初恋甜甜 </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">8</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v8"></i>-->
+                                        <!--<a href="#" class="name ellipsis">性感女神～国民初恋甜甜夏涵涵* </a>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                            <!--<div class="f-cn charts-list-box" data-fans="noble">-->
+                                <!--<ul>-->
+                                    <!--<li class="order-1">-->
+                                        <!--<i class="num">1</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v1"></i>-->
+                                        <!--<a href="#" class="name ellipsis">性感女神～夏涵涵* </a>-->
+                                    <!--</li>-->
+                                    <!--<li class="order-2">-->
+                                        <!--<i class="num">2</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v2"></i>-->
+                                        <!--<a href="#" class="name ellipsis">国民初恋甜甜 </a>-->
+                                    <!--</li>-->
+                                    <!--<li class="order-3">-->
+                                        <!--<i class="num">3</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v3"></i>-->
+                                        <!--<a href="#" class="name ellipsis">国民初恋甜甜 </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">4</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v4"></i>-->
+                                        <!--<a href="#" class="name ellipsis">性感女神～国民初恋甜甜夏涵涵* </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">5</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v5"></i>-->
+                                        <!--<a href="#" class="name ellipsis">性感女神～夏涵涵* </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">6</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v6"></i>-->
+                                        <!--<a href="#" class="name ellipsis">国民初恋甜甜 </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">7</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v7"></i>-->
+                                        <!--<a href="#" class="name ellipsis">国民初恋甜甜 </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">8</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v8"></i>-->
+                                        <!--<a href="#" class="name ellipsis">性感女神～国民初恋甜甜夏涵涵* </a>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                            <!--<div class="f-cn charts-list-box cur" data-fans="fans">-->
+                                <!--<ul>-->
+                                    <!--<li class="order-1">-->
+                                        <!--<i class="num">1</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v1"></i>-->
+                                        <!--<a href="#" class="name ellipsis">性感女神～夏涵涵* </a>-->
+                                    <!--</li>-->
+                                    <!--<li class="order-2">-->
+                                        <!--<i class="num">2</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v2"></i>-->
+                                        <!--<a href="#" class="name ellipsis">国民初恋甜甜 </a>-->
+                                    <!--</li>-->
+                                    <!--<li class="order-3">-->
+                                        <!--<i class="num">3</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v3"></i>-->
+                                        <!--<a href="#" class="name ellipsis">国民初恋甜甜 </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">4</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v4"></i>-->
+                                        <!--<a href="#" class="name ellipsis">性感女神～国民初恋甜甜夏涵涵* </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">5</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v5"></i>-->
+                                        <!--<a href="#" class="name ellipsis">性感女神～夏涵涵* </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">6</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v6"></i>-->
+                                        <!--<a href="#" class="name ellipsis">国民初恋甜甜 </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">7</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v7"></i>-->
+                                        <!--<a href="#" class="name ellipsis">国民初恋甜甜 </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="num">8</i>-->
+                                        <!--<a href="#" class="img-box">-->
+                                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                                        <!--</a>-->
+                                        <!--<i class="level-icon v8"></i>-->
+                                        <!--<a href="#" class="name ellipsis">性感女神～国民初恋甜甜夏涵涵* </a>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!-- 弹幕聊天区 -->
+                <div id="js-chat-cont" class="chat-cont">
+                    <div class="noble-barrage-suspend">
+                        <ul class="c-list"></ul>
+                        <div class="chat-cls hide" data-type="chat-cls">
+                            <a href="javascript:;" class="c-roll" data-type="roll"><i class="icon"></i><span>开始滚屏</span></a>
+                            <a href="javascript:;" class="c-clear" data-type="clear"><i class="icon"></i><span>清屏</span></a>
+                        </div>
+                    </div>
+                    <div class="chat-cont-wrap" data-type="chat-cont" sign-start="0">
+                        <ul class="c-list">
+                            <li class="jschartli">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="giftbatter-noble-enter"></div>
+                    <div class="giftbatter-box giftbatter-box1" style="display: none; max-height: 640px; top: 288.5px;"></div>
+                    <div class="giftbatter-box giftbatter-box2" style="height: auto; overflow: visible;"></div>
+                    <div class="liveTicket"></div>
+                </div>
+                <!-- 弹幕公告 -->
+                <div id="js-chat-notice" class="chat-notice">
+                    <div class="chat-sysbroadcast">
+                        <div class="chat-sysbroadcast-header clearfix"><a data-sysbroadcast="btn-close" class="chat-sysbroadcast-close" href="javascript:;" title="关闭">关闭</a></div>
+                        <div class="chat-sysbroadcast-body clearfix"><a href="https://www.douyu.com/cms/gong/201704/11/5124.shtml" data-sysbroadcast="cont" class="chat-sysbroadcast-cont" target="_blank" title="斗鱼主播粉丝体系上线，酷炫的专属徽章和每日粉丝专属礼包等你来拿！主播们赶紧开通粉丝徽章吧，点我了解详情！">斗鱼主播粉丝体系上线，酷炫的专属徽章和每日粉丝专属礼包等你来拿！主播们赶紧开通粉丝徽章吧，点我了解详情！</a></div>
+                    </div>
+                </div>
+                <div class="chat-cmdbox">
+                    <div class="chat-cmdboxresult">
+                        <div class="chat-cmdboxresult-content"></div>
+                    </div>
+                </div>
+                <div id="js-chat-speak" class="chat-speak">
+                    <!--<div class="speak-up clearfix">-->
+                        <!--<div class="expression fl">-->
+                            <!--<a class="e-btn active" href="javascript:;" title="表情"></a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <div id="js-send-msg" class="chat-feat clearfix chat-fans">
+                        <textarea class="cs-textarea" name="content" maxlength="30" tabindex="1" data-type="cont" style="color: rgb(169, 169, 169);"></textarea>
+                        <p class="login-inside" data-type="log" style="display: none;">
+                            <a class="is-log" href="javascript:;" data-type="login">登录
+                            </a>发弹幕，参与主播互动</p>
+                        <div class="b-btn" data-type="send" onclick="talk()">发送</div>
+                        <!--<div class="fans-entrance" data-flag="medal-entrance-warp"><a class="entrance-btn status-nowear" data-action="medal-enter-btn" data-flag="medal-none-btn"><i class="entrance-btn-icon"></i><span>未拥有</span></a></div>-->
+                    </div>
+                    <div id="js-noble-speaker" class="chat--broadcast-box hide">
+                        <div class="nobel--error-box">
+                            <div class="error--mask"></div>
+                            <div class="error--main"><a data-btn="closespeaker" class="broadcast--close" href="javascript:;">×</a>
+                                <div data-selector="noble-error-content" class="error--content"></div>
+                                <div class="error--holder"></div>
+                            </div>
+                        </div>
+                        <div class="broadcast-box--main"><a data-btn="closespeaker" class="broadcast--close" href="javascript:;">×</a>
+                            <div class="broadcast--title">
+                                <h4><i class="icon--broadcast"></i> <span class="title--main">分区喇叭</span></h4>
+                                <div class="title--main-sub">
+                                    <div class="main-sub--row"><span class="main-sub--main">王者荣耀区可见</span><span data-selector="noblemsgtip" class="broadcast--status"></span></div>
+                                </div>
+                            </div>
+                            <div class="broadcast--main">
+                                <div data-selector="forbid-speaker-mask" class="broadcast--text">
+                                    <textarea data-selector="cate-speaker-msg" placeholder="输入喇叭内容" maxlength="20"></textarea><i><em data-selector="noble-words-count">20</em>字</i>
+                                    <div data-selector="forbidden" class="broadcast--forbidden"></div>
+                                </div>
+                                <div class="broadcast--tool-bar"><span data-selector="speaker-count" class="tool-bar--info">剩余 <em>0</em> 个，<a data-buy="speaker" class="btn--buy" href="javascript:;"><div class="dy--tips status--hover-show"><div class="tips--trans-outer"><div class="tips--trans-inner"></div></div><div class="tips--main"><div class="tips--content">分区喇叭为伯爵以上贵族专属特权</div></div></div>开通贵族</a> 可获得喇叭</span> <a data-selector="send-noble-btn" class="btn--send" disabled="disabled" href="javascript:;">发送</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-bottom-ad hide" data-dysign="30011"></div>
+                </div>
+            <div id="js-live-room-normal-equal-right">
+                <div class="live-room-normal-equal-right-item">
+                    <!--直播公告-->
+                    <div class="column announce">
+                        <div class="column-header">
+                            <h3 class="column-title">
+                                <span>直播公告</span>
+                            </h3>
+                        </div>
+                        <div class="column-body">
+                            <p class="column-cotent">{$zhuboInfo.intro}</p>
+                        </div>
+                    </div>
+                    <div class="column anchor-yuba-active" id="anchorYubaActive">
+                        <div class="column-header">
+                            <h3 class="column-title"><span>主播动态</span></h3></div>
+                        <div class="column-body ">
+                            <ul class="column-cotent">
+                                {volist name='zhubo_news' id='new'}
+                                <li><span>主播发布了帖子 </span>
+                                    <a target="_blank" href="{:url('news/details',['id'=>$new['id']])}">{$new.title}</a>
+                                </li>
+                                {/volist}
+                            </ul>
+                            <!--<a target="_blank" href="http://yuba.douyu.com/api/dy/anchor/anchorTopic?room_id=74706&amp;uri=" class="comein-yuba-btn">进入主播鱼吧</a></div>&ndash;&gt;-->
+                    </div>
+                    <!--广告-->
+                    <!--<div id="js-chat-right-ad" class="chat-right-ad">-->
+                        <!--<ul>-->
+                            <!--<li data-dysign="30007" style="opacity: 1; display: list-item;" data-dysign-adid="611632" data-dysign-proid="2077">-->
+                                <!--<a href="/lapi/sign/signapi/click?roomid=74706&amp;aid=611632&amp;posid=30007&amp;projid=2077" target="_blank"><img src="https://staticlive.douyucdn.cn/upload/signs/201704061659179690.jpg" style="width:100%;height:100%"></a>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                      <!---->
+                    <!--</div>-->
+                    <!--主播也爱看-->
+                    <!--<div class="column rec">-->
+                        <!--<div class="column-header">-->
+                            <!--<h3 class="column-title">-->
+                                <!--<span>主播也爱看</span>-->
+                                <!--<i class="icon"></i>-->
+                            <!--</h3>-->
+                        <!--</div>-->
+                        <!--<div class="column-body">-->
+                            <!--<ul id="js-anchor-like" class="rec-list">-->
+                                <!--<li class="live" data-point-2="1">-->
+                                    <!--<a href="/142823" data-rt="53" data-sbrt="2" target="_blank" title="二十一：一言不合偷水晶。">-->
+                                        <!--<div class="live-preview"><img src="https://rpic.douyucdn.cn/a1704/12/14/142823_170412141518.jpg"><b class="border"></b></div>-->
+                                        <!--<div class="live-details">-->
+                                            <!--<h3 class="live-title">二十一：一言不合偷水晶。</h3>-->
+                                            <!--<p class="live-category">分类：王者荣耀</p>-->
+                                            <!--<p class="live-anchor">主播：小二十一最可爱</p>-->
+                                        <!--</div>-->
+                                    <!--</a>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    //弹幕聊天
+    var ws, name, client_list={};
+    name=USER_NAME;
+    var user_rank='{$Think.session.rank}';
+    if(user_rank==''){
+        user_rank=0
+    }
+    // 连接服务端
+    function connect() {
+        // 创建websocket
+        ws = new WebSocket("ws://127.0.0.1:7272");
+        // 当socket连接打开时，输入用户名
+        ws.onopen = onopen;
+        // 当有消息时根据消息类型显示不同信息
+        ws.onmessage = onmessage;
+        ws.onclose = function() {
+            console.log("连接关闭，定时重连");
+            connect();
+        };
+        ws.onerror = function() {
+            console.log("出现错误");
+        };
+    }
+    // 连接建立时发送登录信息
+    function onopen()
+    {
+        var login_data = '{"type":"login","client_name":"'+name.replace(/"/g, '\\"')+'","room_id":"{$Request.param.username}","rank":"'+user_rank+'"}';
+        console.log("websocket握手成功，发送登录数据:"+login_data);
+        ws.send(login_data);
+    }
+    // 服务端发来消息时
+    function onmessage(e)
+    {
+        console.log(e.data);
+        var data = eval("("+e.data+")");
+        switch(data['type']){
+            // 服务端ping客户端
+            case 'ping':
+                ws.send('{"type":"pong"}');
+                break;
+            // 登录 更新用户列表
+            case 'login':
+                say(data['client_id'], data['client_name'],  data['client_name']+' 加入了直播间', data['time'],'',data['rank']);
+                console.log(data['client_name']+"登录成功");
+                break;
+            // 发言
+            case 'say':
+                //{"type":"say","from_client_id":xxx,"to_client_id":"all/client_id","content":"xxx","time":"xxx"}
+                say(data['from_client_id'], data['from_client_name'], data['content'], data['time'],'',data['rank']);
+                break;
+            // 发言
+            case 'sendgift':
+                //{"type":"say","from_client_id":xxx,"to_client_id":"all/client_id","content":"xxx","time":"xxx"}
+                say(data['from_client_id'], data['from_client_name'], data['content'],data['time'],data['gifticon'],data['rank']);
+                break;
+            // 用户退出 更新用户列表
+            case 'logout':
+                //{"type":"logout","client_id":xxx,"time":"xxx"}
+                say(data['from_client_id'], data['from_client_name'], data['from_client_name']+' 退出了', data['time']);
+        }
+    }
+    // 提交对话
+    function talk(){
+        var input = $(".cs-textarea").val();
+        if(!isLogin()){
+            openLogin();
+            return;
+        }
+        var to_client_id = 'all';
+        var to_client_name = $("#client_list option:selected").text();
+        ws.send(
+            '{"type":"say","to_client_id":"'+
+            to_client_id+
+            '","to_client_name":"'+
+            to_client_name+
+            '","content":"'+
+            input+'","rank":"'+user_rank+'"}'
+        );
+    }
+    // 发言
+    function say(from_client_id, from_client_name, content, time,gifticon,rank){
+        if(gifticon==undefined){
+            gifticon='';
+            }
+            $(".jschartli").append(
+            '<p class=" speech_item">' + '<i class="level-icon v'+rank+'"></i>'+
+            '<span class="name">'+
+            '<a href="javascript:;" class="nick js-nick">'+from_client_name+'</a></span>'+
+            '<span class="text-cont">'+content+gifticon+'</span>' +
+            '</p>'
+        );
+    }
+    if(isLogin()){
+        connect();
+    }
+
+    $(function () {
+        $('.follow-btn').click(function () {
+            var obj=this;
+            if(!isLogin()){
+                openLogin();
+            }else{
+                $.post("{:url('index/focus')}",{
+                    zhubousername:'{$Request.param.username}'
+                },function (res) {
+                    if(!res.code){
+                        error_tip(res.msg);
+                    }else{
+                        if(res.code==1){
+                            error_tip(res.msg);
+                        }else{
+                            success_tip(res.msg);
+                        }
+                        $(obj).addClass('hide').siblings('.follow-btn').removeClass('hide');
+                    }
+                },'json');
+            }
+        });
+        $('[data-type="gift"]').hover(function() {
+            var name = $(this).attr('data-giftname');
+            var img = $(this).attr('data-img');
+            var coin = $(this).attr('data-coin');
+            var right = $(this).index() * $(this).width()+5;
+            var html ='<div class="gift-info-panel-img"><img src="'+ img +'"><i></i></div>' +
+                '<h4>'+ name +'</h4>' +
+                '<p>'+'消费金币：'+ coin +'</p>';
+            $('.js-gift-panel .gift-info-panel-brief').html(html);
+            $('.js-gift-panel').css({'left':'auto','right':-right});
+            $('.js-gift-panel').show();
+        }, function() {
+            $('.js-gift-panel').hide();
+        });
+        $(".gift-item").click(function () {
+            if(!isLogin()) {
+                openLogin();
+            }else{
+                var giftid=$(this).data('giftid');
+                var gfitname=$(this).data('giftname');
+                var gifticon=$(this).data('img');
+                $.post("{:url('index/sendgift')}",
+                    {
+                        zhubousername:'{$Request.param.username}',
+                        giftid:giftid
+                    },function (res) {
+                        if(res.code==2){
+                            error_tip(res.msg);
+                            setTimeout(function () {
+                                openLogin();
+                            },3000);
+                            return;
+                        }
+                        if(res.code==3){
+                            error_tip(res.msg);
+                            return ;
+                        }
+                        if(res.code==1){
+                            success_tip(res.msg);
+                            var sendgift = '{"type":"sendgift","client_name":"'+name.replace(/"/g, '\\"')+'","room_id":"{$Request.param.username}","giftname":"'+gfitname+'","giftimg":"'+gifticon+'","rank":"'+user_rank+'"}';
+                            console.log(sendgift);
+                            ws.send(sendgift);
+                        }
+                    },'json');
+            }
+        })
+    });
+
+</script>

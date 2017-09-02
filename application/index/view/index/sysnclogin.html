@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9 no-focus" lang="zh"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-focus" lang="zh"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <title>闹市街会员登陆</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="caiweiming">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="./favicon.ico">
+
+    <link rel="icon" type="image/png" href="__ADMIN_IMG__/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="__ADMIN_IMG__/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="__ADMIN_IMG__/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="__ADMIN_IMG__/favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="__ADMIN_IMG__/favicons/favicon-192x192.png" sizes="192x192">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="__ADMIN_IMG__/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="__ADMIN_IMG__/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="__ADMIN_IMG__/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="__ADMIN_IMG__/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="__ADMIN_IMG__/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="__ADMIN_IMG__/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="__ADMIN_IMG__/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="__ADMIN_IMG__/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="__ADMIN_IMG__/favicons/apple-touch-icon-180x180.png">
+    <!-- END Icons -->
+
+
+    <!-- Stylesheets -->
+
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" href="__LIBS__/sweetalert/sweetalert.min.css">
+
+    <!-- Bootstrap and OneUI CSS framework -->
+    <link rel="stylesheet" href="__ADMIN_CSS__/bootstrap.min.css">
+    <link rel="stylesheet" id="css-main" href="__ADMIN_CSS__/oneui.css">
+    <link rel="stylesheet" href="__ADMIN_CSS__/dolphin.css">
+
+    <!-- END Stylesheets -->
+</head>
+<body>
+<!-- Login Content -->
+<div id="loading" style="background: rgba(236, 236, 236, 0.54);">
+    <div class="loading-box" style="top:30%; background-color: rgba(0, 0, 0, 0);color: #dc3636;">
+        <i class="fa fa-4x fa-cog fa-spin text-warning" style="color: #dc3636;"></i>
+    </div>
+</div>
+<div class="content bg-white text-center pulldown overflow-hidden" style="top:500px;">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <!-- Error Titles -->
+            <h5 class="font-s36 font-w300 text-smooth animated rollIn" style="color: #dc3636;">同步登陆中...</h5>
+            <h2 class="h3 font-w300 push-50 push-30-t animated fadeInUp">商城同步数据中请稍后</h2>
+            <!-- END Error Titles -->
+
+            <!-- Search Form -->
+            <!-- END Search Form -->
+        </div>
+    </div>
+</div>
+<!-- END Login Content -->
+
+<!--&lt;!&ndash; Login Footer &ndash;&gt;-->
+<!--<div class="pulldown push-30-t text-center animated fadeInUp">-->
+<!--<small class="text-muted"><span class="js-year-copy"></span> &copy; DolphinPHP 1.0</small>-->
+<!--</div>-->
+<!--&lt;!&ndash; END Login Footer &ndash;&gt;-->
+
+<!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
+<script src="__ADMIN_JS__/core/jquery.min.js"></script>
+<script src="__ADMIN_JS__/core/bootstrap.min.js"></script>
+<script src="__ADMIN_JS__/core/jquery.slimscroll.min.js"></script>
+<script src="__ADMIN_JS__/core/jquery.scrollLock.min.js"></script>
+<script src="__ADMIN_JS__/core/jquery.appear.min.js"></script>
+<script src="__ADMIN_JS__/core/jquery.countTo.min.js"></script>
+<script src="__ADMIN_JS__/core/jquery.placeholder.min.js"></script>
+<script src="__ADMIN_JS__/core/js.cookie.min.js"></script>
+<script src="__ADMIN_JS__/app.js"></script>
+
+<!-- Page JS Plugins -->
+<script src="__LIBS__/jquery-validation/jquery.validate.min.js"></script>
+<script src="__LIBS__/bootstrap-notify/bootstrap-notify.min.js"></script>
+<script src="__LIBS__/sweetalert/sweetalert.min.js"></script>
+
+<!-- Page JS Code -->
+<script src="__ADMIN_JS__/dolphin.js"></script>
+{:hook('signin_footer')}
+<script>
+    $(document).ready(function () {
+        var username='{$username}';
+        var password='{$password}';
+            $.post("{:url('sysnclogin')}", {username:username,password:password}, function (res) {
+//                Dolphin.loading('hide');
+                if (res.code) {
+                        Dolphin.notify('登录成功，页面即将跳转~', 'success');
+                        setTimeout(function () {
+                            location.href = res.url;
+                        }, 1500);
+                } else {
+                    Dolphin.notify(res.msg, 'danger');
+                }
+            }).fail(function () {
+                Dolphin.loading('hide');
+                Dolphin.notify('服务器错误~', 'danger');
+            });
+            return false;
+
+    });
+</script>
+</body>
+</html>

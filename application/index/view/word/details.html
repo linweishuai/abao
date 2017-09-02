@@ -1,0 +1,114 @@
+<link rel="stylesheet" href="__HOME_CSS__/center-new.css">
+<!--<link rel="stylesheet" href="__HOME_CSS__/bootstrap.min.css">-->
+<style>
+    .comment-wrap .item {
+        /*padding: 10px;*/
+        margin-bottom: 1px;
+    }
+    .comment-wrap .name {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .comment-wrap .text {
+        margin: 0;
+        font-size: 12px;
+        line-height: 24px;
+    }
+    .comment-wrap .item .img-box {
+        width: 32px;
+        height: 32px;
+    }
+    .comment-wrap .item .item-body {
+        margin-left: 42px;
+    }
+</style>
+<main id="main">
+    <div class="wrapper">
+        <!-- 发布新消息 -->
+        <div class="news-wrap">
+            <!-- <h3>评论列表</h3> -->
+            <ul class="list">
+                <li class="item">
+                    <a href="{:url('room/details',['username'=>$newsInfo['auth_username']])}" class="img-box fl"><img src="{$newsInfo.head_logo}" alt=""></a>
+                    <div class="item-body">
+                        <a href="{:url('room/details',['username'=>$newsInfo['auth_username']])}" class="name">{$newsInfo.nickname}</a>
+                        <div class="time">{$newsInfo.create_time|date="Y-m-d H:i:s",###}</div>
+                        <div class="text">
+                            {$newsInfo.content}
+                        </div>
+                    </div>
+                    <div class="item-footer">
+                        <div class="info">阅读 {$newsInfo.view}</div>
+                        <div class="info">评论 {$newsInfo.talk}</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="sent-news clearfix">
+
+                <textarea placeholder="请输入内容" class="eva-txt"></textarea>
+                <p class="eva-txt-left">还可以输入<span>140</span>个字</p>
+                <a id="send" class="btn fr">评 论</a>
+        </div>
+        <div class="news-wrap comment-wrap">
+            <h3>评论列表</h3>
+            <ul class="list" id="pinglun">
+                {volist name="pinglun" id="p"}
+                <li class="item">
+                    <a href="javascript:void(0)" class="img-box fl"><img src="{$p.head_logo}" alt=""></a>
+                    <div class="item-body">
+                        <a href="javascript:void(0)" class="name">{$p.nickname}</a>
+                        <div class="time">{$p.w_time|date="Y-m-d H:i:s",###}</div>
+                        <div class="text">{$p.val}</div>
+                    </div>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+        {$page}
+    </div>
+</main>
+<script>
+    var txtLimit = 140;
+    $('.eva-txt').keyup(function(){
+        var txtLength = $(this).val().length;
+        if(txtLength > txtLimit){
+            $(this).val($(this).val().substr(0,140));
+            error_tip('最多可输入'+txtLimit+'个字！');
+            return;
+        }
+        $(this).next().find('span').html(txtLimit-txtLength);
+    });
+    $("#send").click(function () {
+        if(!isLogin()) {
+            openLogin();
+        }else {
+            var commets = $("textarea").val();
+            var newsid = "{$newsInfo.id}";
+            $.post("{:url('index/comment')}", {newsid: newsid, comments: commets}, function (res) {
+                if (res.code == 2) {
+                    error_tip(res.msg);
+                    setTimeout(function () {
+                        openLogin();
+                    }, 1000);
+                    return;
+                }
+                if (res.code == 1) {
+                    success_tip('评论成功');
+                    var html = "<li class='item'>";
+                    html += "<a href='javascript:void(0)' class='img-box fl'><img src='" + head_logo + "'></a>"
+                    html += "<div class='item-body'><a href='javascript:void(0)' class='name'>" + nickname + "</a> <div class='time'>" +  res.msg + "</div> <div class='text'>" + commets + "</div> </div>";
+                    html += "</li>";
+                    $("#pinglun").prepend(html);
+                    $("textarea").val('');
+                    return;
+                }
+                if (res.code == 0) {
+                    error_tip(res.msg);
+                    return;
+                }
+
+            }, 'json')
+        }
+    })
+</script>

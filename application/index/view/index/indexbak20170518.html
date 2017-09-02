@@ -1,0 +1,396 @@
+<link rel="stylesheet" href="__HOME_CSS__/level_v7.css">
+<link rel="stylesheet" href="__HOME_CSS__/index.css">
+<main id="main">
+    <!-- 通栏banner -->
+    <section class="banner">
+        <!--首页背景图-->
+        {Advert:list cateid="1"}
+        <div class="bglink" style="background-image: url({$advert.src}); background-color: #133fba;">
+        {/Advert:list}
+        </div>
+        <div class="wrapper">
+            <div class="channel fl">
+                <div class="c-video">
+                    <div class="dire-wrap">
+                        <link rel="stylesheet" href="http://g.alicdn.com/de/prismplayer/1.5.6/skins/default/index.css" />
+                        <script type="text/javascript" src="http://g.alicdn.com/de/prismplayer/1.5.6/prism-min.js"></script>
+                        <div id="J_prismPlayer" class="prism-player" style="margin-top: 5px;height: 594px"></div>
+                        <!-- prism-player为h5播放器皮肤的钩子类名，请务必加上 -->
+                        <script>
+                            // 初始化播放器
+                            var player = new prismplayer({
+                                id: "J_prismPlayer", // 容器id
+                                source: "{$playurl}",// 视频地址
+                                autoplay: false,    //自动播放：否
+                                width: "100%",       // 播放器宽度
+                                height: "594px",      // 播放器高度
+                            });
+                            // 监听播放器的pause事件
+                            player.on("pause", function() {
+                                alert("播放器暂停啦！");
+                            });
+                            // 视频由暂停恢复为播放时触发
+                            player.on("play", function() {
+                                if(confirm("开始播放啦！请确定obs直播软件已经点击过“开始串流”!详细obs配置请点击页面中的“如何设置”")){
+                                    return true;
+                                }
+                            });
+                            //直播流中断时触发
+                            player.on("liveStreamStop", function() {
+                                alert("直播软件未开启或直播已经关闭！");
+                                window.location.reload();
+                            });
+                        </script>
+                    </div>
+                </div>
+                <div class="c-items">
+                    <ul>
+                        {volist name='index_zhubos' id='zhubo'}
+                        <li class="{eq name='key' value='$random'}current{/eq}">
+                            <a href="{:url('room/details',['username'=>$zhubo['username']])}">
+                                <div class="pic">
+                                    <img src="{$zhubo.album}">
+                                </div>
+                                <div class="cover"></div>
+                            </a>
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+            </div>
+            <!-- 热度主播 -->
+            <!--<div class="recommend fr">-->
+                <!--<h2><a href="#"><i class="icon-dazhu"></i>热度主播</a></h2>-->
+                <!--<ul>-->
+                    <!--<li>-->
+                        <!--<a href="#" class="img-box">-->
+                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                        <!--</a>-->
+                        <!--<div class="name ellipsis">A～学不会温柔</div>-->
+                        <!--<div class="view"><i class="icon-eye"></i>3.9万</div>-->
+                        <!--<a href="#" class="btn">直播</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#" class="img-box">-->
+                            <!--<img src="https://apic.douyucdn.cn/upload/avanew/face/201703/08/02/8c5af9606133482cd17b5928ead8972d_big.jpg" alt="">-->
+                        <!--</a>-->
+                        <!--<div class="name ellipsis">🌹🌴🍀🐉🐍🐎🐐🐒</div>-->
+                        <!--<div class="view"><i class="icon-eye"></i>3.9万</div>-->
+                        <!--<a href="#" class="btn">直播</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        </div>
+    </section>
+    <section class="wrapper row">
+        <div class="charts-list-box fl">
+            <h2 class="title"><a href="#"><i class="livefont">&#xe60f;</i>主播榜魅力榜</a></h2>
+            <ul>
+                {volist name='focus' id='zhubo' offset='0' length='3'}
+                <li class="order-{$key+1}">
+                    <i class="num">{$key+1}</i>
+                    <a href="{:url('room/details',['username'=>$zhubo['username']])}" class="img-box">
+                        <img src="{$zhubo.head_logo}" alt="">
+                    </a>
+                    <i class="level-icon v{:floor($zhubo['rank']/5)}"></i>
+                    <a href="javascript:void (0)" class="name ellipsis">{$zhubo.nickname} </a>
+                </li>
+               {/volist}
+                {volist name='focus' id='zhubo' offset='3' length='8'}
+                <li>
+                    <i class="num">{$key+1}</i>
+                    <a href="#" class="img-box">
+                        <img src="{$zhubo.head_logo}" alt="">
+                    </a>
+                    <i class="level-icon v4"></i>
+                    <a href="#" class="name ellipsis">{$zhubo.nickname} </a>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+        <!-- 轮播广告图 -->
+        <div class="tab-img-box fl">
+            <div class="pc-slide">
+                <div class="view">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            {volist name='sliders' id='slider'}
+                            <div class="swiper-slide">
+                                <a href="{empty name='slider.url'}javscript:void(0){else/}{$slider.url}{/empty}"><img src="{$slider.cover}" alt=""></a>
+                            </div>
+                            {/volist}
+                        </div>
+                    </div>
+                </div>
+                <div class="preview">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            {volist name='sliders' id='slider'}
+                            <div class="swiper-slide active-nav">
+                                <img src="{$slider.album}" alt="">
+                            </div>
+                            {/volist}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="news-box fl">
+            <h2 class="title"><a href="#"><i class="livefont">&#xe601;</i>平台公告</a></h2>
+            <div class="hot-word">
+                {volist name='news' id='new' offset="0" length='3'}
+                <a href="{:url('news/details',['id'=>$new['id']])}">
+                    <h2 class="ellipsis">{$new.title}</h2>
+                    <p class="ellipsis">{$new.description}</p>
+                </a>
+               {/volist}
+            </div>
+            <div class="hot-word-list">
+                <ul>
+                    {volist name='news' id='new' offset='3' length='7'}
+                    <li>
+                        <em>[</em>
+                        <a class="h-al">公告</a>
+                        <em>]</em>
+                        <a class="h-ar" href="{:url('news/details',['id'=>$new['id']])}">{$new.title}</a>
+                    </li>
+                    {/volist}
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- 广告 -->
+    <section class="wrapper row">
+        <ul class="guang-box clearfix">
+            {Advert:list cateid="2" limit='2'}
+            <li class="{eq name='$key' value='0'}fl{else/}fr{/eq}">
+                <a href="{$advert.link}" class="img-box"><img src="{$advert.src}"></a>
+            </li>
+            {/Advert:list}
+        </ul>
+    </section>
+    <section class="wrapper row">
+        <div class="charts-list-box fl">
+            <h2 class="title"><a href="#"><i class="livefont">&#xe600;</i>财富榜</a></h2>
+            <ul>
+                {volist name='coin' id='zhubo' offset='0' length='3'}
+                <li class="order-{$key+1}">
+                    <i class="num">{$key+1}</i>
+                    <a href="{:url('room/details',['username'=>$zhubo['username']])}" class="img-box">
+                        <img src="{$zhubo.head_logo}" alt="">
+                    </a>
+                    <i class="level-icon v{:floor($zhubo['rank']/5)}"></i>
+                    <a href="javascript:void (0)" class="name ellipsis">{$zhubo.nickname} </a>
+                </li>
+                {/volist}
+                {volist name='coin' id='zhubo' offset='3' length='8'}
+                <li>
+                    <i class="num">{$key+1}</i>
+                    <a href="#" class="img-box">
+                        <img src="{$zhubo.head_logo}" alt="">
+                    </a>
+                    <i class="level-icon v4"></i>
+                    <a href="#" class="name ellipsis">{$zhubo.nickname} </a>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+        <div class="middle-box fl">
+            <!-- 主播类型/平台类别切换 -->
+            <div class="tabs-wrap js-tabs">
+                <div class="tab-nav">
+                    <a href="{:url('category/index')}" class="tag-btn fr">更多>></a>
+                    <ul>
+                        <li class="current">主播类型</li>
+                        <!--<li>平台类别</li>-->
+                    </ul>
+                </div>
+                <div class="tabs">
+                    <ul class="tab clearfix" style="display: block;">
+                        {volist name='rooms' id='room'}
+                        <li>
+                            <a href="{:url('category/index',['cid'=>$room['id']])}">
+                                <img class="zb-icon"  src="{$room.icon}">
+                                <span class="tit">{$room['title']}</span>
+                            </a>
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+            </div>
+            <!-- 热门游戏 -->
+            <!--<div class="hot-recom">-->
+                <!--<div class="hot-nav">-->
+                    <!--<a class="tit" href="#">热门主播</a>-->
+                    <!--<div class="fr">-->
+                        <!--<a class="tag-btn" href="#">热门游戏</a>-->
+                        <!--<a class="tag-btn" href="#">移动游戏</a>-->
+                        <!--<a class="tag-btn" href="#">网络游戏</a>-->
+                        <!--<a class="tag-btn" href="#">更多>></a>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="recom-wrap">-->
+                    <!--<ul class="clearfix">-->
+                        <!--<li>-->
+                            <!--<a href="#" title="王者荣耀">-->
+                                <!--<img src="https://staticlive.douyucdn.cn/upload/game_cate/b14b8890330ca7cb5185b954808485fc.jpg" class="img-pre" style="display: block;">-->
+                                <!--<img src="https://staticlive.douyucdn.cn/upload/game_cate/3b1ae2d3fb371c4ebc487cb9936c6603.jpg" class="img-hover" style="display: block;">-->
+                                <!--<p class="text">王者荣耀</p>-->
+                                <!--<i></i>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#" title="英雄联盟">-->
+                                <!--<img src="https://staticlive.douyucdn.cn/upload/game_cate/c543faae97189c529c37b7741906d5a1.jpg" class="img-pre" style="display: block;">-->
+                                <!--<img src="https://staticlive.douyucdn.cn/upload/game_cate/19e443be45873d57b5a9a9a5bd0658f4.jpg" class="img-hover" style="display: block;">-->
+                                <!--<p class="text">英雄联盟</p>-->
+                                <!--<i></i>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#" title="英雄联盟">-->
+                                <!--<img src="https://staticlive.douyucdn.cn/upload/game_cate/c543faae97189c529c37b7741906d5a1.jpg" class="img-pre" style="display: block;">-->
+                                <!--<img src="https://staticlive.douyucdn.cn/upload/game_cate/19e443be45873d57b5a9a9a5bd0658f4.jpg" class="img-hover" style="display: block;">-->
+                                <!--<p class="text">英雄联盟</p>-->
+                                <!--<i></i>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#" title="英雄联盟">-->
+                                <!--<img src="https://staticlive.douyucdn.cn/upload/game_cate/c543faae97189c529c37b7741906d5a1.jpg" class="img-pre" style="display: block;">-->
+                                <!--<img src="https://staticlive.douyucdn.cn/upload/game_cate/19e443be45873d57b5a9a9a5bd0658f4.jpg" class="img-hover" style="display: block;">-->
+                                <!--<p class="text">英雄联盟</p>-->
+                                <!--<i></i>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#" title="英雄联盟">-->
+                                <!--<img src="https://staticlive.douyucdn.cn/upload/game_cate/c543faae97189c529c37b7741906d5a1.jpg" class="img-pre" style="display: block;">-->
+                                <!--<img src="https://staticlive.douyucdn.cn/upload/game_cate/19e443be45873d57b5a9a9a5bd0658f4.jpg" class="img-hover" style="display: block;">-->
+                                <!--<p class="text">英雄联盟</p>-->
+                                <!--<i></i>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="charts-list-box fr">
+            <h2 class="title"><a href="#"><i class="livefont">&#xe601;</i>新人榜</a></h2>
+            <ul>
+                {volist name='reg' id='zhubo' offset='0' length='3'}
+                <li class="order-{$key+1}">
+                    <i class="num">{$key+1}</i>
+                    <a href="{:url('room/details',['username'=>$zhubo['username']])}" class="img-box">
+                        <img src="{$zhubo.head_logo}" alt="">
+                    </a>
+                    <i class="level-icon v{:floor($zhubo['rank']/5)}"></i>
+                    <a href="javascript:void (0)" class="name ellipsis">{$zhubo.nickname} </a>
+                </li>
+                {/volist}
+                {volist name='reg' id='zhubo' offset='3' length='8'}
+                <li>
+                    <i class="num">{$key+1}</i>
+                    <a href="#" class="img-box">
+                        <img src="{$zhubo.head_logo}" alt="">
+                    </a>
+                    <i class="level-icon v4"></i>
+                    <a href="#" class="name ellipsis">{$zhubo.nickname} </a>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+    </section>
+    <!-- 广告 -->
+    <section class="wrapper row">
+        <ul class="guang-box clearfix">
+            <li class="fl">
+                <a href="#" class="img-box"><img src="https://staticlive.douyucdn.cn/upload/signs/201704061639316851.jpg"></a>
+            </li>
+            <li class="fr">
+                <a href="#" class="img-box"><img src="https://staticlive.douyucdn.cn/upload/signs/201704051642207859.jpg"></a>
+            </li>
+        </ul>
+    </section>
+    <section class="wrapper row">
+        <div class="charts-list-box fl">
+            <h2 class="title"><a href="#"><i class="livefont">&#xe651;</i>会员活跃榜</a></h2>
+            <ul>
+                {volist name='sign' id='zhubo' offset='0' length='3'}
+                <li class="order-{$key+1}">
+                    <i class="num">{$key+1}</i>
+                    <a href="{:url('room/details',['username'=>$zhubo['username']])}" class="img-box">
+                        <img src="{$zhubo.head_logo}" alt="">
+                    </a>
+                    <i class="level-icon v{:floor($zhubo['rank']/5)}"></i>
+                    <a href="javascript:void (0)" class="name ellipsis">{$zhubo.nickname} </a>
+                </li>
+                {/volist}
+                {volist name='sign' id='zhubo' offset='3' length='8'}
+                <li>
+                    <i class="num">{$key+1}</i>
+                    <a href="#" class="img-box">
+                        <img src="{$zhubo.head_logo}" alt="">
+                    </a>
+                    <i class="level-icon v4"></i>
+                    <a href="#" class="name ellipsis">{$zhubo.nickname} </a>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+        <div class="middle-box fl">
+            <h2 class="title">
+                <a href="{:url('news/index',['news_cat_id'=>2])}">主播更新</a>
+                <!--<div class="fr">-->
+                    <!--<a class="tag-btn" href="#">今日更新</a>-->
+                    <!--<a class="tag-btn" href="#">最多浏览</a>-->
+                <!--</div>-->
+            </h2>
+            <div class="news-wrap">
+                <ul>
+                    {volist name='zhubonews' id='zhubo'}
+                    <li class="item clearfix">
+                        <div class="news fl">
+                            <h3><a href="{:url('news/details',['id'=>$zhubo['id']])}" class="ellipsis">{$zhubo.title}</a><i class="num">{$zhubo.view}</i></h3>
+                            <p>{$zhubo.description}</p>
+                        </div>
+                        <div class="info fr">
+                            <a href="#" class="img-box">
+                                <img src="{$zhubo.head_logo}" alt="">
+                            </a>
+                            <a href="#" class="name ellipsis">{$zhubo.nickname}</a>
+                            <span class="time">{$zhubo.create_time|date='Y-m-d H:i:s',###}</span>
+                        </div>
+                    </li>
+                    {/volist}
+                </ul>
+            </div>
+        </div>
+        <div class="charts-list-box fr">
+            <h2 class="title"><a href="#"><i class="livefont">&#xe66c;</i>本站最强</a></h2>
+            <ul>
+                {volist name='lj_money' id='zhubo' offset='0' length='3'}
+                <li class="order-{$key+1}">
+                    <i class="num">{$key+1}</i>
+                    <a href="{:url('room/details',['username'=>$zhubo['username']])}" class="img-box">
+                        <img src="{$zhubo.head_logo}" alt="">
+                    </a>
+                    <i class="level-icon v{:floor($zhubo['rank']/5)}"></i>
+                    <a href="javascript:void (0)" class="name ellipsis">{$zhubo.nickname} </a>
+                </li>
+                {/volist}
+                {volist name='lj_money' id='zhubo' offset='3' length='8'}
+                <li>
+                    <i class="num">{$key+1}</i>
+                    <a href="#" class="img-box">
+                        <img src="{$zhubo.head_logo}" alt="">
+                    </a>
+                    <i class="level-icon v4"></i>
+                    <a href="#" class="name ellipsis">{$zhubo.nickname} </a>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+    </section>
+</main>
+<script type="text/javascript " src="__HOME_JS__/index.js"></script>

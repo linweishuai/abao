@@ -1,0 +1,159 @@
+<link rel="stylesheet" href="__HOME_CSS__/zhaomu.css">
+<link rel="stylesheet" href="__HOME_CSS__/recruit.css">
+<main id="main">
+        <style type="text/css">
+        .title {
+            color: #575757;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 2;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .recruit-wrap {
+            margin: 10px 0 0;
+        }
+        .dynamic-detalis {
+            margin: 20px auto 50px;
+            padding: 60px;
+        }
+        .tp-search-outline {
+            width: 720px;
+            margin: 0 auto;
+        }
+        .ui-header-search {}
+        .input-append,
+        .input-prepend {
+            display: inline-block;
+            margin-bottom: 10px;
+            font-size: 0;
+            white-space: nowrap;
+            vertical-align: middle;
+        }
+        .ui-header-search .ui-dropdown {
+            position: absolute;
+            top: 0;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 3px;
+            margin-left: 3px;
+            z-index: 10;
+        }
+        .ui-header-search .ui-dropdown-hd {
+            display: inline-block;
+            background: #f6f6f6;
+            padding: 10px 10px 9px 15px;
+            line-height: 20px;
+            height: 39px;
+            border-right: 1px solid #e5e5e5;
+            border-left: 1px solid #f6f6f6;
+        }
+        .ui-dropdown-menu {
+            z-index: 10;
+            background: #f6f6f6;
+            line-height: 32px;
+            border-right: 1px solid #e5e5e5;
+            border-left: 1px solid #f6f6f6;
+            border-bottom: 1px solid #f6f6f6;
+        }
+        .ui-dropdown-menu li {
+            padding: 0 10px 0 15px;
+        }
+        .ui-dropdown-menu li:hover {
+            background-color: #eee;
+        }
+        .ui-header-search .ui-dropdown-hd span {
+            display: inline-block;
+            width: 50px;
+        }
+        .ui-header-search .search-query {
+            width: 468px;
+            font-size: 14px;
+            height: 45px;
+            line-height: 20px;
+            padding: 10px 6px 9px 90px;
+            vertical-align: top;
+            outline: 0;
+            border: 3px solid #d63939;
+        }
+        .ui-header-search .input-append .ui-btn-inverse {
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 20px;
+            background: #d63939;
+            padding-left: 20px;
+            padding-right: 20px;
+            color: #fff;
+            padding-top: 10px;
+            padding-bottom: 9px;
+            border: 3px solid #d63939;
+            position: relative;
+            z-index: 1;
+        }
+        .task-entry {
+            border-radius: 0;
+            font-size: 16px;
+            position: relative;
+            height: 45px;
+            line-height: 45px;
+            border: none;
+            background: #d63939;
+            color: #fff;
+            width: 100px;
+            text-align: center;
+            font-weight: 700;
+        }
+        .task-entry a {
+            display: block;
+            color: #fff;
+        }
+        </style>
+        <div class="wrapper">
+            <div class="dynamic-detalis">
+                <div class="tp-search-outline clearfix">
+                    <div class="ui-header-search fl" id="header-search">
+                        <form id="j-header-searchform" action="{:url('lists')}" class="ui-form-search" method="post">
+                            <div class="input-append" style="position: relative;">
+                                <div class="ui-dropdown" id="j-header-searchwrap">
+                                    <span class="ui-dropdown-hd">
+                                        <span id="j-header-searchlabel">找服务</span> <i class="search-arrow-down"></i> </span>
+                                </div>
+                                <input type="text" placeholder="请输入关键字" class="search-query" autocomplete="off" lang="zh-CN" name="keyword" x-webkit-grammar="builtin:search" x-webkit-speech="true">
+                                <button type="submit" class="ui-btn ui-btn-inverse yahei">搜索</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="task-entry fr">
+                        <a href="Javascript:void(0);" onclick="zhaomu();">发布招募</a>
+                    </div>
+                </div>
+            </div>
+            {foreach name='parent' item='vo'}
+            <h2 class="title" style="text-align: center">
+                <a target="_blank" href="javascript:void(0)">{$vo.title}</a>
+            </h2>
+            <ul class="recruit-wrap">
+                <!--{volist name='cate.vo['id']' id='v'}-->
+                <?php foreach($cate[$vo['id']] as $v){?>
+                <li>
+                    <a href="javascript:">
+                        <img src="{$v.img}" alt="">
+                    </a>
+                    <a href="{:url('cate',['cate_id'=>$v['id']])}" class="rec-title">
+                        {$v.title}
+                    </a>
+                </li>
+               <?php }?>
+            </ul>
+            {/foreach}
+        </div>
+    </main>
+<script>
+    function zhaomu() {
+        if(!isLogin()) {
+            openLogin();
+        }else{
+            window.location.href="{:url('publish')}";
+        }
+    }
+</script>

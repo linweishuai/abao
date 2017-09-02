@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="__HOME_CSS__/zhaomu.css">
+<main id="main">
+    <section class="wrapper row">
+        <div class="pub-steps">
+            <ul class="list-unstyled clearfix">
+                <li id="pub-step-1-nav" class="header-step step-on ">
+                    <span class="step-deco"></span>
+                    <span class="step-val">1</span>
+                    <span class="step-title">选择类目</span>
+                </li>
+                <li id="pub-step-2-nav" class="header-step  step-on">
+                    <span class="step-deco"></span>
+                    <span class="step-val">2</span>
+                    <span class="step-title">描述您的需求</span>
+                </li>
+                <li id="pub-step-3-nav" class="header-step step-on">
+                    <span class="step-deco"></span>
+                    <span class="step-val">3</span>
+                    <span class="step-title">设置需求赏金</span>
+                </li>
+                <li id="pub-step-4-nav" class="header-step  step-next">
+                    <span class="step-deco"></span>
+                    <span class="step-val">4</span>
+                    <span class="step-title">确认需求，并托管赏金</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="wrapper row">
+        <div class="pub-content-hd"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </div>
+        <div class="pub-content-bd">
+            <div class="pub-content-main">
+                <form target="_self" action="{:url('addmoney',['zhaomu'=>$zhaomu['id']])}" method="post" id="pub-form" class="pub-form">
+                    <div class="pub-section zbj-form-item pub-action-section">
+                        <div class="pub-title" user-id="">平台佣金：</div>
+                        <div class="zbj-form-explain-before">
+                            <input placeholder="请输入佣金 (元)" type="text" name="money" class="input-text"></div>
+
+                    </div>
+                    <div class="pub-section ">
+                        <div class="action-content">
+                            <a href="#" class="pub-action-prev">上一步</a>
+                            <button href="javascript:void(0)" class="j-pub-action-submit pub-action-submit">立即发布&gt;</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+<script>
+    $(".pub-form").submit(function () {
+        $.post("{:url('addmoney',['zhaomu'=>$zhaomu['id']])}",$(this).serialize(),function (data) {
+            if(!data.code){
+                error_tip(data.msg)
+            }else{
+                window.location.href=data.url;
+            }
+        });
+        return false;
+    });
+</script>

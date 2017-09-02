@@ -1,0 +1,260 @@
+<link rel="stylesheet" href="__HOME_CSS__/live-show.css">
+<link rel="stylesheet" href="__HOME_CSS__/center-new.css">
+<script type="text/javascript " src="__HOME_JS__/layer/layer.js"></script>
+<main id="main">
+    <div class="wrapper">
+        <div class="left-wrap fl">
+            <h2 class="title"><a href="#"><i class="livefont">&#xe607;</i>主播介绍</a></h2>
+            <div class="user-info">
+                <div class="user-header">
+                    <a class="img-box" href="javascript:void (0)"><img src="{$zhuboInfo.head_logo}" alt=""></a>
+                </div>
+                <div class="info">粉丝：{$zhuboInfo.focus_num}</div>
+                {eq name='is_focus' value='0'}
+                <a href="javascript:void (0)" class="follow-user btn">
+                    <i class="livefont">&#xe61d;</i> 关注主播
+                </a>
+                <a href="javascript:void (0)" class="follow-user btn" style="display: none">
+                    <i class="livefont">&#xe61d;</i> 已关注
+                </a>
+                {else/}
+                <a href="javascript:void (0)" class="follow-user btn">
+                    <i class="livefont">&#xe61d;</i> 已关注
+                </a>
+                <a href="javascript:void (0)" class="follow-user btn" style="display: none">
+                    <i class="livefont">&#xe61d;</i> 关注主播
+                </a>
+                {/eq}
+            </div>
+            <div class="gift-box">
+                <h3>礼物赠送动态</h3>
+                <table>
+                    <tr>
+                        <th width="45">礼物</th>
+                        <th width="50">数量</th>
+                        <th>粉丝</th>
+                    </tr>
+                    <tbody id="giftinfo">
+                   {volist name="newgiftInfo" id="gift"}
+                    <tr>
+                        <td><img src="{$gift.giftIcon}" alt="" class="gift"></td>
+                        <td><span class="num">×1</span></td>
+                        <td><span class="name">{$gift.nickname}</span></td>
+                    </tr>
+                   {/volist}
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+        <div class="main-wrap fl">
+            <div class="info-details clearfix">
+                <div class="img-wrap fr clearfix">
+                    <ul>
+                        {volist name='albums' id='album'}
+                        <li>
+                            <a class="img-box" href="javascript:void(0)"><img src="{$album}" alt=""></a>
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+                <div class="introduce-box">
+                    <p><strong>昵称：</strong>{$zhuboInfo.nickname}</p>
+                    <p><strong>爱好：</strong>{$zhuboInfo.tags}</p>
+                    <p>{$zhuboInfo.introduction}</p>
+                </div>
+                <div class="bshare-custom icon-medium-plus" style="margin-left: 20px"><div class="bsPromo bsPromo2"></div><a title="分享到微信" class="bshare-weixin" href="javascript:void(0);"></a><a title="分享到QQ好友" class="bshare-qqim" href="javascript:void(0);"></a><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=3&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+                <a class="link-btn btn" href="{$zhuboInfo.url}" id="onlive" target="_blank"><i class="livefont">&#xe778;</i> 直播地址</a>
+            </div>
+            <!-- 礼物列表 -->
+            <div class="give-gift" id="gift-content">
+                <div class="g-list clearfix" data-slider="slider">
+                    <!--固定礼物-->
+                    <div class="gift-info-panel js-gift-panel" style="left: auto; right: -5px; display: none;">
+                        <div class="gift-info-panel-cont clearfix">
+                            <div class="gift-not-batch">
+                                <div class="gift-info-panel-brief">
+                                    <div class="gift-info-panel-img"><img src="/public/uploads/images/20170425/7d33ffb29a686518f055a21643309227.png"><i></i></div>
+                                    <h4>勋章</h4>
+                                    <p>消费金币：1</p>
+                                </div>
+                            </div>
+                        </div>
+                        <i class="gift-info-panel-fill"></i>
+                        <i class="gift-info-panel-arrow1"></i>
+                        <i class="gift-info-panel-arrow2"></i>
+                    </div>
+                    <ul class="clearfix fl" data-slider="list">
+                        {volist name='gifts' id='gift'}
+                        <li class="gift-item" data-type="gift" data-giftid="{$gift.id}" data-giftname="{$gift.giftname}" data-coin="{$gift.needcoin}" data-img="{$gift.giftIcon}" data-accounttype="{$gift.type}">
+                            <img class="g-img" src="{$gift.giftIcon}">
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+            </div>
+            <!-- 发布新消息 -->
+            <!--<div class="sent-news clearfix">-->
+            <!--</div>-->
+            <div class="news-wrap">
+                <a href="{:url('word/index',['username'=>$zhuboInfo['username']])}" class="tag-btn fr" style="margin-top: 8px; margin-right: 10px;">更多>></a>
+                <h3>主播动态</h3>
+                <ul class="list">
+                    {volist name='zhubo_news' id='new'}
+                    <li class="item">
+                        <a href="javascript:void(0)" class="img-box fl"><img src="{$zhuboInfo.head_logo}" alt=""></a>
+                        <div class="item-body">
+                            <a href="{:url('word/details',['id'=>$new['id']])}" class="name">{$zhuboInfo.nickname}
+                            <div class="time">{$new.create_time|date="m-d H:I",###}</div>
+                            <div class="text">{$new.title}</div>
+                            </a>
+                        </div>
+                        <div class="item-footer">
+                            <div class="info">阅读 {$new.view}</div>
+                        </div>
+                    </li>
+                    {/volist}
+                </ul>
+            </div>
+        </div>
+        <div class="right-wrap fr">
+            <h2 class="title"><a href="#"><i class="livefont"></i>粉丝赠送排行榜</a></h2>
+            <div class="charts-list-box">
+                <ul>
+                    {volist name='paihangbang' id='new' offset="0" length='3'}
+                    <li class="order-{$key+1}">
+                        <i class="num">{$key+1}</i>
+                        <a href="javascript:void (0)" class="name ellipsis">{$new.nickname} </a>
+                    </li>
+                    {/volist}
+                    {volist name='paihangbang' id='new' offset='3' length='8'}
+                    <li>
+                        <i class="num">{$key+1}</i>
+                        <a href="javascript:void (0)" class="name ellipsis">{$new.nickname}</a>
+                    </li>
+                    {/volist}
+                </ul>
+            </div>
+            <!-- 直播公告 -->
+            <div class="column announce">
+                <div class="column-header">
+                    <h3 class="column-title"><span>直播公告</span></h3>
+                </div>
+                <div class="column-body">
+                    <p class="column-cotent">{$zhuboInfo.intro}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    $(function () {
+        $('.follow-user').click(function () {
+            var obj=this;
+            if(!isLogin()){
+                openLogin();
+            }else{
+                $.post("{:url('index/focus')}",{
+                    zhubousername:'{$Request.param.username}'
+                },function (res) {
+                    if(!res.code){
+                        error_tip(res.msg);
+                    }else{
+                        if(res.code==1){
+                            error_tip(res.msg);
+                        }else{
+                            success_tip(res.msg);
+                        }
+                        $(obj).hide().siblings('.follow-user').show();
+                    }
+                },'json');
+            }
+        });
+        $(".gift-item").click(function () {
+            if(!isLogin()) {
+                openLogin();
+            }else{
+                if(!confirm('确定赠送该礼物给主播？'))
+                {
+                    return false;
+                }
+                var giftid=$(this).data('giftid');
+                var gfitname=$(this).data('giftname');
+                var gifticon=$(this).data('img');
+                var gifttype = $(this).attr('data-accounttype');
+                $.post("{:url('index/sendgift')}",
+                    {
+                        zhubousername:'{$Request.param.username}',
+                        giftid:giftid
+                    },function (res) {
+                        if(res.code==2){
+                            error_tip(res.msg);
+                            setTimeout(function () {
+                                openLogin();
+                            },3000);
+                            return;
+                        }
+                        if(res.msg=='账户余额不足!'){
+                            if(gifttype=='money'){
+                                recharge_tip(res.msg);
+                            }else{
+                                error_tip(res.msg);
+                            }
+                        }else{
+                            error_tip(res.msg);
+                        }
+                        if(res.code==1){
+                            success_tip(res.msg);
+                            var html="<tr><td><img src='"+gifticon+"' class='gift'></td><td><span class='num'>×1</span></td> <td><span class='name'>"+nickname+"</span></td></tr>";
+                            $("#giftinfo").prepend(html);
+//                            var sendgift = '{"type":"sendgift","client_name":"'+name.replace(/"/g, '\\"')+'","room_id":"{$Request.param.username}","giftname":"'+gfitname+'","giftimg":"'+gifticon+'","rank":"'+user_rank+'"}';
+//                            console.log(sendgift);
+//                            ws.send(sendgift);
+                        }
+                    },'json');
+            }
+        })
+    });
+    $('[data-type="gift"]').hover(function() {
+        var name = $(this).attr('data-giftname');
+        var img = $(this).attr('data-img');
+        var coin = $(this).attr('data-coin');
+        var left = $(this).index() * $(this).width() - 100;
+        var gifttype = $(this).attr('data-accounttype');
+        if(gifttype=='ad_money'){
+            var html = '<div class="gift-info-panel-img"><img src="' + img + '"><i></i></div>' +
+                '<h4>' + name + '</h4>' +
+                '<p>' + '消费签到币：' + coin + '</p>';
+        }else{
+            if(gifttype=='money'){
+            var html = '<div class="gift-info-panel-img"><img src="' + img + '"><i></i></div>' +
+                '<h4>' + name + '</h4>' +
+                '<p>' + '消费金币：' + coin + '</p>';
+            }else{
+                var html = '<div class="gift-info-panel-img"><img src="' + img + '"><i></i></div>' +
+                    '<h4>' + name + '</h4>' +
+                    '<p>' + '消费T币：' + coin + '</p>';
+            }
+
+        }
+
+        $('.js-gift-panel .gift-info-panel-brief').html(html);
+        $('.js-gift-panel').css({
+            'left': left,
+            'right': 'auto'
+        });
+        $('.js-gift-panel').show();
+    }, function() {
+        $('.js-gift-panel').hide();
+    });
+//   $("#onlive").click(function () {
+//       var url=$(this).data('url');
+//       layer.open({
+//           type: 2,
+//           title: '直播房间',
+//           area: ['60%', '80%'],
+//           content: url,
+//       });
+//   })
+
+</script>

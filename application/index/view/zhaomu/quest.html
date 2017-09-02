@@ -1,0 +1,97 @@
+<link rel="stylesheet" href="__HOME_CSS__/zhaomu.css">
+<main id="main">
+    <section class="wrapper row">
+        <div class="pub-steps">
+            <ul class="list-unstyled clearfix">
+                <li id="pub-step-1-nav" class="header-step step-on ">
+                    <span class="step-deco"></span>
+                    <span class="step-val">1</span>
+                    <span class="step-title">选择类目</span>
+                </li>
+                <li id="pub-step-2-nav" class="header-step  step-on">
+                    <span class="step-deco"></span>
+                    <span class="step-val">2</span>
+                    <span class="step-title">描述您的需求</span>
+                </li>
+                <li id="pub-step-3-nav" class="header-step  step-next">
+                    <span class="step-deco"></span>
+                    <span class="step-val">3</span>
+                    <span class="step-title">设置需求赏金</span>
+                </li>
+                <li id="pub-step-4-nav" class="header-step  step-next">
+                    <span class="step-deco"></span>
+                    <span class="step-val">4</span>
+                    <span class="step-title">确认需求，并托管赏金</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="wrapper row">
+        <div class="pub-content-hd">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="pub-content-bd">
+            <div class="pub-content-main">
+                <div class="selected-catalog-info">
+                    <ul>
+                        <li> 您选择了：
+                            <span id="catalog-indicator" class="selected-catalog-indicator">{$cate.title}</span>
+                        </li>
+                    </ul>
+                </div>
+                <form target="_self" action="" method="post" id="pub-form" class="pub-form">
+                    <div class="pub-section zbj-form-item">
+                        <div class="pub-title" user-id="">简单描述您的需求：</div>
+                        <div class="zbj-form-explain-before" style="position: relative">
+                            <input id="pub-key" area-title="简单描述您的需求" placeholder="例如xx公司xxLOGO设计" type="text" name="key" class="logo-name-info zbj-input j_valid_required" required> </div>
+                        <div class="zbj-form-explain"></div>
+                    </div>
+
+                        <p class="title">服务商地域要求：</p>
+                        <div class="zbj-form-item">
+                            <input placeholder="无要求/北京/天津…" class="zbj-input input-text" value="" name="area" type="text" required> </div>
+                        <div class="pub-section">
+                            <div class="pub-title">说说您的具体要求：</div>
+                            <div class="pub-intro ">
+                                <textarea class="pub-form-intro" name="detail" required></textarea>
+                            </div>
+                        </div>
+                        <div class="j-pub-userphone section ui-form-item contact-number pubUE-form pubUE-contact">
+                            <p class="title">请确认您的联系方式，服务商将通过该号码联系您哦</p>
+                            <div class="contact-cnt ">
+
+                                <div class="employ-dialog-modifyphone" style="display: block;" >
+                                    <div class="employ-dialog-modifyphone-inputwrap">
+                                        <input placeholder="请输入您的手机号" name="mobile" type="number" maxlength="11"  class="employ-dialog-modifyphone-input">
+                                    </div>
+                                    <!--<div>-->
+                                        <!--<input name="modifyphone-yzm" type="text" class="employ-dialog-modifyphone-input" placeholder="短信验证码">-->
+                                        <!--<a class="employ-dialog-modifyphone-verify" >短信获取验证码</a>-->
+                                    <!--</div>-->
+                                </div>
+                                <input type="hidden" name="cate" value="{$cate.id}">
+                            </div>
+                        </div>
+                        <div class="pub-section pub-action-section">
+                            <div class="action-content">
+                                <a href="Javascript:window.history.go(-1);" class="pub-action-prev">上一步</a>
+                                <button href="javascript:void(0)" class="j-pub-action-submit pub-action-submit" >立即发布&gt;</button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+<script>
+    $(".pub-form").submit(function () {
+     $.post("{:url('quest')}",$(this).serialize(),function (data) {
+        if(!data.code){
+            error_tip(data.msg)
+        }else{
+            window.location.href=data.url;
+        }
+     });
+        return false;
+    });
+</script>

@@ -1,0 +1,439 @@
+<link rel="stylesheet" href="__HOME_CSS__/level_v7.css">
+<link rel="stylesheet" href="__HOME_CSS__/live-show.css">
+<!--webIm继承-->
+<script type="text/javascript " src="__HOME_JS__/easemob/webim.config.js"></script>
+<script type="text/javascript " src="__HOME_JS__/easemob/strophe-1.2.8.min.js"></script>
+<script type="text/javascript " src="__HOME_JS__/easemob/websdk-1.4.10.min.js"></script>
+<script type="text/javascript " src="__HOME_JS__/layer/layer.js"></script>
+
+<main id="main">
+    <div class="wrapper">
+        <!-- 顶部广告 -->
+        {Advert:list cateid="4"}
+        <div class="room-ad-top clearfix">
+            <a href="#">
+                <img src="{$advert.src}" width="100%" height="100%">
+            </a>
+        </div>
+        {/Advert:list}
+        <!--房间左侧部分-->
+        <div id="js-live-room-normal-left" class="live-room-normal-left fl">
+            <!-- 主播信息区 -->
+            <div id="anchor-info" class="room-mes clearfix">
+                <div class="anchor-pic fl">
+                    <img src="{$userInfo.head_logo}">
+                    <a target="_blank" class="anchor-cover-wrap" href="#">
+                        <div class="cover"></div>
+                        <div class="yuba-icon"></div>
+                        <div class="text">进入TA的鱼吧</div>
+                    </a>
+                    <!-- 隐藏的小组动态 -->
+                    <!--<div class="yuba-group-active">-->
+                        <!--<div class="triangle">-->
+                            <!--<div class="triangle-bg"></div>-->
+                        <!--</div>-->
+                        <!--<div class="hover-expand"></div>-->
+                        <!--<div class="group-title"><span>小组动态</span><a class="more fr" href="https://yuba.douyu.com/74706" target="_blank" data-tid="" data-fid="">更多</a></div>-->
+                        <!--<div class="list">-->
+                            <!--<div class="item"><a class="content" href="https://yuba.douyu.com/p/325662111491906119" target="_blank"><span class="label label-anchor">主播</span><span class="title">新浪微博大魔王夏天天：开车群号：221775353</span></a>-->
+                                <!--<div class="data-bar"><a class="watch-num" target="_blank" href="https://yuba.douyu.com/p/325662111491906119">6275</a><a class="reply-num" target="_blank" href="https://yuba.douyu.com/p/325662111491906119">5</a></div>-->
+                            <!--</div>-->
+                            <!--<div class="item"><a class="content" href="https://yuba.douyu.com/p/636338151491798926" target="_blank"><span class="label label-anchor">主播</span><span class="title">分享图片</span></a>-->
+                                <!--<div class="data-bar"><a class="watch-num" target="_blank" href="https://yuba.douyu.com/p/636338151491798926">1.5万</a><a class="reply-num" target="_blank" href="https://yuba.douyu.com/p/636338151491798926">27</a></div>-->
+                            <!--</div>-->
+                            <!--<div class="item"><a class="content" href="https://yuba.douyu.com/p/684067771491651388" target="_blank"><span class="label label-anchor">主播</span><span class="title">分享图片</span></a>-->
+                                <!--<div class="data-bar"><a class="watch-num" target="_blank" href="https://yuba.douyu.com/p/684067771491651388">2.4万</a><a class="reply-num" target="_blank" href="https://yuba.douyu.com/p/684067771491651388">34</a></div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+                <div class="relate-text fl">
+                    <div class="headline clearfix">
+                        <h1>{$vedioInfo.name}</h1>
+                    </div>
+                    <div class="tag-fs-con clearfix">
+                        <dl class="r-else-tag clearfix">
+                            <dt></dt>
+                            <!--<dd>-->
+                                <!--<a class="head-room-tag fl first" href="/directory/columnRoom/wzry" target="_blank">王者荣耀</a>-->
+                                <!--<span class="arrow fl"></span>-->
+                                <!--<a class="head-room-tag fl second" href="/directory/game/wzry" target="_blank" title="王者荣耀">王者荣耀</a>-->
+                                <!--<span class="arrow fl"></span>-->
+                                <!--<a class="head-room-tag fl second" href="/directory/subCate/wzry/224" target="_blank" title="李白">李白</a>-->
+                            <!--</dd>-->
+                        </dl>
+                    </div>
+                    <div class="acinfo-fs-con  clearfix">
+                        <ul class="r-else clearfix">
+                            <li>
+                                <div class="zb-name-con">
+                                    <i class="zb-name-icon"></i>
+                                    <a class="zb-name" title="{$userInfo.nickname}" href="http://yuba.douyu.com/api/dy/anchor/anchorTopic?room_id=74706&amp;uri=" target="_blank">{$userInfo.nickname}</a>
+                                    <div class="tip">
+                                        </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <!--关注、分享按钮-->
+            </div>
+
+            <!-- 礼物区 -->
+            {$vedioInfo.swf_url}
+                <div id="js-stats-and-actions" class="stats-and-actions">
+                <!-- 礼物区-任务 -->
+                <div class="give-gift fr" id="gift-content">
+                    <div class="g-list clearfix" data-slider="slider">
+                        <!--固定礼物-->
+                        <div class="gift-info-panel js-gift-panel">
+                            <div class="gift-info-panel-cont clearfix">
+                                <div class="gift-not-batch">
+                                    <div class="gift-info-panel-brief">
+                                        <div class="gift-info-panel-img"><img src="#"><i></i></div>
+                                        <h4></h4>
+                                        <p></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <i class="gift-info-panel-fill"></i>
+                            <i class="gift-info-panel-arrow1"></i>
+                            <i class="gift-info-panel-arrow2"></i>
+                        </div>
+                        <ul class="clearfix fl" data-slider="list">
+                            {volist name='gifts' id='gift'}
+                            <li class="gift-item" data-type="gift"  data-giftid="{$gift.id}" data-giftname="{$gift.giftname}" data-coin="{$gift.needcoin}" data-img="{$gift.giftIcon}" data-accounttype="{$gift.type}">
+                                <img class="g-img" src="{$gift.giftIcon}">
+                            </li>
+                            {/volist}
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 竞猜 -->
+            </div>
+            <div id="js-live-room-normal-equal-left" class="live-room-normal-equal-left">
+                <!--播放器下方广告-->
+                {Advert:list cateid="5"}
+                <div  class="room-ad-video-down">
+                    <a href="#">
+                        <img src="{$advert.src}" width="100%" height="100%">
+                    </a>
+                </div>
+                {/Advert:list}
+                <!--热门推广标签页-->
+                <div id="js-recommand" class="tab recommand">
+                    <!--标签页切换按钮-->
+                    <div class="tab-header">
+                        <i class="icon video-icon"></i>直播推荐
+                        <a href="{:url('usercenter/vedio/share')}" target="_blank" class="contribute"><i class="icon"></i>我要投稿</a>
+                    </div>
+                    <!--标签切换页内容区域-->
+                    <div class="tab-body">
+                        <!--推荐视频-->
+                        <div class="tab-content video">
+                            <ul class="lives" data-type="lives">
+                                {volist name='recommedn_zhubos' id='zhubo'}
+                                <li class="live">
+                                    <div class="">
+                                        <a href="{:url('room/details',['username'=>$zhubo['username']])}" target="_blank" title="{$zhubo.title}" data-rt="" data-subrt="" data-vid="20090" data-type="1" data-tid="" data-rpos="" data-hashid="p2V0JMVG86WRY5kq">
+                                            <div class="live-preview">
+                                                <div class="img-box-cont"><img src="{$zhubo.album}"><i class="play" style="left: 92.7px; top: 41.2062px;"></i></div>
+                                            </div>
+                                            <div class="live-details">
+                                                <h3 class="live-title">{$zhubo.title}</h3>
+                                                <div class="live-info"><span class="u-name"><i class="icon"></i>{$zhubo.nickname}</span></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                                {/volist}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="js-live-room-normal-right" class="live-room-normal-right fl">
+            <div class="chat">
+                <!-- 个人信息区广告展示 -->
+                <!-- 未登录 -->
+                <div class="no-login hide">
+                    <a href="/lapi/sign/signapi/click?roomid=74706&amp;aid=609301&amp;posid=17&amp;projid=1769" target="_blank"><img src="https://staticlive.douyucdn.cn/upload/signs/201612161003206001.png"></a>
+                </div>
+                <!-- 弹幕聊天区 -->
+                <!--<div id="js-chat-cont" class="chat-cont">-->
+                    <!--<div class="noble-barrage-suspend">-->
+                        <!--<ul class="c-list"></ul>-->
+                        <!--<div class="chat-cls hide" data-type="chat-cls">-->
+                            <!--<a href="javascript:;" class="c-roll" data-type="roll"><i class="icon"></i><span>开始滚屏</span></a>-->
+                            <!--<a href="javascript:;" class="c-clear" data-type="clear"><i class="icon"></i><span>清屏</span></a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="chat-cont-wrap" data-type="chat-cont" sign-start="0">-->
+                        <!--<ul class="c-list">-->
+                            <!--<li class="jschartli">-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                    <!--<div class="giftbatter-noble-enter"></div>-->
+                    <!--<div class="giftbatter-box giftbatter-box1" style="display: none; max-height: 640px; top: 288.5px;"></div>-->
+                    <!--<div class="giftbatter-box giftbatter-box2" style="height: auto; overflow: visible;"></div>-->
+                    <!--<div class="liveTicket"></div>-->
+                <!--</div>-->
+                <!-- 弹幕公告 -->
+                <!--<div id="js-chat-notice" class="chat-notice">-->
+                    <!--<div class="chat-sysbroadcast">-->
+                        <!--<div class="chat-sysbroadcast-header clearfix"><a data-sysbroadcast="btn-close" class="chat-sysbroadcast-close" href="javascript:;" title="关闭">关闭</a></div>-->
+                        <!--<div class="chat-sysbroadcast-body clearfix"><a href="https://www.douyu.com/cms/gong/201704/11/5124.shtml" data-sysbroadcast="cont" class="chat-sysbroadcast-cont" target="_blank" title="斗鱼主播粉丝体系上线，酷炫的专属徽章和每日粉丝专属礼包等你来拿！主播们赶紧开通粉丝徽章吧，点我了解详情！">斗鱼主播粉丝体系上线，酷炫的专属徽章和每日粉丝专属礼包等你来拿！主播们赶紧开通粉丝徽章吧，点我了解详情！</a></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="chat-cmdbox">-->
+                    <!--<div class="chat-cmdboxresult">-->
+                        <!--<div class="chat-cmdboxresult-content"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div id="js-chat-speak" class="chat-speak">-->
+                    <!--<div class="speak-up clearfix">-->
+                        <!--<div class="expression fl">-->
+                            <!--<a class="e-btn active" href="javascript:;" title="表情"></a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div id="js-send-msg" class="chat-feat clearfix chat-fans">-->
+                        <!--<textarea class="cs-textarea" name="content" maxlength="30" tabindex="1" data-type="cont" style="color: rgb(169, 169, 169);"></textarea>-->
+                        <!--<p class="login-inside" data-type="log" style="display: none;">-->
+                            <!--<a class="is-log" href="javascript:;" data-type="login">登录-->
+                            <!--</a>发弹幕，参与主播互动</p>-->
+                        <!--<div class="b-btn" data-type="send" onclick="onSubmit()">发送</div>-->
+                    <!--</div>-->
+                    <!--<div id="js-noble-speaker" class="chat&#45;&#45;broadcast-box hide">-->
+                        <!--<div class="nobel&#45;&#45;error-box">-->
+                            <!--<div class="error&#45;&#45;mask"></div>-->
+                            <!--<div class="error&#45;&#45;main"><a data-btn="closespeaker" class="broadcast&#45;&#45;close" href="javascript:;">×</a>-->
+                                <!--<div data-selector="noble-error-content" class="error&#45;&#45;content"></div>-->
+                                <!--<div class="error&#45;&#45;holder"></div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--<div class="chat-bottom-ad hide" data-dysign="30011"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div id="js-live-room-normal-equal-right">
+                <div class="live-room-normal-equal-right-item">
+                    <!--直播公告-->
+                    <div class="column announce">
+                        <div class="column-header">
+                            <h3 class="column-title">
+                                <span>视频介绍</span>
+                            </h3>
+                        </div>
+                        <div class="column-body">
+                            <p class="column-cotent">{$vedioInfo.intro}</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    $('embed').width('100%').height('594px');
+    //弹幕聊天
+    var ws, name, client_list={};
+    name=USER_NAME;
+    // 连接服务端
+    function connect() {
+        // 创建websocket
+        ws = new WebSocket("ws://127.0.0.1:7272");
+        // 当socket连接打开时，输入用户名
+        ws.onopen = onopen;
+        // 当有消息时根据消息类型显示不同信息
+        ws.onmessage = onmessage;
+        ws.onclose = function() {
+            console.log("连接关闭，定时重连");
+            connect();
+        };
+        ws.onerror = function() {
+            console.log("出现错误");
+        };
+    }
+    // 连接建立时发送登录信息
+    function onopen()
+    {
+        var login_data = '{"type":"login","client_name":"'+name.replace(/"/g, '\\"')+'","room_id":"{$Request.param.username}"}';
+        console.log("websocket握手成功，发送登录数据:"+login_data);
+        ws.send(login_data);
+    }
+    // 服务端发来消息时
+    function onmessage(e)
+    {
+        console.log(e.data);
+        var data = eval("("+e.data+")");
+        switch(data['type']){
+            // 服务端ping客户端
+            case 'ping':
+                ws.send('{"type":"pong"}');
+                break;
+            // 登录 更新用户列表
+            case 'login':
+                say(data['client_id'], data['client_name'],  data['client_name']+' 加入了直播间', data['time']);
+                $.post("{:url('sendCilent')}",
+                    {client_id: data['client_id'],room_id:"{$Request.param.username}"},
+                    function(data){}, 'json');
+                if(data['client_list'])
+                {
+                    client_list = data['client_list'];
+                }
+                else
+                {
+                    client_list[data['client_id']] = data['client_name'];
+                }
+//                flush_client_list();
+                console.log(data['client_name']+"登录成功");
+                break;
+            // 发言
+            case 'say':
+                //{"type":"say","from_client_id":xxx,"to_client_id":"all/client_id","content":"xxx","time":"xxx"}
+                say(data['from_client_id'], data['from_client_name'], data['content'], data['time']);
+                break;
+            // 发言
+            case 'sendgift':
+                //{"type":"say","from_client_id":xxx,"to_client_id":"all/client_id","content":"xxx","time":"xxx"}
+                say(data['from_client_id'], data['from_client_name'], data['content'],data['time'],data['gifticon']);
+                break;
+            // 用户退出 更新用户列表
+            case 'logout':
+                //{"type":"logout","client_id":xxx,"time":"xxx"}
+                say(data['from_client_id'], data['from_client_name'], data['from_client_name']+' 退出了', data['time']);
+                delete client_list[data['from_client_id']];
+                flush_client_list();
+        }
+    }
+    // 提交对话
+    function onSubmit() {
+        var input = $(".cs-textarea").val();
+        if(!isLogin()){
+            openLogin();
+            return;
+        }
+        var to_client_id = 'all';
+        var to_client_name = $("#client_list option:selected").text();
+        ws.send(
+            '{"type":"say","to_client_id":"'+
+            to_client_id+
+            '","to_client_name":"'+
+            to_client_name+
+            '","content":"'+
+            input+'"}'
+        );
+//        input.focus();
+    }
+    // 发言
+    function say(from_client_id, from_client_name, content, time,gifticon){
+        if(gifticon==undefined){
+            gifticon='';
+            }
+            $(".jschartli").append(
+            '<p class=" speech_item">' +
+            '<span class="name">'+
+            '<a href="javascript:;" class="nick js-nick">'+from_client_name+'</a></span>'+
+            '<span class="text-cont">'+content+gifticon+'</span>' +
+            '</p>'
+        );
+        console.log($(".jschartli")[0].scrollHeight);
+        $(".jschartli").scrollTop($(".jschartli")[0].scrollHeight);
+
+    }
+    if(isLogin()){
+        connect();
+    }
+    $(function () {
+        $('.follow-btn').click(function () {
+            var obj=this;
+            if(!isLogin()){
+                openLogin();
+            }else{
+                $.post("{:url('index/focus')}",{
+                    zhubousername:'{$Request.param.username}'
+                },function (res) {
+                    if(!res.code){
+                        error_tip(res.msg);
+                    }else{
+                        if(res.code==1){
+                            error_tip(res.msg);
+                        }else{
+                            success_tip(res.msg);
+                        }
+                        $(obj).addClass('hide').siblings('.follow-btn').removeClass('hide');
+                    }
+                },'json');
+            }
+        });
+        $('[data-type="gift"]').hover(function() {
+            var name = $(this).attr('data-giftname');
+            var img = $(this).attr('data-img');
+            var coin = $(this).attr('data-coin');
+            var right = $(this).index() * $(this).width()+5;
+            var gifttype = $(this).attr('data-accounttype');
+            if(gifttype=='ad_money'){
+                var html = '<div class="gift-info-panel-img"><img src="' + img + '"><i></i></div>' +
+                    '<h4>' + name + '</h4>' +
+                    '<p>' + '消费签到币：' + coin + '</p>';
+            }else{
+                if(gifttype=='money'){
+                    var html = '<div class="gift-info-panel-img"><img src="' + img + '"><i></i></div>' +
+                        '<h4>' + name + '</h4>' +
+                        '<p>' + '消费金币：' + coin + '</p>';
+                }else{
+                    var html = '<div class="gift-info-panel-img"><img src="' + img + '"><i></i></div>' +
+                        '<h4>' + name + '</h4>' +
+                        '<p>' + '消费T币：' + coin + '</p>';
+                }
+            }
+
+            $('.js-gift-panel .gift-info-panel-brief').html(html);
+            $('.js-gift-panel').css({'left':'auto','right':-right});
+            $('.js-gift-panel').show();
+        }, function() {
+            $('.js-gift-panel').hide();
+        });
+    })
+    $(".gift-item").click(function () {
+        if(!isLogin()) {
+            openLogin();
+        }else{
+            var giftid=$(this).data('giftid');
+            var gfitname=$(this).data('giftname');
+            var gifticon=$(this).data('img');
+            var gifttype = $(this).attr('data-accounttype');
+            $.post("{:url('index/sendgiftvedio')}",
+                {
+                    vedioid:'{$Request.param.id}',
+                    giftid:giftid
+                },function (res) {
+                    if(res.code==2){
+                        error_tip(res.msg);
+                        setTimeout(function () {
+                            openLogin();
+                        },3000);
+                        return;
+                    }
+                    if(res.msg=='账户余额不足!'){
+                        if(gifttype=='money'){
+                            recharge_tip(res.msg);
+                        }else{
+                            error_tip(res.msg);
+                        }
+                    }else{
+                        error_tip(res.msg);
+                    }
+                    if(res.code==1){
+                        success_tip(res.msg);
+                        var sendgift = '{"type":"sendgift","client_name":"'+name.replace(/"/g, '\\"')+'","room_id":"{$Request.param.username}","giftname":"'+gfitname+'","giftimg":"'+gifticon+'"}';
+                        console.log(sendgift);
+                        ws.send(sendgift);
+                    }
+                },'json')
+        }
+    })
+</script>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>闹市街·中国</title>
+    <link rel="stylesheet" href="__HOME_CSS__/base-web.css">
+    <link rel="stylesheet" href="__HOME_CSS__/iconfont.css">
+    <link rel="stylesheet" href="__HOME_CSS__/common.css">
+    <link rel="stylesheet" href="__HOME_CSS__/passport-login.css">
+    <script type="text/javascript" src="__HOME_JS__/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript " src="__HOME_JS__/layer/layer.js"></script>
+    <script type="text/javascript " src="__HOME_JS__/common.js"></script>
+</head>
+
+<body>
+<div class="sign-container">
+    <div class="loginbox-con">
+        <div class="loginbox">
+            <!-- 关闭-->
+            <!-- <div class="loginbox-close"></div> -->
+            <!-- 登陆 -->
+            <div class="loginbox-bd loginbox-login">
+                <div class="loginbox-login-subtype">
+                    <span class="l-stype js-l-stype active">账号登录</span>
+                </div>
+                <form action="" method="post" data-type="log" id="login">
+                    <div class="loginbox-p">
+                        <div class="loginbox-p-stype-item active">
+                            <span class="ipt-span ipt1"></span>
+                            <input class="ipt" type="text" name="username" placeholder="输入用户名">
+                        </div>
+                    </div>
+                    <p class="loginbox-p">
+                        <span class="ipt-span ipt2"></span>
+                        <input class="ipt js-psw-hide" type="password" name="password" placeholder="输入密码">
+                        <input class="ipt showpw1 js-psw-show notsub" type="text" name="password" placeholder="输入密码" style="z-index: -1;">
+                        <span class="pw-span pw-hide1 pw-hide js-pw-hide"></span>
+                    </p>
+                    <div class="login-sbt-con">
+                        <input class="loginbox-sbt btn-sub" type="submit" value="登录">
+                        <a class="loginbox-sbt btn-sub" type="submit" onclick="registerUser()">注册</a>
+                        <!--<p class="loginbox-noact clearfix">-->
+                            <!--<a class="anchor_line forget-pwd" href="#" target="_blank">忘记密码?</a>-->
+                        <!--</p>-->
+                    </div>
+                </form>
+                <!--<p class="third-text">第三方账号直接登录</p>-->
+                <!--<div class="third-list clearfix">-->
+                    <!--<a href="#" target="_blank" class="fl third-icon third-icon-qq" title="QQ账号登录"></a>-->
+                    <!--<a href="#" target="_blank" class="fl third-icon third-icon-wx" title="微信账号登录"></a>-->
+                    <!--<a href="#" target="_blank" class="fl third-icon third-icon-wb third-icon-last" title="微博账号登录"></a>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        $(function() {
+            $('.js-pw-hide').on('click', function() {
+                if ($(this).hasClass('pw-hide')) {
+                    $(this).removeClass('pw-hide').addClass('pw-show');
+                    $('.js-psw-show').css('z-index', '1');
+                }else {
+                    $(this).removeClass('pw-show').addClass('pw-hide');
+                    $('.js-psw-show').css('z-index', '-1');
+                };
+            });
+
+            $('.js-psw-hide').on('input', function() {
+                var val = $(this).val();
+                $('.js-psw-show').val(val);
+            })
+            $('.js-psw-show').on('input', function() {
+                var val = $(this).val();
+                $('.js-psw-hide').val(val);
+            })
+
+            $("form").submit(function () {
+                $.post("{:url('index/index/loginframework')}",$('form').serialize(),function(res){
+                    if(res.code){
+                        if(res.code==1){
+                            parent.location.reload();
+                        }else{
+                            $.post(res.url,'',function (data) {
+                                if(data.code==1){
+                                    parent.location.reload();
+                                }else{
+                                    error_tip(data.msg);
+                                }
+                            },'json')
+                        }
+                    }else{
+                        error_tip(res.msg)
+                    }
+                },'json');
+                return false;
+            })
+        });
+        function registerUser() {
+            parent.location.href='http://naosie.com/index.php?s=/Public/register/zhiboreturn/1';
+        }
+    </script>
+</body>
+
+</html>

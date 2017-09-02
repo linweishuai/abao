@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="__HOME_CSS__/anchor.css">
+<main id="main">
+    <div class="wrapper">
+        <div class="play-info">
+            <div class="title">
+                <h2 class="real-title alllive">
+                    <span>在线直播</span>
+                </h2>
+                <div class="classify_li">
+                    <a href="{:url('room/index',['id'=>'','room_id'=>request()->param('room_id')])}" class="tag-btn {empty name='Request.param.id'}current{/empty}">全部</a>
+                    {volist name='main_cats' id='cat'}
+                    <a href="{:url('room/index',['id'=>$cat['id'],'room_id'=>request()->param('room_id')])}" class="tag-btn {eq name='fatherid' value='$cat.id'}current{/eq}">{$cat.title}</a>
+                    {/volist}
+                </div>
+            </div>
+            <div class="titlebotborder">
+                <div class="border1"></div>
+                <div class="border2"></div>
+            </div>
+        </div>
+        <div class="play-list clearfix">
+            <ul class="clearfix">
+                {volist name='zhubos' id='zhubo'}
+                <li>
+                    <a class="play-list-link" href="{:url('room/details',['username'=>$zhubo['username']])}" title="{$zhubo.title}">
+                        <div class="imgbox">
+                            <b class="play-btn"></b>
+                            <img src="{$zhubo.album}">
+                        </div>
+                        <div class="mes">
+                            <div class="mes-tit">
+                                <h3 class="ellipsis">
+                                    <img class="room-list-icon" src="https://staticlive.douyucdn.cn/upload/rank_icon_setting/2a9227ed0a9fc6ce344b5b805eb3b5cd.png">{$zhubo.title}</h3>
+                                <span class="tag ellipsis">{$zhubo.cat_name}</span>
+                            </div>
+                            <p>
+                                <span class="dy-name ellipsis fl">{$zhubo.nickname}</span>
+                                <span class="dy-num fr">{$zhubo.focus_num}</span>
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+        <!-- 公共分页样式 -->
+        <div class="bigPage">
+            {$page}
+    </div>
+</main>
+

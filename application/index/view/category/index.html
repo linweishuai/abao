@@ -1,0 +1,174 @@
+<link rel="stylesheet" href="__HOME_CSS__/directory.css">
+<main id="main">
+    <div class="wrapper">
+        <div class="player-column">
+            <!-- 主播类型/平台类别切换 -->
+            <div class="tabs-wrap js-tabs">
+                <div class="tab-nav">
+                    <ul>
+                        <li class="current">平台类型</li>
+                        <!--<li>房间类别</li>-->
+                    </ul>
+                </div>
+                <div class="tabs">
+                    <!--<ul class="tab zhubo-tab clearfix" style="display: block;">-->
+                        <!--<li>-->
+                            <!--<a href="#">-->
+                                <!--<svg class="zb-icon" aria-hidden="true">-->
+                                    <!--<use xlink:href="#live-icon-mingxingyisheng"></use>-->
+                                <!--</svg>-->
+                                <!--<span class="tit">明星主播</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#">-->
+                                <!--<svg class="zb-icon" aria-hidden="true">-->
+                                    <!--<use xlink:href="#live-icon-maikefeng"></use>-->
+                                <!--</svg>-->
+                                <!--<span class="tit">好声音主播</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#">-->
+                                <!--<svg class="zb-icon" aria-hidden="true">-->
+                                    <!--<use xlink:href="#live-icon-gouwu"></use>-->
+                                <!--</svg>-->
+                                <!--<span class="tit">购物主播</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#">-->
+                                <!--<svg class="zb-icon" aria-hidden="true">-->
+                                    <!--<use xlink:href="#live-icon-tiaowu"></use>-->
+                                <!--</svg>-->
+                                <!--<span class="tit">舞蹈主播</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#">-->
+                                <!--<svg class="zb-icon" aria-hidden="true">-->
+                                    <!--<use xlink:href="#live-icon-youxi"></use>-->
+                                <!--</svg>-->
+                                <!--<span class="tit">游戏主播</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#">-->
+                                <!--<svg class="zb-icon" aria-hidden="true">-->
+                                    <!--<use xlink:href="#live-icon-woman"></use>-->
+                                <!--</svg>-->
+                                <!--<span class="tit">女神主播</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#">-->
+                                <!--<svg class="zb-icon" aria-hidden="true">-->
+                                    <!--<use xlink:href="#live-icon-man"></use>-->
+                                <!--</svg>-->
+                                <!--<span class="tit">男神主播</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#">-->
+                                <!--<svg class="zb-icon" aria-hidden="true">-->
+                                    <!--<use xlink:href="#live-icon-DJ"></use>-->
+                                <!--</svg>-->
+                                <!--<span class="tit">DJ主播</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#">-->
+                                <!--<svg class="zb-icon" aria-hidden="true">-->
+                                    <!--<use xlink:href="#live-icon-tiaowu"></use>-->
+                                <!--</svg>-->
+                                <!--<span class="tit">舞蹈主播</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#">-->
+                                <!--<svg class="zb-icon" aria-hidden="true">-->
+                                    <!--<use xlink:href="#live-icon-youxi"></use>-->
+                                <!--</svg>-->
+                                <!--<span class="tit">游戏主播</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                    <ul class="tab items item-data clearfix" style="display: block;">
+                        {volist name='roomCategorys' id='roomCategory'}
+                        <li class="unit">
+                            <a href="{:url('Room/second',['room_id'=>$roomCategory['id']])}" class="thumb">
+                                <div class="img-box"><img class="preview" src="{$roomCategory['img']}"></div>
+                                <p class="title">{$roomCategory['name']}</p>
+                                <div class="shadow"></div>
+                            </a>
+                        </li>
+                        {/volist}
+                        <!--<li class="unit">-->
+                            <!--<a href="#" class="thumb">-->
+                                <!--<div class="img-box"><img class="preview" src="https://staticlive.douyucdn.cn/upload/game_cate/b14b8890330ca7cb5185b954808485fc_pc.jpg"></div>-->
+                                <!--<p class="title">王者荣耀</p>-->
+                                <!--<div class="shadow"></div>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li class="unit">-->
+                            <!--<a href="#" class="thumb">-->
+                                <!--<div class="img-box"><img class="preview" src="https://staticlive.douyucdn.cn/upload/game_cate/b14b8890330ca7cb5185b954808485fc_pc.jpg"></div>-->
+                                <!--<p class="title">王者荣耀</p>-->
+                                <!--<div class="shadow"></div>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li class="unit">-->
+                            <!--<a href="#" class="thumb">-->
+                                <!--<div class="img-box"><img class="preview" src="https://staticlive.douyucdn.cn/upload/game_cate/b14b8890330ca7cb5185b954808485fc_pc.jpg"></div>-->
+                                <!--<p class="title">王者荣耀</p>-->
+                                <!--<div class="shadow"></div>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li class="unit">-->
+                            <!--<a href="#" class="thumb">-->
+                                <!--<div class="img-box"><img class="preview" src="https://staticlive.douyucdn.cn/upload/game_cate/b14b8890330ca7cb5185b954808485fc_pc.jpg"></div>-->
+                                <!--<p class="title">王者荣耀</p>-->
+                                <!--<div class="shadow"></div>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li class="unit">-->
+                            <!--<a href="#" class="thumb">-->
+                                <!--<div class="img-box"><img class="preview" src="https://staticlive.douyucdn.cn/upload/game_cate/b14b8890330ca7cb5185b954808485fc_pc.jpg"></div>-->
+                                <!--<p class="title">王者荣耀</p>-->
+                                <!--<div class="shadow"></div>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li class="unit">-->
+                            <!--<a href="#" class="thumb">-->
+                                <!--<div class="img-box"><img class="preview" src="https://staticlive.douyucdn.cn/upload/game_cate/b14b8890330ca7cb5185b954808485fc_pc.jpg"></div>-->
+                                <!--<p class="title">王者荣耀</p>-->
+                                <!--<div class="shadow"></div>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li class="unit">-->
+                            <!--<a href="#" class="thumb">-->
+                                <!--<div class="img-box"><img class="preview" src="https://staticlive.douyucdn.cn/upload/game_cate/b14b8890330ca7cb5185b954808485fc_pc.jpg"></div>-->
+                                <!--<p class="title">王者荣耀</p>-->
+                                <!--<div class="shadow"></div>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li class="unit">-->
+                            <!--<a href="#" class="thumb">-->
+                                <!--<div class="img-box"><img class="preview" src="https://staticlive.douyucdn.cn/upload/game_cate/b14b8890330ca7cb5185b954808485fc_pc.jpg"></div>-->
+                                <!--<p class="title">王者荣耀</p>-->
+                                <!--<div class="shadow"></div>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li class="unit">-->
+                            <!--<a href="#" class="thumb">-->
+                                <!--<div class="img-box"><img class="preview" src="https://staticlive.douyucdn.cn/upload/game_cate/b14b8890330ca7cb5185b954808485fc_pc.jpg"></div>-->
+                                <!--<p class="title">王者荣耀</p>-->
+                                <!--<div class="shadow"></div>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

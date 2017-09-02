@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="__HOME_CSS__/zhaomu-search.css">
+<main id="main">
+    <section class="wrapper row">
+        <div class="dynamic-detalis">
+            <div class="breadcrumb">
+                <a href="Javascript:void (0);">{$parent.title}</a> >
+                <a href="Javascript:void (0);">{$cate.title}</a>
+            </div>
+            <h1 class="h1">{$zhaomu.key}</h1>
+            <div class="price">{$zhaomu.yongjin}元</div>
+            <div class="pub-section clearfix">
+                <form method="post" id="apply">
+                    <h3 class="h3">接募区：</h3>
+                    <div class="input fl">
+                        <i class="livefont">&#xe607;</i><input placeholder="招募人（姓名）" class="input-text" value="" name="apply_contact" type="text" required>
+                    </div>
+                    <div class="input fl">
+                        <i class="livefont">&#xe603;</i><input placeholder="电话" class="input-text" value="" name="apply_mobile" type="text" required>
+                    </div>
+
+                    <button type="submit" class="submit">提 交</button>
+                </form>
+            </div>
+            <h3 class="h3">需求描述：</h3>
+            <p>{$zhaomu.detail}</p>
+            <h3 class="h3">招募方联系电话：</h3>
+            <p>{$zhaomu.mobile}</p>
+
+            <div class="next clearfix">
+                {present  name="pre"}
+                <a href="{:url('apply',['id'=>$pre['id']])}">上一条</a>
+                    {else/}
+                <a href="javascript:;">没有了</a>
+                {/present}
+                {present  name="next"}
+                <a href="{:url('apply',['id'=>$next['id']])}">下一条</a>
+                {else/}
+                <a href="javascript:;">没有了</a>
+                {/present}
+            </div>
+        </div>
+    </section>
+</main>
+<script>
+    $("#apply").submit(function () {
+        if(!isLogin()) {
+            openLogin();
+            return false;
+        }
+        $.post("{:url('apply',['id'=>$zhaomu['id']])}",$(this).serialize(),function (data) {
+            if(!data.code){
+                error_tip(data.msg)
+            }else{
+                window.location.href=data.url;
+            }
+        });
+        return false;
+    });
+</script>

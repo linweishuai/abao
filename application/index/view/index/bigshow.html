@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="__HOME_CSS__/index.css">
+<main id="main">
+    <!-- 大秀场 -->
+    <section class="wrapper row">
+        <div class="big-show-box">
+            <!--<h2 class="title"><a href="#"><i class="livefont">&#xe604;</i>大秀场</a><a href="#" class="tag-btn fr">更多&gt;&gt;</a></h2>-->
+            <div class="show-content">
+                <ul class="clearfix">
+                    <?php for($i=1;$i<=$num;$i++){?>
+                    <li class="item">
+                        {volist name='adverts.9' id="advert" offset="$i*2" length='2'}
+                        <a target='_blank' class="img-box" href="{$advert.link}"><img src="{$advert.src}" alt=""></a>
+                        {/volist}
+                    </li>
+                    <li class="item three">
+                        {volist name='adverts.10' id="advert" offset="$i*3" length='3'}
+                        <a target='_blank' class="img-box" href="{$advert.link}"><img src="{$advert.src}" alt=""></a>
+                        {/volist}
+                    </li>
+                    <li class="item">
+                        {volist name='adverts.11' id="advert" offset="$i*2" length='2'}
+                        <a target='_blank' class="img-box" href="{$advert.link}"><img src="{$advert.src}" alt=""></a>
+                        {/volist}
+                    </li>
+                    <li class="item three">
+                        {volist name='adverts.12' id="advert" offset="$i*3" length='3'}
+                        <a target='_blank' class="img-box" href="{$advert.link}"><img src="{$advert.src}" alt=""></a>
+                        {/volist}
+                    </li>
+                    <?php }?>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>

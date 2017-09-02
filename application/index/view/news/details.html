@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="__HOME_CSS__/new-detail.css">
+<main id="main">
+    <div class="wrapper">
+        <div class="dynamic-detalis">
+            <div class="dynamic-detalis-content">
+                <h2>{$newsInfo['title']}</h2>
+                <label>点击数：<span>{$newsInfo['view']} </span>来源：<span><a href="javascript:void (0)">闹市街</a></span>发布时间：<span class="last">{$newsInfo['create_time']|date='Y-m-d H:i:s',###}</span></label>
+                {$newsInfo['content']}
+            </div>
+            <div class="dynamic-detalis-footer">
+                {$prelink}
+                {$nextlink}
+            </div>
+        </div>
+    </div>
+</main>
