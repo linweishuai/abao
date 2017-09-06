@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2017-09-02 15:11:01
+Date: 2017-09-02 16:59:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -674,7 +674,7 @@ CREATE TABLE `ab_admin_user` (
 -- ----------------------------
 -- Records of ab_admin_user
 -- ----------------------------
-INSERT INTO `ab_admin_user` VALUES ('1', 'admin', '超级管理员', '$2y$10$Brw6wmuSLIIx3Yabid8/Wu5l8VQ9M/H/CG3C9RqN9dUCwZW3ljGOK', '', '0', '', '0', '0', '0.00', '0', '1', '0', '0', '1476065410', '1504322552', '1504322551', '2130706433', '100', '1');
+INSERT INTO `ab_admin_user` VALUES ('1', 'admin', '超级管理员', '$2y$10$Brw6wmuSLIIx3Yabid8/Wu5l8VQ9M/H/CG3C9RqN9dUCwZW3ljGOK', '', '0', '', '0', '0', '0.00', '0', '1', '0', '0', '1476065410', '1504337585', '1504337584', '2130706433', '100', '1');
 
 -- ----------------------------
 -- Table structure for ab_cms_advert
@@ -995,4 +995,19 @@ CREATE TABLE `ab_cms_support` (
 
 -- ----------------------------
 -- Records of ab_cms_support
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for ab_config
+-- ----------------------------
+DROP TABLE IF EXISTS `ab_config`;
+CREATE TABLE `ab_config` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL DEFAULT '' COMMENT '名称',
+  `data` longtext NOT NULL COMMENT '数据',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商城配置表ok';
+
+-- ----------------------------
+-- Records of ab_config
 -- ----------------------------
