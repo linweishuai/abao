@@ -34,14 +34,12 @@ class Home extends Common
         $this->assign('module_name',request()->controller());
         $this->assign('action_name',request()->action());
         //加入入口文件防止生成url不带index.php
-        define('USERCENTER',0);
         Url::root('/index.php');
         //开启session
         Session::init();
-        $this->assign('USER_NAME',session('user_name'));
-        $this->assign('USER_ID',session('user_id'));
-        $this->assign('nick_name',session('nickname'));
-        $this->assign('head_logo',session('head_logo'));
+        $links=Db::name('cms_nav')->where(['status'=>1])->order('sort')->field('id,title,url')->select();
+
+        $this->assign('links',$links);
         //底部友情链接
         $links=Db::name('cms_link')->where(['status'=>1])->order('sort')->limit(10)->select();
         $this->assign('links',$links);

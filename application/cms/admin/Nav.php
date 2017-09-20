@@ -50,6 +50,8 @@ class Nav extends Admin
                 ['id', 'ID'],
                 ['tag', '标识', 'text.edit'],
                 ['title', '标题', 'text.edit'],
+                ['sort', '排序', 'text.edit'],
+                ['url', '链接地址', 'text.edit'],
                 ['create_time', '创建时间', 'datetime'],
                 ['update_time', '更新时间', 'datetime'],
                 ['status', '状态', 'switch'],

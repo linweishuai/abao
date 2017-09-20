@@ -116,6 +116,7 @@ src:url('../fonts/AE10015T.TTF');
 .nav li{width:171px; float:left; position:relative;}
 
 .nav li a.menu{display:block; height:51px; line-height:82px; color:#fff; font-size:20px; text-align:center; padding:31px 0 0 0; position:relative;}
+.nav li a.menu .title{line-height: 20px;font-family: "Microsoft YaHei";}
 
 .nav li a.menu img{margin:0 auto;}
 
@@ -197,7 +198,7 @@ src:url('../fonts/AE10015T.TTF');
 
 .hotWorks li.purple a span.w_01{background:url(../img/bg_01.png) no-repeat;}
 
-.hotWorks li.purple a span.w_02{background:url(../img/tm1.png) repeat;}
+    .hotWorks li.purple a span.w_02{background:url(../img/tm1.png) repeat;}
 
 
 
