@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 127.0.0.1
+Source Server         : 本机
 Source Server Version : 50540
-Source Host           : 127.0.0.1:3306
+Source Host           : localhost:3306
 Source Database       : abao
 
 Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2017-09-02 16:59:19
+Date: 2017-09-21 00:00:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -175,11 +175,21 @@ CREATE TABLE `ab_admin_attachment` (
   `sort` int(11) NOT NULL DEFAULT '100' COMMENT '排序',
   `status` tinyint(2) NOT NULL DEFAULT '1' COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='附件表';
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='附件表';
 
 -- ----------------------------
 -- Records of ab_admin_attachment
 -- ----------------------------
+INSERT INTO `ab_admin_attachment` VALUES ('1', '1', '290560_201604221639079hdr.jpg', 'cms', 'uploads/images/20170920/c0f0c40af376531b3ad1115aed7e3749.jpg', '', '', 'image/jpeg', 'jpg', '153923', 'c02aadffb98e15fd700a6f50bdaf6ed3', '96b5c9a8bdd1d9d9aae5a885ba25ba6162696567', 'local', '0', '1505920037', '1505920037', '100', '1');
+INSERT INTO `ab_admin_attachment` VALUES ('2', '1', '0bf1cda0228b4d7f291d52df350b1d86.jpeg', 'cms', 'uploads/images/20170920/0bf1cda0228b4d7f291d52df350b1d86.jpeg', '', '', 'image/jpeg', 'jpeg', '38822', '4b262fa773d96545bc4cc9ff62c681dc', '68d0362aadc360429ed5ccbaf64db3f8ac465afa', 'local', '0', '1505920092', '1505920092', '100', '1');
+INSERT INTO `ab_admin_attachment` VALUES ('3', '1', '260360_201604231609qtqq0p.jpg', 'cms', 'uploads/images/20170920/7fbd7f79121dc6caac25f8fd2c38b815.jpg', '', '', 'image/jpeg', 'jpg', '54930', 'b6dba2900108402e1b1af54bfe6ece68', '85cd273d97f130a2aade3d409b22cd65dc252374', 'local', '0', '1505920110', '1505920110', '100', '1');
+INSERT INTO `ab_admin_attachment` VALUES ('4', '1', '7575_2016052316282fkzuy.jpg', 'cms', 'uploads/images/20170920/5e69e906f37532b86d705be1a6107953.jpg', '', '', 'image/jpeg', 'jpg', '5618', '342ceee38f743641a766cfc8421ba08d', 'a8a6d601273b1bccd190b446dc198fce963c684e', 'local', '0', '1505920115', '1505920115', '100', '1');
+INSERT INTO `ab_admin_attachment` VALUES ('5', '1', '7575_2016052316346hxqfv.jpg', 'cms', 'uploads/images/20170920/96d3317919a39d8bf5c64dd36769d538.jpg', '', '', 'image/jpeg', 'jpg', '6479', '12ca18357ed6fab4016795efb8d7a1b6', '7ea97a317c19913954e7eac23e3e3dc0fac84d71', 'local', '0', '1505920117', '1505920117', '100', '1');
+INSERT INTO `ab_admin_attachment` VALUES ('6', '1', '070d5d36724f020de7b5db26bc68982d.jpeg', 'cms', 'uploads/images/20170920/070d5d36724f020de7b5db26bc68982d.jpeg', '', '', 'image/jpeg', 'jpeg', '28117', 'a638a3b6ea3290916ba6ad19d543961a', '60123f49fc6f99faeddfaabd6524a9381aef78f8', 'local', '0', '1505920282', '1505920282', '100', '1');
+INSERT INTO `ab_admin_attachment` VALUES ('7', '1', '231373_201604221329gtncd4.jpg', 'cms', 'uploads/images/20170920/3e3583780eb80732ffc029a7f7757467.jpg', '', '', 'image/jpeg', 'jpg', '77626', '6cc2adcf4f7a8d6a01c68f52163e9697', 'ea0793254b2fe33c5fb80be0c8003b6d35175d41', 'local', '0', '1505920291', '1505920291', '100', '1');
+INSERT INTO `ab_admin_attachment` VALUES ('8', '1', '231373_201604221357udcn84.jpg', 'cms', 'uploads/images/20170920/466d560d47e3ec98d9f6256c972b0b33.jpg', '', '', 'image/jpeg', 'jpg', '94797', 'c93caf86b041c0a44f0f3c7f950c37fc', '94371dc34bd95b7cd59c618c675a8833eb77edfa', 'local', '0', '1505920293', '1505920293', '100', '1');
+INSERT INTO `ab_admin_attachment` VALUES ('9', '1', '231373_201604221401k680iu.jpg', 'cms', 'uploads/images/20170920/d330f0e924436b8884ab01708e18a85a.jpg', '', '', 'image/jpeg', 'jpg', '83189', 'e35ef360d9e57f983e9106d10d8e2c09', 'e5d1961e715efd1d2a1ddace87191aef520bb251', 'local', '0', '1505920294', '1505920294', '100', '1');
+INSERT INTO `ab_admin_attachment` VALUES ('10', '1', 'logo.png', 'admin', 'uploads/images/20170920/3c2e135469280910336616af80cf37a0.png', '', '', 'image/png', 'png', '8192', 'fb46aef5965ed0550878eb2becf2954a', 'c074ea3e5c5e58cdf671e1a07c9b0e3727f144b6', 'local', '0', '1505921484', '1505921484', '100', '1');
 
 -- ----------------------------
 -- Table structure for ab_admin_config
@@ -217,7 +227,7 @@ CREATE TABLE `ab_admin_config` (
 INSERT INTO `ab_admin_config` VALUES ('1', 'web_site_status', '站点开关', 'base', 'switch', '1', '', '站点关闭后将不能访问，后台可正常登录', '', '', '', '', '', '2', '', '', '', '', '1475240395', '1477403914', '1', '1');
 INSERT INTO `ab_admin_config` VALUES ('2', 'web_site_title', '站点标题', 'base', 'text', '海豚PHP', '', '调用方式：<code>config(\'web_site_title\')</code>', '', '', '', '', '', '2', '', '', '', '', '1475240646', '1477710341', '2', '1');
 INSERT INTO `ab_admin_config` VALUES ('3', 'web_site_slogan', '站点标语', 'base', 'text', '海豚PHP，极简、极速、极致', '', '站点口号，调用方式：<code>config(\'web_site_slogan\')</code>', '', '', '', '', '', '2', '', '', '', '', '1475240994', '1477710357', '3', '1');
-INSERT INTO `ab_admin_config` VALUES ('4', 'web_site_logo', '站点LOGO', 'base', 'image', '', '', '', '', '', '', '', '', '2', '', '', '', '', '1475241067', '1475241067', '4', '1');
+INSERT INTO `ab_admin_config` VALUES ('4', 'web_site_logo', '站点LOGO', 'base', 'image', '10', '', '', '', '', '', '', '', '2', '', '', '', '', '1475241067', '1475241067', '4', '1');
 INSERT INTO `ab_admin_config` VALUES ('5', 'web_site_description', '站点描述', 'base', 'textarea', '', '', '网站描述，有利于搜索引擎抓取相关信息', '', '', '', '', '', '2', '', '', '', '', '1475241186', '1475241186', '6', '1');
 INSERT INTO `ab_admin_config` VALUES ('6', 'web_site_keywords', '站点关键词', 'base', 'text', '海豚PHP、PHP开发框架、后台框架', '', '网站搜索引擎关键字', '', '', '', '', '', '2', '', '', '', '', '1475241328', '1475241328', '7', '1');
 INSERT INTO `ab_admin_config` VALUES ('7', 'web_site_copyright', '版权信息', 'base', 'text', 'Copyright © 2015-2017 DolphinPHP All rights reserved.', '', '调用方式：<code>config(\'web_site_copyright\')</code>', '', '', '', '', '', '2', '', '', '', '', '1475241416', '1477710383', '8', '1');
@@ -318,13 +328,29 @@ CREATE TABLE `ab_admin_log` (
   KEY `action_ip_ix` (`action_ip`),
   KEY `action_id_ix` (`action_id`),
   KEY `user_id_ix` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表';
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表';
 
 -- ----------------------------
 -- Records of ab_admin_log
 -- ----------------------------
 INSERT INTO `ab_admin_log` VALUES ('1', '35', '1', '2130706433', 'admin_module', '0', '超级管理员 安装了模块：门户', '1', '1504322571');
 INSERT INTO `ab_admin_log` VALUES ('2', '42', '1', '2130706433', 'admin_config', '0', '超级管理员 更新了系统设置：分组(system)', '1', '1504322597');
+INSERT INTO `ab_admin_log` VALUES ('3', '30', '1', '2130706433', 'admin_menu', '307', '超级管理员 添加了节点：所属模块(cms),所属节点ID(214),节点标题(主题列表),节点链接(cms/theme/index)', '1', '1505919283');
+INSERT INTO `ab_admin_log` VALUES ('4', '32', '1', '2130706433', 'admin_menu', '307', '超级管理员 删除了节点：节点ID(307),节点标题(主题列表),节点链接(cms/theme/index)', '1', '1505919374');
+INSERT INTO `ab_admin_log` VALUES ('5', '30', '1', '2130706433', 'admin_menu', '308', '超级管理员 添加了节点：所属模块(cms),所属节点ID(214),节点标题(主题列表),节点链接(cms/theme/index)', '1', '1505919400');
+INSERT INTO `ab_admin_log` VALUES ('6', '42', '1', '2130706433', 'admin_config', '0', '超级管理员 更新了系统设置：分组(base)', '1', '1505921499');
+INSERT INTO `ab_admin_log` VALUES ('7', '51', '1', '2130706433', 'cms_nav', '3', '超级管理员 编辑了导航：字段(tag)，原值(support_nav)，新值：(theme)', '1', '1505922498');
+INSERT INTO `ab_admin_log` VALUES ('8', '51', '1', '2130706433', 'cms_nav', '3', '超级管理员 编辑了导航：字段(title)，原值(服务与支持)，新值：(造型大赏)', '1', '1505922514');
+INSERT INTO `ab_admin_log` VALUES ('9', '51', '1', '2130706433', 'cms_nav', '2', '超级管理员 编辑了导航：字段(tag)，原值(about_nav)，新值：(customer)', '1', '1505922525');
+INSERT INTO `ab_admin_log` VALUES ('10', '51', '1', '2130706433', 'cms_nav', '2', '超级管理员 编辑了导航：字段(title)，原值(底部关于)，新值：(最新客照)', '1', '1505922533');
+INSERT INTO `ab_admin_log` VALUES ('11', '51', '1', '2130706433', 'cms_nav', '1', '超级管理员 编辑了导航：字段(title)，原值(顶部导航)，新值：(客户评价)', '1', '1505922598');
+INSERT INTO `ab_admin_log` VALUES ('12', '52', '1', '2130706433', 'cms_nav', '4', '超级管理员 添加了导航：新闻活动', '1', '1505922653');
+INSERT INTO `ab_admin_log` VALUES ('13', '52', '1', '2130706433', 'cms_nav', '5', '超级管理员 添加了导航：阿宝加盟', '1', '1505922669');
+INSERT INTO `ab_admin_log` VALUES ('14', '51', '1', '2130706433', 'cms_nav', '3', '超级管理员 编辑了导航：字段(sort)，原值()，新值：(0)', '1', '1505922929');
+INSERT INTO `ab_admin_log` VALUES ('15', '51', '1', '2130706433', 'cms_nav', '2', '超级管理员 编辑了导航：字段(sort)，原值()，新值：(1)', '1', '1505922934');
+INSERT INTO `ab_admin_log` VALUES ('16', '51', '1', '2130706433', 'cms_nav', '1', '超级管理员 编辑了导航：字段(sort)，原值()，新值：(3)', '1', '1505922940');
+INSERT INTO `ab_admin_log` VALUES ('17', '51', '1', '2130706433', 'cms_nav', '4', '超级管理员 编辑了导航：字段(sort)，原值()，新值：(4)', '1', '1505922942');
+INSERT INTO `ab_admin_log` VALUES ('18', '51', '1', '2130706433', 'cms_nav', '5', '超级管理员 编辑了导航：字段(sort)，原值()，新值：(5)', '1', '1505922944');
 
 -- ----------------------------
 -- Table structure for ab_admin_menu
@@ -347,7 +373,7 @@ CREATE TABLE `ab_admin_menu` (
   `status` tinyint(2) NOT NULL DEFAULT '1' COMMENT '状态',
   `params` varchar(255) NOT NULL DEFAULT '' COMMENT '参数',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=307 DEFAULT CHARSET=utf8 COMMENT='后台菜单表';
+) ENGINE=MyISAM AUTO_INCREMENT=315 DEFAULT CHARSET=utf8 COMMENT='后台菜单表';
 
 -- ----------------------------
 -- Records of ab_admin_menu
@@ -537,6 +563,13 @@ INSERT INTO `ab_admin_menu` VALUES ('303', '300', 'cms', '删除', '', 'module_a
 INSERT INTO `ab_admin_menu` VALUES ('304', '300', 'cms', '启用', '', 'module_admin', 'cms/menu/enable', '_self', '0', '1504322571', '1504322571', '100', '0', '1', '');
 INSERT INTO `ab_admin_menu` VALUES ('305', '300', 'cms', '禁用', '', 'module_admin', 'cms/menu/disable', '_self', '0', '1504322571', '1504322571', '100', '0', '1', '');
 INSERT INTO `ab_admin_menu` VALUES ('306', '300', 'cms', '快速编辑', '', 'module_admin', 'cms/menu/quickedit', '_self', '0', '1504322571', '1504322571', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('308', '214', 'cms', '主题列表', 'fa fa-fw fa-th-large', 'module_admin', 'cms/theme/index', '_self', '0', '1505919401', '1505919401', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('309', '308', 'cms', '新增', '', 'module_admin', 'cms/theme/add', '_self', '0', '1505919400', '1505919400', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('310', '308', 'cms', '编辑', '', 'module_admin', 'cms/theme/edit', '_self', '0', '1505919400', '1505919400', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('311', '308', 'cms', '删除', '', 'module_admin', 'cms/theme/delete', '_self', '0', '1505919400', '1505919400', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('312', '308', 'cms', '启用', '', 'module_admin', 'cms/theme/enable', '_self', '0', '1505919400', '1505919400', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('313', '308', 'cms', '禁用', '', 'module_admin', 'cms/theme/disable', '_self', '0', '1505919400', '1505919400', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('314', '308', 'cms', '快速编辑', '', 'module_admin', 'cms/theme/quickedit', '_self', '0', '1505919400', '1505919400', '100', '0', '1', '');
 
 -- ----------------------------
 -- Table structure for ab_admin_module
@@ -674,7 +707,7 @@ CREATE TABLE `ab_admin_user` (
 -- ----------------------------
 -- Records of ab_admin_user
 -- ----------------------------
-INSERT INTO `ab_admin_user` VALUES ('1', 'admin', '超级管理员', '$2y$10$Brw6wmuSLIIx3Yabid8/Wu5l8VQ9M/H/CG3C9RqN9dUCwZW3ljGOK', '', '0', '', '0', '0', '0.00', '0', '1', '0', '0', '1476065410', '1504337585', '1504337584', '2130706433', '100', '1');
+INSERT INTO `ab_admin_user` VALUES ('1', 'admin', '超级管理员', '$2y$10$Brw6wmuSLIIx3Yabid8/Wu5l8VQ9M/H/CG3C9RqN9dUCwZW3ljGOK', '', '0', '', '0', '0', '0.00', '0', '1', '0', '0', '1476065410', '1505919165', '1505919164', '2130706433', '100', '1');
 
 -- ----------------------------
 -- Table structure for ab_cms_advert
@@ -921,15 +954,19 @@ CREATE TABLE `ab_cms_nav` (
   `create_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
   `update_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
   `status` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '状态',
+  `sort` int(10) DEFAULT NULL,
+  `url` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='导航表';
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='导航表';
 
 -- ----------------------------
 -- Records of ab_cms_nav
 -- ----------------------------
-INSERT INTO `ab_cms_nav` VALUES ('1', 'main_nav', '顶部导航', '1492345083', '1492345083', '1');
-INSERT INTO `ab_cms_nav` VALUES ('2', 'about_nav', '底部关于', '1492346685', '1492346685', '1');
-INSERT INTO `ab_cms_nav` VALUES ('3', 'support_nav', '服务与支持', '1492346715', '1492346715', '1');
+INSERT INTO `ab_cms_nav` VALUES ('1', 'comment', '客户评价', '1492345083', '1492345083', '1', '3', null);
+INSERT INTO `ab_cms_nav` VALUES ('2', 'customer', '最新客照', '1492346685', '1492346685', '1', '1', null);
+INSERT INTO `ab_cms_nav` VALUES ('3', 'theme', '造型大赏', '1492346715', '1492346715', '1', '0', null);
+INSERT INTO `ab_cms_nav` VALUES ('4', 'news', '新闻活动', '1505922653', '1505922653', '1', '4', null);
+INSERT INTO `ab_cms_nav` VALUES ('5', 'contact', '阿宝加盟', '1505922669', '1505922669', '1', '5', null);
 
 -- ----------------------------
 -- Table structure for ab_cms_page
@@ -1011,3 +1048,43 @@ CREATE TABLE `ab_config` (
 -- ----------------------------
 -- Records of ab_config
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for ab_theme
+-- ----------------------------
+DROP TABLE IF EXISTS `ab_theme`;
+CREATE TABLE `ab_theme` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `is_index` tinyint(1) NOT NULL DEFAULT '0',
+  `theme` varchar(10) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `fengmian` varchar(255) DEFAULT NULL,
+  `album` varchar(255) DEFAULT NULL,
+  `w_time` int(10) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of ab_theme
+-- ----------------------------
+INSERT INTO `ab_theme` VALUES ('2', '欧美复古', '1', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
+INSERT INTO `ab_theme` VALUES ('3', '欧美复古', '1', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
+INSERT INTO `ab_theme` VALUES ('4', '欧美复古', '1', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
+INSERT INTO `ab_theme` VALUES ('5', '欧美复古', '1', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
+INSERT INTO `ab_theme` VALUES ('6', '欧美复古', '1', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
+INSERT INTO `ab_theme` VALUES ('7', '欧美复古', '1', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
+INSERT INTO `ab_theme` VALUES ('8', '欧美复古', '1', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
+INSERT INTO `ab_theme` VALUES ('9', '欧美复古', '0', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
+INSERT INTO `ab_theme` VALUES ('10', '欧美复古', '0', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
+INSERT INTO `ab_theme` VALUES ('11', '欧美复古', '0', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
+INSERT INTO `ab_theme` VALUES ('12', '欧美复古', '0', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
+INSERT INTO `ab_theme` VALUES ('13', '欧美复古', '0', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
+INSERT INTO `ab_theme` VALUES ('14', '欧美复古', '0', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
+INSERT INTO `ab_theme` VALUES ('15', '欧美复古', '0', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
+INSERT INTO `ab_theme` VALUES ('16', '欧美复古', '0', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
+INSERT INTO `ab_theme` VALUES ('17', '欧美复古', '0', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
+INSERT INTO `ab_theme` VALUES ('18', '欧美复古', '0', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
+INSERT INTO `ab_theme` VALUES ('19', '欧美复古', '0', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
+INSERT INTO `ab_theme` VALUES ('20', '欧美复古', '0', 'green', '欧美复古欧美复古欧美复古', '6', '7,8,9', '1505920361', '1');
