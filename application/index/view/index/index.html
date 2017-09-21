@@ -1,81 +1,33 @@
 <div class="banner">
-    <a href="http://www.avivasign.com/20161102/" target="_blank"><img src="__HOME_IMG__/201611030256fj68pm.jpg" width="100%" /></a>	<span><em><img src="__HOME_IMG__/mouse.png" /></em><i>scroll</i></span>
+    {Advert:list cateid="1" limit='2'}
+    <a href="{$advert.url}" target="_blank"><img src="{:get_file_path($advert.src)}" width="100%" /></a>	<span><em><img src="__HOME_IMG__/mouse.png" /></em><i>scroll</i></span>
+    {/Advert:list}
 </div>
 
 <div class="box">
     <div class="indexTitle">
-        <span><img src="__HOME_IMG__/index_01.jpg" /></span>
-        <p><a href="index.php?list-28.html">CRASTAL女王</a>|<a href="index.php?list-29.html">复古萝莉</a>|<a href="index.php?list-30.html">韩式系列</a>|<a href="index.php?list-31.html">花漾系列</a>|<a href="index.php?list-32.html">洛可可系列</a>|<a href="index.php?list-33.html">中国风系列</a>|<a href="index.php?list-34.html">欧美复古系列</a></p>
+        <p>
+            {foreach name='recommand_theme' item='theme'}
+            |<a href="{:url('theme/detail',['id'=>$key])}">{$theme}</a>|
+            {/foreach}
+        </p>
     </div>
 
     <div class="hotWorks">
         <ul>
-            <li>
-                <a href="index.php?list-34.html">
-                    <img src="__HOME_IMG__/290560_201604221639079hdr.jpg" width="290" height="560" />
+            {volist name='themes' id='theme'}
+            <li class="theme.theme">
+                <a href="{:url('theme/detail',['id'=>$theme['id']])}">
+                    <img src="{:get_file_path($theme['fengmian'])}" width="290" height="560" />
                     <span class="w_01"><em><img src="__HOME_IMG__/w_34.png" /></em><i><img src="__HOME_IMG__/sy_01.png" /></i></span>
                     <span class="w_02"></span>
                     <span class="w_03"><em><img src="__HOME_IMG__/sy_02.png" /></em><i></i></span>
                 </a>
             </li>
+            {/volist}
 
             <li>
-                <a href="index.php?list-33.html">
-                    <img src="__HOME_IMG__/290560_201604221627160cdc.jpg" width="290" height="560" />
-                    <span class="w_01"><em><img src="__HOME_IMG__/w_33.png" /></em><i><img src="__HOME_IMG__/sy_01.png" /></i></span>
-                    <span class="w_02"></span>
-                    <span class="w_03"><em><img src="__HOME_IMG__/sy_02.png" /></em><i></i></span>
-                </a>
-            </li>
-
-            <li>
-                <a href="index.php?list-32.html">
-                    <img src="__HOME_IMG__/290560_201604221555in6o68.jpg" width="290" height="560" />
-                    <span class="w_01"><em><img src="__HOME_IMG__/w_32.png" /></em><i><img src="__HOME_IMG__/sy_01.png" /></i></span>
-                    <span class="w_02"></span>
-                    <span class="w_03"><em><img src="__HOME_IMG__/sy_02.png" /></em><i></i></span>
-                </a>
-            </li>
-
-            <li>
-                <a href="index.php?list-31.html">
-                    <img src="__HOME_IMG__/290560_2016042215175go9p1.jpg" width="290" height="560" />
-                    <span class="w_01"><em><img src="__HOME_IMG__/w_31.png" /></em><i><img src="__HOME_IMG__/sy_01.png" /></i></span>
-                    <span class="w_02"></span>
-                    <span class="w_03"><em><img src="__HOME_IMG__/sy_02.png" /></em><i></i></span>
-                </a>
-            </li>
-
-            <li>
-                <a href="index.php?list-30.html">
-                    <img src="__HOME_IMG__/290560_201604221420oqsdpb.jpg" width="290" height="560" />
-                    <span class="w_01"><em><img src="__HOME_IMG__/w_30.png" /></em><i><img src="__HOME_IMG__/sy_01.png" /></i></span>
-                    <span class="w_02"></span>
-                    <span class="w_03"><em><img src="__HOME_IMG__/sy_02.png" /></em><i></i></span>
-                </a>
-            </li>
-
-            <li>
-                <a href="index.php?list-29.html">
-                    <img src="__HOME_IMG__/290560_2016042214023xwp6k.jpg" width="290" height="560" />
-                    <span class="w_01"><em><img src="__HOME_IMG__/w_29.png" /></em><i><img src="__HOME_IMG__/sy_01.png" /></i></span>
-                    <span class="w_02"></span>
-                    <span class="w_03"><em><img src="__HOME_IMG__/sy_02.png" /></em><i></i></span>
-                </a>
-            </li>
-
-            <li>
-                <a href="index.php?list-28.html">
-                    <img src="__HOME_IMG__/290560_201604211716pkzzwy.jpg" width="290" height="560" />
-                    <span class="w_01"><em><img src="__HOME_IMG__/w_28.png" /></em><i><img src="__HOME_IMG__/sy_01.png" /></i></span>
-                    <span class="w_02"></span>
-                    <span class="w_03"><em><img src="__HOME_IMG__/sy_02.png" /></em><i></i></span>
-                </a>
-            </li>
-
-
-            <li>
-                <a href="index.php?list-28.html">
+                <a href="{:url('theme/index')}">
                     <img src="__HOME_IMG__/images_02.jpg" width="290" height="560" />
                     <ins>view all</ins>
                 </a>
@@ -83,10 +35,10 @@
         </ul>
     </div>
     <script>
-        $(function(){
-            var $cl = ['purple','light-blue','green','deep-blue','brown','red'];
-            $(".hotWorks li").each(function(i){$(this).addClass($cl[Math.floor(Math.random()*6)]);});
-        });
+//        $(function(){
+//            var $cl = ['purple','light-blue','green','deep-blue','brown','red'];
+//            $(".hotWorks li").each(function(i){$(this).addClass($cl[Math.floor(Math.random()*6)]);});
+//        });
     </script>
     <div class="indexTxt">
         <p>avivasign is a registered trademark, avivasign website interface design and programming are applied for  national intellectual property rights and<br />

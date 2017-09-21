@@ -23,7 +23,11 @@ class Index extends Home
     public function index()
     {
         // 默认跳转模块
-
+        // 查询后台设置的推荐主题
+        $recommand_theme=Db::name('theme')->where(['is_index'=>1])->limit(7)->column('id,name');
+        $this->assign('recommand_theme',$recommand_theme);
+        $themes=Db::name('theme')->where(['is_index'=>1])->limit(7)->select();
+        $this->assign('themes',$themes);
        return $this->fetch();
     }
     public function live(){

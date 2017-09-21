@@ -23,21 +23,21 @@ class Advert extends Validate
     // 定义验证规则
     protected $rule = [
         'typeid|广告分类'   => 'require',
-        'tagname|广告位标识' => 'require|regex:^[a-z]+[a-z0-9_]{0,20}$|unique:cms_advert',
+//        'tagname|广告位标识' => 'require|regex:^[a-z]+[a-z0-9_]{0,20}$|unique:cms_advert',
         'name|广告位名称'    => 'require|unique:cms_advert',
-        'start_time'    => 'requireIf:timeset,1',
-        'end_time'      => 'requireIf:timeset,1',
+//        'start_time'    => 'requireIf:timeset,1',
+//        'end_time'      => 'requireIf:timeset,1',
         'title'         => 'requireIf:ad_type,1',
-        'code'          => 'requireIf:ad_type,0',
-        'size'          => 'integer',
-        'width'         => 'integer',
-        'height'        => 'integer',
-        'src'           => 'requireIf:ad_type,2',
+//       / 'code'          => 'requireIf:ad_type,0',
+//        'size'          => 'integer',
+//     /   'width'         => 'integer',
+//        'height'        => 'integer',
+//        'src'           => 'requireIf:ad_type,2',
     ];
 
     // 定义验证提示
     protected $message = [
-        'tagname.regex' => '广告位标识由小写字母、数字或下划线组成，不能以数字开头',
+//        'tagname.regex' => '广告位标识由小写字母、数字或下划线组成，不能以数字开头',
         'code'          => '代码不能为空',
         'src'           => '请上传图片',
         'title'         => '文字内容不能为空',

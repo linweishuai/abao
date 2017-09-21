@@ -67,7 +67,6 @@ class AdvertType extends Admin
         if ($this->request->isPost()) {
             // 表单数据
             $data = $this->request->post();
-
             // 验证
             $result = $this->validate($data, 'AdvertType');
             if(true !== $result) $this->error($result);

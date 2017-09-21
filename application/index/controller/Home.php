@@ -37,9 +37,34 @@ class Home extends Common
         Url::root('/index.php');
         //开启session
         Session::init();
-        $links=Db::name('cms_nav')->where(['status'=>1])->order('sort')->field('id,title,url')->select();
+        $allmenu=cache('allmenu');
+        if(!$allmenu)
+        {
+            $nav_arr=Db::name('cms_nav')->where(['status'=>1])->order('sort')->field('id,title,url')->select();
+            $menu_arr=Db::name('cms_menu')->where(['status'=>1])->field('id,nid,title,url')->select();
+            $allmenu=[];
+            foreach ($nav_arr as $nav)
+            {
+                $temp=[];
+                $temp['title']=$nav['title'];
+                $temp['url']=$nav['url'];
+                foreach ($menu_arr as $menu)
+                {
+                    $temp['child']=[];
+                    if($menu['nid']==$nav['id'])
+                    {
+                        $secondtemp=[];
+                        $secondtemp['title']=$menu['title'];
+                        $secondtemp['url']=$menu['url'];
+                        $temp['child'][]=$secondtemp;
+                    }
+                }
+                $allmenu[]=$temp;
+            }
+            cache('allmenu',$allmenu);
+        }
 
-        $this->assign('links',$links);
+        $this->assign('allmenu',$allmenu);
         //底部友情链接
         $links=Db::name('cms_link')->where(['status'=>1])->order('sort')->limit(10)->select();
         $this->assign('links',$links);
