@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2017-09-21 00:00:05
+Date: 2017-09-22 07:38:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -175,7 +175,7 @@ CREATE TABLE `ab_admin_attachment` (
   `sort` int(11) NOT NULL DEFAULT '100' COMMENT '排序',
   `status` tinyint(2) NOT NULL DEFAULT '1' COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='附件表';
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='附件表';
 
 -- ----------------------------
 -- Records of ab_admin_attachment
@@ -190,6 +190,7 @@ INSERT INTO `ab_admin_attachment` VALUES ('7', '1', '231373_201604221329gtncd4.j
 INSERT INTO `ab_admin_attachment` VALUES ('8', '1', '231373_201604221357udcn84.jpg', 'cms', 'uploads/images/20170920/466d560d47e3ec98d9f6256c972b0b33.jpg', '', '', 'image/jpeg', 'jpg', '94797', 'c93caf86b041c0a44f0f3c7f950c37fc', '94371dc34bd95b7cd59c618c675a8833eb77edfa', 'local', '0', '1505920293', '1505920293', '100', '1');
 INSERT INTO `ab_admin_attachment` VALUES ('9', '1', '231373_201604221401k680iu.jpg', 'cms', 'uploads/images/20170920/d330f0e924436b8884ab01708e18a85a.jpg', '', '', 'image/jpeg', 'jpg', '83189', 'e35ef360d9e57f983e9106d10d8e2c09', 'e5d1961e715efd1d2a1ddace87191aef520bb251', 'local', '0', '1505920294', '1505920294', '100', '1');
 INSERT INTO `ab_admin_attachment` VALUES ('10', '1', 'logo.png', 'admin', 'uploads/images/20170920/3c2e135469280910336616af80cf37a0.png', '', '', 'image/png', 'png', '8192', 'fb46aef5965ed0550878eb2becf2954a', 'c074ea3e5c5e58cdf671e1a07c9b0e3727f144b6', 'local', '0', '1505921484', '1505921484', '100', '1');
+INSERT INTO `ab_admin_attachment` VALUES ('11', '1', '201611030256fj68pm.jpg', 'cms', 'uploads/images/20170921/829c99d86a1ab96dee7bd90c20f8dbb5.jpg', '', '', 'image/jpeg', 'jpg', '798669', 'e6e6c1b5260520d48c0a6aa6ebb24684', '229397208a4344e3d62999fc5ead1cf4c2297c1c', 'local', '0', '1506008623', '1506008623', '100', '1');
 
 -- ----------------------------
 -- Table structure for ab_admin_config
@@ -328,7 +329,7 @@ CREATE TABLE `ab_admin_log` (
   KEY `action_ip_ix` (`action_ip`),
   KEY `action_id_ix` (`action_id`),
   KEY `user_id_ix` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表';
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表';
 
 -- ----------------------------
 -- Records of ab_admin_log
@@ -351,6 +352,9 @@ INSERT INTO `ab_admin_log` VALUES ('15', '51', '1', '2130706433', 'cms_nav', '2'
 INSERT INTO `ab_admin_log` VALUES ('16', '51', '1', '2130706433', 'cms_nav', '1', '超级管理员 编辑了导航：字段(sort)，原值()，新值：(3)', '1', '1505922940');
 INSERT INTO `ab_admin_log` VALUES ('17', '51', '1', '2130706433', 'cms_nav', '4', '超级管理员 编辑了导航：字段(sort)，原值()，新值：(4)', '1', '1505922942');
 INSERT INTO `ab_admin_log` VALUES ('18', '51', '1', '2130706433', 'cms_nav', '5', '超级管理员 编辑了导航：字段(sort)，原值()，新值：(5)', '1', '1505922944');
+INSERT INTO `ab_admin_log` VALUES ('19', '82', '1', '2130706433', 'cms_advert_type', '1', '超级管理员 添加了广告分类：首页banner图', '1', '1506008558');
+INSERT INTO `ab_admin_log` VALUES ('20', '87', '1', '2130706433', 'cms_advert', '1', '超级管理员 添加了广告：首页广告图', '1', '1506008650');
+INSERT INTO `ab_admin_log` VALUES ('21', '87', '1', '2130706433', 'cms_advert', '2', '超级管理员 添加了广告：banner图', '1', '1506009338');
 
 -- ----------------------------
 -- Table structure for ab_admin_menu
@@ -707,7 +711,7 @@ CREATE TABLE `ab_admin_user` (
 -- ----------------------------
 -- Records of ab_admin_user
 -- ----------------------------
-INSERT INTO `ab_admin_user` VALUES ('1', 'admin', '超级管理员', '$2y$10$Brw6wmuSLIIx3Yabid8/Wu5l8VQ9M/H/CG3C9RqN9dUCwZW3ljGOK', '', '0', '', '0', '0', '0.00', '0', '1', '0', '0', '1476065410', '1505919165', '1505919164', '2130706433', '100', '1');
+INSERT INTO `ab_admin_user` VALUES ('1', 'admin', '超级管理员', '$2y$10$Brw6wmuSLIIx3Yabid8/Wu5l8VQ9M/H/CG3C9RqN9dUCwZW3ljGOK', '', '0', '', '0', '0', '0.00', '0', '1', '0', '0', '1476065410', '1506008283', '1506008283', '2130706433', '100', '1');
 
 -- ----------------------------
 -- Table structure for ab_cms_advert
@@ -715,24 +719,26 @@ INSERT INTO `ab_admin_user` VALUES ('1', 'admin', '超级管理员', '$2y$10$Brw
 DROP TABLE IF EXISTS `ab_cms_advert`;
 CREATE TABLE `ab_cms_advert` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `typeid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '分类id',
-  `tagname` varchar(30) NOT NULL DEFAULT '' COMMENT '广告位标识',
-  `ad_type` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '广告类型',
-  `timeset` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '时间限制:0-永不过期,1-在设内时间内有效',
-  `start_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '开始时间',
-  `end_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '结束时间',
-  `name` varchar(60) NOT NULL DEFAULT '' COMMENT '广告位名称',
-  `content` text NOT NULL COMMENT '广告内容',
-  `expcontent` text NOT NULL COMMENT '过期显示内容',
-  `create_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
-  `update_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
-  `status` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '状态',
+  `typeid` int(11) unsigned DEFAULT '0' COMMENT '分类id',
+  `tagname` varchar(30) DEFAULT '' COMMENT '广告位标识',
+  `ad_type` tinyint(2) unsigned DEFAULT '0' COMMENT '广告类型',
+  `timeset` tinyint(2) unsigned DEFAULT '0' COMMENT '时间限制:0-永不过期,1-在设内时间内有效',
+  `start_time` int(11) unsigned DEFAULT '0' COMMENT '开始时间',
+  `end_time` int(11) unsigned DEFAULT '0' COMMENT '结束时间',
+  `name` varchar(60) DEFAULT '' COMMENT '广告位名称',
+  `src` text COMMENT '广告内容',
+  `url` varchar(255) DEFAULT NULL,
+  `expcontent` text COMMENT '过期显示内容',
+  `create_time` int(11) unsigned DEFAULT '0' COMMENT '创建时间',
+  `update_time` int(11) unsigned DEFAULT '0' COMMENT '更新时间',
+  `status` tinyint(2) unsigned DEFAULT '0' COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='广告表';
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='广告表';
 
 -- ----------------------------
 -- Records of ab_cms_advert
 -- ----------------------------
+INSERT INTO `ab_cms_advert` VALUES ('2', '1', '', '2', '0', '0', '0', 'banner图', '11', 'http://www.baidu.com', null, '1506009338', '1506009338', '1');
 
 -- ----------------------------
 -- Table structure for ab_cms_advert_type
@@ -745,11 +751,12 @@ CREATE TABLE `ab_cms_advert_type` (
   `update_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
   `status` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='广告分类表';
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='广告分类表';
 
 -- ----------------------------
 -- Records of ab_cms_advert_type
 -- ----------------------------
+INSERT INTO `ab_cms_advert_type` VALUES ('1', '首页banner图', '1506008558', '1506008558', '1');
 
 -- ----------------------------
 -- Table structure for ab_cms_column
