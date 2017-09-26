@@ -32,7 +32,10 @@ class System extends Admin
         // 保存数据
         if ($this->request->isPost()) {
             $data = $this->request->post();
-
+            if($group=='cms')
+            {
+                CONF('contact',$data['contact']);
+            }
             if (isset(config('config_group')[$group])) {
                 // 查询该分组下所有的配置项名和类型
                 $items = ConfigModel::where('group', $group)->where('status', 1)->column('name,type');
@@ -108,7 +111,7 @@ class System extends Admin
                 // 数据列表
                 $data_list = ConfigModel::where($map)
                     ->order('sort asc,id asc')
-                    ->column('name,title,tips,type,value,options,ajax_url,next_items,param,table,level,key,option,ak,format');
+                    ->column('name,title,tip    s,type,value,options,ajax_url,next_items,param,table,level,key,option,ak,format');
 
                 foreach ($data_list as &$value) {
                     // 解析options
@@ -138,7 +141,7 @@ class System extends Admin
                 // 数据库内的模块信息
                 $db_config = ModuleModel::where('name', $group)->value('config');
                 $db_config = json_decode($db_config, true);
-
+                
                 // 使用ZBuilder快速创建表单
                 return ZBuilder::make('form')
                     ->setPageTitle('模块设置')

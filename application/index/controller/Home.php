@@ -38,7 +38,7 @@ class Home extends Common
         //开启session
         Session::init();
         $allmenu=cache('allmenu');
-        if(!$allmenu)
+        if($allmenu)
         {
             $nav_arr=Db::name('cms_nav')->where(['status'=>1])->order('sort')->field('id,title,url')->select();
             $menu_arr=Db::name('cms_menu')->where(['status'=>1])->field('id,nid,title,url')->select();
@@ -59,6 +59,15 @@ class Home extends Common
                         $temp['child'][]=$secondtemp;
                     }
                 }
+                $allmenu[]=$temp;
+            }
+            //查询单页图片
+            $pages=Db::name('cms_page')->where(['status'=>1])->select();
+            foreach ($pages as $page)
+            {
+                $temp=[];
+                $temp['title']=$page['title'];
+                $temp['url']=url('page/index',['id'=>$page['id']]);
                 $allmenu[]=$temp;
             }
             cache('allmenu',$allmenu);

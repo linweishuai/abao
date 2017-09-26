@@ -13,13 +13,12 @@ namespace app\cms\admin;
 
 use app\admin\controller\Admin;
 use app\common\builder\ZBuilder;
-use app\cms\model\Page as PageModel;
-
+use think\Db;
 /**
  * 单页控制器
  * @package app\cms\admin
  */
-class Page extends Admin
+class Photo extends Admin
 {
     /**
      * 单页列表
@@ -33,20 +32,23 @@ class Page extends Admin
         // 排序
         $order = $this->getOrder();
         // 数据列表
-        $data_list = PageModel::where($map)->order($order)->paginate();
+        $data_list = Db::name('photo')->where($map)->order($order)->paginate();
 
         // 使用ZBuilder快速创建数据表格
         return ZBuilder::make('table')
             ->setSearch(['title' => '标题']) // 设置搜索框
+            ->setTableName('photo')
             ->addColumns([ // 批量添加数据列
                 ['id', 'ID'],
-                ['title', '标题', 'text.edit'],
-                ['create_time', '创建时间', 'datetime'],
-                ['update_time', '更新时间', 'datetime'],
+                ['name', '标题', 'text.edit'],
+                ['is_index', '是否首页显示', 'switch'],
+                ['description', '客片描述', 'text.edit'],
+                ['src', '照片', 'picture'],
+                ['w_time', '创建时间', 'datetime'],
                 ['status', '状态', 'switch'],
                 ['right_button', '操作', 'btn']
             ])
-            ->addTopButtons('add,enable,disable,delete') // 批量添加顶部按钮
+            ->addTopButtons('add') // 批量添加顶部按钮
             ->addRightButtons(['edit', 'delete' => ['data-tips' => '删除后无法恢复。']]) // 批量添加右侧按钮
             ->addOrder('id,title,create_time,update_time')
             ->setRowList($data_list) // 设置表格数据
@@ -65,79 +67,76 @@ class Page extends Admin
         if ($this->request->isPost()) {
             // 表单数据
             $data = $this->request->post();
-
-            // 验证
-//            $result = $this->validate($data, 'Page');
-//            if(true !== $result) $this->error($result);
-
-            if ($page = PageModel::create($data)) {
+            $data['w_time']=time();
+            // 验
+            $page = Db::name('photo')->insertGetId($data);
+            if ($page) {
                 // 记录行为
-                action_log('page_add', 'cms_page', $page['id'], UID, $data['title']);
                 $this->success('新增成功', 'index');
             } else {
                 $this->error('新增失败');
             }
         }
-
         // 显示添加页面
+//        $theme=['purple'=>'基佬紫'
+//            ,'light-blue'=>'亮蓝色'
+//            ,'green'=>'原谅色'
+//            ,'yellow'=>'黄'
+//            ,'deep-blue'=>'深蓝色'
+//            ,'brown'=>'棕色',
+//            'red'=>'红色'];
         return ZBuilder::make('form')
             ->addFormItems([
-                ['text', 'title', '页面标题'],
-//                ['tags', 'keywords', '页面关键词', '关键字之间用英文逗号隔开'],
-//                ['textarea', 'description', '页面描述', '100字左右'],
-//                ['text', 'template', '模板文件名'],
-                ['wangeditor', 'content', '页面内容'],
-                ['image', 'cover', 'banner图片'],
-                ['text', 'view', '阅读量', '', 0],
+                ['text', 'name', '客片标题'],
+//                ['select','theme','主题颜色','',$theme,'purple'],
+                ['textarea', 'description', '客片描述', '100字左右'],
+                ['jcrop', 'src', '单页封面'],
+//                ['images', 'album', '主题 内容图片'],
                 ['radio', 'status', '立即启用', '', ['否', '是'], 1]
             ])
             ->fetch();
     }
 
     /**
-     * 编辑
-     * @param null $id 单页id
+     * 新增
      * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      */
-    public function edit($id = null)
+    public function edit($id=null)
     {
-        if ($id === null) $this->error('缺少参数');
-
         // 保存数据
         if ($this->request->isPost()) {
             // 表单数据
             $data = $this->request->post();
-
-//            // 验证
-//            $result = $this->validate($data, 'Page');
-//            if(true !== $result) $this->error($result);
-
-            if (PageModel::update($data)) {
+            $data['w_time']=time();
+            // 验
+            $page = Db::name('theme')->update($data);
+            if ($page) {
                 // 记录行为
-                action_log('page_edit', 'cms_page', $id, UID, $data['title']);
-                $this->success('编辑成功', 'index');
+                $this->success('新增成功', 'index');
             } else {
-                $this->error('编辑失败');
+                $this->error('新增失败');
             }
         }
-
-        $info = PageModel::get($id);
-
-        // 显示编辑页面
+        // 显示添加页面
+//        $theme=['purple'=>'基佬紫'
+//            ,'light-blue'=>'亮蓝色'
+//            ,'green'=>'原谅色'
+//            ,'yellow'=>'黄'
+//            ,'deep-blue'=>'深蓝色'
+//            ,'brown'=>'棕色',
+//            'red'=>'红色'];
+        $formData=Db::name('theme')->find($id);
         return ZBuilder::make('form')
             ->addFormItems([
-                ['hidden', 'id'],
-                ['text', 'title', '页面标题'],
-//                ['tags', 'keywords', '页面关键词', '关键字之间用英文逗号隔开'],
-//                ['textarea', 'description', '页面描述', '100字左右'],
-//                ['text', 'template', '模板文件名'],
-                ['wangeditor', 'content', '页面内容'],
-                ['image', 'cover', 'banner图'],
-//                ['text', 'view', '阅读量', '', 0],
-                ['radio', 'status', '立即启用', '', ['否', '是']]
+                ['text', 'name', '客片标题'],
+//                ['select','theme','主题颜色','',$theme,'purple'],
+                ['textarea', 'description', '客片描述', '100字左右'],
+                ['jcrop', 'src', '单页封面'],
+//                ['images', 'album', '主题 内容图片'],
+                ['radio', 'status', '立即启用', '', ['否', '是'], 1]
             ])
-            ->setFormdata($info)
+            ->setFormData($formData)
             ->fetch();
     }
 
@@ -174,33 +173,5 @@ class Page extends Admin
         return $this->setStatus('disable');
     }
 
-    /**
-     * 设置单页状态：删除、禁用、启用
-     * @param string $type 类型：delete/enable/disable
-     * @param array $record
-     * @author 蔡伟明 <314013107@qq.com>
-     * @return mixed
-     */
-    public function setStatus($type = '', $record = [])
-    {
-        $ids        = $this->request->isPost() ? input('post.ids/a') : input('param.ids');
-        $page_title = PageModel::where('id', 'in', $ids)->column('title');
-        return parent::setStatus($type, ['page_'.$type, 'cms_page', 0, UID, implode('、', $page_title)]);
-    }
 
-    /**
-     * 快速编辑
-     * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
-     * @return mixed
-     */
-    public function quickEdit($record = [])
-    {
-        $id      = input('post.pk', '');
-        $field   = input('post.name', '');
-        $value   = input('post.value', '');
-        $page    = PageModel::where('id', $id)->value($field);
-        $details = '字段(' . $field . ')，原值(' . $page . ')，新值：(' . $value . ')';
-        return parent::quickEdit(['page_edit', 'cms_page', $id, UID, $details]);
-    }
 }

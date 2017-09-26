@@ -1,0 +1,21 @@
+<style>
+    .box img{
+        display: inline-block;
+    }
+</style>
+<div class="banner">
+    <img src="{:get_file_path($page.cover)}" width="100%" />
+    <span><em><img src="__HOME_IMG__/mouse.png" /></em><i>scroll</i></span>
+</div>
+<div class="box" style="margin-top: 35px;">
+    {$page.content}
+    <div class="works_tj">
+        <h3><span><img src="__HOME_IMG__/k_03.jpg" /></span><em><a href="index.php?list-28.html">点击这里查看《<i>造型大赏</i>》</a></em></h3>
+        <ul>
+            {volist name='hot_recommand' id='vo'}
+            <li><a href="index.php?list-30.html"><img src="{:get_file_path($vo['fengmian'])}" width="230" height="373" /><span></span><ins><em></em><i>read more</i></ins></a></li>
+            {/volist}
+
+        </ul>
+    </div>
+</div>

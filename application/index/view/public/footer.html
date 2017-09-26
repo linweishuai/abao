@@ -1,10 +1,7 @@
 <div class="footer">
     <div class="left">
-        <h3><a href="http://www.avivasign.com"><img src="Picture/logo1.png" /></a></h3>
-        <p>电话：18062081515 / 18062081517</p>
-        <p>地址：武汉市江岸区沿江大道兰陵路路口（马哥孛罗酒店对面汉口</p>
-        <p>江滩公园内）（<span>汉口店</span>）</p>
-        <p>武汉市洪山区光谷步行街三期意大利风情街多莫大教堂4楼 （<span>光谷店</span>）</p>
+        <h3><a href="http://www.avivasign.com"><img src="{:get_file_path(config('web_site_logo'))}" /></a></h3>
+       {:CONF('contact')}
     </div>
 
     <div class="right">
@@ -78,11 +75,11 @@
     <div class="copyright">
         <dl>
             <dt>
-            <p>版权所有© 2007-2020 薇拉上善造型，技术支持<a href="http://www.infinityarts.net/" target="_blank">武汉衍艺广告</a>
+            <p>{:config('web_site_icp')}<a href="javascript:void (0);" target="_blank">{:config('web_site_title')}</a>
                 <script type='text/javascript' src='__HOME_JS__/kf.js'></script>
                 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259574412'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1259574412%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
             </p>
-            <span>Copyright © 2007-2020 AVIVASign WEDDING MODELING CUSTOMIZE,SUPPORT BY Infinity arts ad-agency CO.,Ltd. </span>
+            <span>{:config('web_site_icp')}</span>
             </dt>
             <dd>
                 <span><a href="http://wpa.qq.com/msgrd?v=3&uin=2807683724&site=qq&menu=yes" class="qq" target="_blank"></a></span>
@@ -92,8 +89,6 @@
         </dl>
     </div>
 </div>
-
 <!-- end -->
-<span style="display:none;"></span>
 </body>
 </html>

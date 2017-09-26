@@ -1,23 +1,4 @@
 var acc_host='accwww10.53kf.com';var companyid='72090565';var hz6d_guest_ip='112.233.37.126';var ipstr='%E5%B1%B1%E4%B8%9C%E7%9C%81%E4%B8%B4%E6%B2%82%E5%B8%82%5B%E8%81%94%E9%80%9A%5D';var in_timestamp='1478329975683';var hz6d_guest_id='10072684997007';var style_id= '1';
-/* 
-    变量：
-    acc_host        acc.www4.53kf.com
-    companyid       72034819
-    hz6d_guest_ip   125.120.149.68
-    ipstr           浙江省杭州市[电信]
-    in_timestamp    time()      1445841152695
-    hz6d_guest_id   66518726610
-    style_id        2
-
-
-var acc_host     = '';
-var companyid    = '';
-var hz6d_guest_ip= '';
-var ipstr        = '';
-var in_timestamp = '';
-var hz6d_guest_id= '';
-var style_id     = '';
-*/
 
 in_timestamp = parseInt(in_timestamp/1000);
 var http_pro = (document.location.protocol == 'https:')?'https://':'http://';

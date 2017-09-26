@@ -424,4 +424,20 @@ class Index extends Home
             $this->assign('adverts',$temp);
             return $this->fetch();
         }
+        public function about()
+        {
+            $alladverts=Db::name('cms_advert')
+                ->where(['typeid'=>['in','9,10,11,12']])
+                ->field('typeid,link,src')
+                ->order('create_time desc')
+                ->select();
+            $temp=[];
+            foreach ($alladverts as $advert)
+            {
+                $temp[$advert['typeid']][]=$advert;
+            }
+            $this->assign('num',floor(count($temp[9])/2));
+            $this->assign('adverts',$temp);
+            return $this->fetch();
+        }
 }
