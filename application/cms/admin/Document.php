@@ -147,7 +147,7 @@ class Document extends Admin
             $result  = [];
             foreach ($columns as $column) {
                 $result[$column['id']] = $column['title_display'];
-            }
+            }   
             $columns = $result;
         }
         return ZBuilder::make('form')

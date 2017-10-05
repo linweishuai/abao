@@ -19,7 +19,7 @@ use think\Db;
  * 前台公共控制器
  * @package app\index\controller
  */
-class Home extends Common
+class   Home extends Common
 {
     /**
      * 初始化方法
@@ -38,7 +38,7 @@ class Home extends Common
         //开启session
         Session::init();
         $allmenu=cache('allmenu');
-        if($allmenu)
+        if(!$allmenu)
         {
             $nav_arr=Db::name('cms_nav')->where(['status'=>1])->order('sort')->field('id,title,url')->select();
             $menu_arr=Db::name('cms_menu')->where(['status'=>1])->field('id,nid,title,url')->select();
@@ -72,7 +72,6 @@ class Home extends Common
             }
             cache('allmenu',$allmenu);
         }
-
         $this->assign('allmenu',$allmenu);
         //底部友情链接
         $links=Db::name('cms_link')->where(['status'=>1])->order('sort')->limit(10)->select();

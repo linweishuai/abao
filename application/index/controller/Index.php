@@ -11,8 +11,6 @@
 
 namespace app\index\controller;
 
-use app\common\model\Gift;
-use app\common\model\User;
 use think\Db;
 /**
  * 前台首页控制器
@@ -28,6 +26,8 @@ class Index extends Home
         $this->assign('recommand_theme',$recommand_theme);
         $themes=Db::name('theme')->where(['is_index'=>1])->limit(7)->select();
         $this->assign('themes',$themes);
+        $news=Db::name('cms_news')->where(['status'=>1,'is_index'=>1])->order('id desc')->limit(4)->select();
+        $this->assign('news',$news);
        return $this->fetch();
     }
     public function live(){

@@ -14,7 +14,9 @@ class Theme extends Home
 {
     public function detail($id)
     {
+        $this->view->engine->layout(false);
         $themeInfo=Db::name('theme')->find($id);
+        $themeInfo['album']=explode(',',$themeInfo['album']);
         $this->assign('themeInfo',$themeInfo);
         return $this->fetch();
     }

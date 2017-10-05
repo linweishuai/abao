@@ -111,7 +111,7 @@ class System extends Admin
                 // 数据列表
                 $data_list = ConfigModel::where($map)
                     ->order('sort asc,id asc')
-                    ->column('name,title,tip    s,type,value,options,ajax_url,next_items,param,table,level,key,option,ak,format');
+                    ->column('name,title,tips,type,value,options,ajax_url,next_items,param,table,level,key,option,ak,format');
 
                 foreach ($data_list as &$value) {
                     // 解析options
