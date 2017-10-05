@@ -15,6 +15,8 @@ class Photo extends Home
     public function index()
     {
         $photos = Db::name('photo')->order('w_time desc')->paginate(12);
+        $page=$photos->render();
+        $this->assign('page',$page);
         $this->assign('photos',$photos);
         return $this->fetch();
     }
