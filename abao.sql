@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2017-09-22 07:38:06
+Date: 2017-10-06 07:30:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -175,7 +175,7 @@ CREATE TABLE `ab_admin_attachment` (
   `sort` int(11) NOT NULL DEFAULT '100' COMMENT '排序',
   `status` tinyint(2) NOT NULL DEFAULT '1' COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='附件表';
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='附件表';
 
 -- ----------------------------
 -- Records of ab_admin_attachment
@@ -191,6 +191,10 @@ INSERT INTO `ab_admin_attachment` VALUES ('8', '1', '231373_201604221357udcn84.j
 INSERT INTO `ab_admin_attachment` VALUES ('9', '1', '231373_201604221401k680iu.jpg', 'cms', 'uploads/images/20170920/d330f0e924436b8884ab01708e18a85a.jpg', '', '', 'image/jpeg', 'jpg', '83189', 'e35ef360d9e57f983e9106d10d8e2c09', 'e5d1961e715efd1d2a1ddace87191aef520bb251', 'local', '0', '1505920294', '1505920294', '100', '1');
 INSERT INTO `ab_admin_attachment` VALUES ('10', '1', 'logo.png', 'admin', 'uploads/images/20170920/3c2e135469280910336616af80cf37a0.png', '', '', 'image/png', 'png', '8192', 'fb46aef5965ed0550878eb2becf2954a', 'c074ea3e5c5e58cdf671e1a07c9b0e3727f144b6', 'local', '0', '1505921484', '1505921484', '100', '1');
 INSERT INTO `ab_admin_attachment` VALUES ('11', '1', '201611030256fj68pm.jpg', 'cms', 'uploads/images/20170921/829c99d86a1ab96dee7bd90c20f8dbb5.jpg', '', '', 'image/jpeg', 'jpg', '798669', 'e6e6c1b5260520d48c0a6aa6ebb24684', '229397208a4344e3d62999fc5ead1cf4c2297c1c', 'local', '0', '1506008623', '1506008623', '100', '1');
+INSERT INTO `ab_admin_attachment` VALUES ('12', '1', '61b6ca543ff8357d4a0c7ee418b0d835.jpeg', 'cms', 'uploads/images/20170924/61b6ca543ff8357d4a0c7ee418b0d835.jpeg', '', '', 'image/jpeg', 'jpeg', '29620', '0c774d4ea410075a0afa7be44034979e', '639d2d0189705f81d11c239af27b522fc04b99da', 'local', '0', '1506258373', '1506258373', '100', '1');
+INSERT INTO `ab_admin_attachment` VALUES ('13', '1', 'ban_kz.jpg', 'cms', 'uploads/images/20170924/bc696eb5606a542a3eca6b1ba1f4a681.jpg', '', '', 'image/jpeg', 'jpg', '520449', '93df9717fcb846d1a007462b12c4fcdc', '73f1dcd51314b1f6c0324ea6767dcc16a7c77226', 'local', '0', '1506258490', '1506258490', '100', '1');
+INSERT INTO `ab_admin_attachment` VALUES ('14', '1', 'ban_lx.jpg', 'cms', 'uploads/images/20170926/1ef94d459a938e34e416eb3e37d2d791.jpg', '', '', 'image/jpeg', 'jpg', '228859', '9aab0087650ad5667315eed56004438f', '75c3e81f161573541cb731d8d2e23e596de86c0a', 'local', '0', '1506390406', '1506390406', '100', '1');
+INSERT INTO `ab_admin_attachment` VALUES ('15', '1', '1275176278752419.jpeg', 'cms', 'uploads/images/20170926/ed3eee11c4ffa9268eddc0fded2f3650.jpeg', '', '', 'image/jpeg', 'jpeg', '7777', 'b6d9dae69d5fb1c254b7264c7d1d4648', 'dcb5d7d0eff85f436711d9de734ae0fc153a192f', 'local', '0', '1506390488', '1506390488', '100', '1');
 
 -- ----------------------------
 -- Table structure for ab_admin_config
@@ -329,7 +333,7 @@ CREATE TABLE `ab_admin_log` (
   KEY `action_ip_ix` (`action_ip`),
   KEY `action_id_ix` (`action_id`),
   KEY `user_id_ix` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表';
+) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表';
 
 -- ----------------------------
 -- Records of ab_admin_log
@@ -355,6 +359,23 @@ INSERT INTO `ab_admin_log` VALUES ('18', '51', '1', '2130706433', 'cms_nav', '5'
 INSERT INTO `ab_admin_log` VALUES ('19', '82', '1', '2130706433', 'cms_advert_type', '1', '超级管理员 添加了广告分类：首页banner图', '1', '1506008558');
 INSERT INTO `ab_admin_log` VALUES ('20', '87', '1', '2130706433', 'cms_advert', '1', '超级管理员 添加了广告：首页广告图', '1', '1506008650');
 INSERT INTO `ab_admin_log` VALUES ('21', '87', '1', '2130706433', 'cms_advert', '2', '超级管理员 添加了广告：banner图', '1', '1506009338');
+INSERT INTO `ab_admin_log` VALUES ('22', '30', '1', '2130706433', 'admin_menu', '315', '超级管理员 添加了节点：所属模块(cms),所属节点ID(214),节点标题(客照列表),节点链接(cms/photo/index)', '1', '1506257963');
+INSERT INTO `ab_admin_log` VALUES ('23', '82', '1', '2130706433', 'cms_advert_type', '2', '超级管理员 添加了广告分类：客片banner图片', '1', '1506258431');
+INSERT INTO `ab_admin_log` VALUES ('24', '87', '1', '2130706433', 'cms_advert', '3', '超级管理员 添加了广告：kepianbnner', '1', '1506258508');
+INSERT INTO `ab_admin_log` VALUES ('25', '42', '1', '2130706433', 'admin_config', '0', '超级管理员 更新了系统设置：分组(cms)', '1', '1506392283');
+INSERT INTO `ab_admin_log` VALUES ('26', '42', '1', '2130706433', 'admin_config', '0', '超级管理员 更新了系统设置：分组(cms)', '1', '1506392602');
+INSERT INTO `ab_admin_log` VALUES ('27', '42', '1', '2130706433', 'admin_config', '0', '超级管理员 更新了系统设置：分组(cms)', '1', '1506393162');
+INSERT INTO `ab_admin_log` VALUES ('28', '42', '1', '2130706433', 'admin_config', '0', '超级管理员 更新了系统设置：分组(cms)', '1', '1506393204');
+INSERT INTO `ab_admin_log` VALUES ('29', '42', '1', '2130706433', 'admin_config', '0', '超级管理员 更新了系统设置：分组(cms)', '1', '1506393251');
+INSERT INTO `ab_admin_log` VALUES ('30', '34', '1', '2130706433', 'admin_menu', '279', '超级管理员 禁用了节点：节点ID(279),节点标题(内容模型),节点链接(cms/model/index)', '1', '1507196153');
+INSERT INTO `ab_admin_log` VALUES ('31', '31', '1', '2130706433', 'admin_menu', '310', '超级管理员 编辑了节点：节点ID(310)', '1', '1507196209');
+INSERT INTO `ab_admin_log` VALUES ('32', '31', '1', '2130706433', 'admin_menu', '311', '超级管理员 编辑了节点：节点ID(311)', '1', '1507196222');
+INSERT INTO `ab_admin_log` VALUES ('33', '31', '1', '2130706433', 'admin_menu', '312', '超级管理员 编辑了节点：节点ID(312)', '1', '1507196236');
+INSERT INTO `ab_admin_log` VALUES ('34', '30', '1', '2130706433', 'admin_menu', '322', '超级管理员 添加了节点：所属模块(cms),所属节点ID(0),节点标题(文章管理),节点链接(cms/news/index)', '1', '1507196333');
+INSERT INTO `ab_admin_log` VALUES ('35', '31', '1', '2130706433', 'admin_menu', '322', '超级管理员 编辑了节点：节点ID(322)', '1', '1507196364');
+INSERT INTO `ab_admin_log` VALUES ('36', '31', '1', '2130706433', 'admin_menu', '322', '超级管理员 编辑了节点：节点ID(322)', '1', '1507196461');
+INSERT INTO `ab_admin_log` VALUES ('37', '82', '1', '2130706433', 'cms_advert_type', '3', '超级管理员 添加了广告分类：新闻列表页banner图', '1', '1507209692');
+INSERT INTO `ab_admin_log` VALUES ('38', '87', '1', '2130706433', 'cms_advert', '4', '超级管理员 添加了广告：newsbanner', '1', '1507209728');
 
 -- ----------------------------
 -- Table structure for ab_admin_menu
@@ -377,7 +398,7 @@ CREATE TABLE `ab_admin_menu` (
   `status` tinyint(2) NOT NULL DEFAULT '1' COMMENT '状态',
   `params` varchar(255) NOT NULL DEFAULT '' COMMENT '参数',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=315 DEFAULT CHARSET=utf8 COMMENT='后台菜单表';
+) ENGINE=MyISAM AUTO_INCREMENT=329 DEFAULT CHARSET=utf8 COMMENT='后台菜单表';
 
 -- ----------------------------
 -- Records of ab_admin_menu
@@ -539,7 +560,7 @@ INSERT INTO `ab_admin_menu` VALUES ('275', '272', 'cms', '删除', '', 'module_a
 INSERT INTO `ab_admin_menu` VALUES ('276', '272', 'cms', '启用', '', 'module_admin', 'cms/column/enable', '_self', '0', '1504322571', '1504322571', '100', '0', '1', '');
 INSERT INTO `ab_admin_menu` VALUES ('277', '272', 'cms', '禁用', '', 'module_admin', 'cms/column/disable', '_self', '0', '1504322571', '1504322571', '100', '0', '1', '');
 INSERT INTO `ab_admin_menu` VALUES ('278', '272', 'cms', '快速编辑', '', 'module_admin', 'cms/column/quickedit', '_self', '0', '1504322571', '1504322571', '100', '0', '1', '');
-INSERT INTO `ab_admin_menu` VALUES ('279', '271', 'cms', '内容模型', 'fa fa-fw fa-th-large', 'module_admin', 'cms/model/index', '_self', '0', '1504322571', '1504322571', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('279', '271', 'cms', '内容模型', 'fa fa-fw fa-th-large', 'module_admin', 'cms/model/index', '_self', '0', '1504322571', '1504322571', '100', '0', '0', '');
 INSERT INTO `ab_admin_menu` VALUES ('280', '279', 'cms', '新增', '', 'module_admin', 'cms/model/add', '_self', '0', '1504322571', '1504322571', '100', '0', '1', '');
 INSERT INTO `ab_admin_menu` VALUES ('281', '279', 'cms', '编辑', '', 'module_admin', 'cms/model/edit', '_self', '0', '1504322571', '1504322571', '100', '0', '1', '');
 INSERT INTO `ab_admin_menu` VALUES ('282', '279', 'cms', '删除', '', 'module_admin', 'cms/model/delete', '_self', '0', '1504322571', '1504322571', '100', '0', '1', '');
@@ -569,11 +590,25 @@ INSERT INTO `ab_admin_menu` VALUES ('305', '300', 'cms', '禁用', '', 'module_a
 INSERT INTO `ab_admin_menu` VALUES ('306', '300', 'cms', '快速编辑', '', 'module_admin', 'cms/menu/quickedit', '_self', '0', '1504322571', '1504322571', '100', '0', '1', '');
 INSERT INTO `ab_admin_menu` VALUES ('308', '214', 'cms', '主题列表', 'fa fa-fw fa-th-large', 'module_admin', 'cms/theme/index', '_self', '0', '1505919401', '1505919401', '100', '0', '1', '');
 INSERT INTO `ab_admin_menu` VALUES ('309', '308', 'cms', '新增', '', 'module_admin', 'cms/theme/add', '_self', '0', '1505919400', '1505919400', '100', '0', '1', '');
-INSERT INTO `ab_admin_menu` VALUES ('310', '308', 'cms', '编辑', '', 'module_admin', 'cms/theme/edit', '_self', '0', '1505919400', '1505919400', '100', '0', '1', '');
-INSERT INTO `ab_admin_menu` VALUES ('311', '308', 'cms', '删除', '', 'module_admin', 'cms/theme/delete', '_self', '0', '1505919400', '1505919400', '100', '0', '1', '');
-INSERT INTO `ab_admin_menu` VALUES ('312', '308', 'cms', '启用', '', 'module_admin', 'cms/theme/enable', '_self', '0', '1505919400', '1505919400', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('310', '308', 'cms', '编辑', '', 'module_admin', 'cms/theme/edit', '_self', '1', '1505919400', '1507196209', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('311', '308', 'cms', '删除', '', 'module_admin', 'cms/theme/delete', '_self', '1', '1505919400', '1507196222', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('312', '308', 'cms', '启用', '', 'module_admin', 'cms/theme/enable', '_self', '1', '1505919400', '1507196236', '100', '0', '1', '');
 INSERT INTO `ab_admin_menu` VALUES ('313', '308', 'cms', '禁用', '', 'module_admin', 'cms/theme/disable', '_self', '0', '1505919400', '1505919400', '100', '0', '1', '');
 INSERT INTO `ab_admin_menu` VALUES ('314', '308', 'cms', '快速编辑', '', 'module_admin', 'cms/theme/quickedit', '_self', '0', '1505919400', '1505919400', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('315', '214', 'cms', '客照列表', 'fa fa-fw fa-th', 'module_admin', 'cms/photo/index', '_self', '0', '1506257963', '1506257963', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('316', '315', 'cms', '新增', '', 'module_admin', 'cms/photo/add', '_self', '0', '1506257963', '1506257963', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('317', '315', 'cms', '编辑', '', 'module_admin', 'cms/photo/edit', '_self', '0', '1506257963', '1506257963', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('318', '315', 'cms', '删除', '', 'module_admin', 'cms/photo/delete', '_self', '0', '1506257963', '1506257963', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('319', '315', 'cms', '启用', '', 'module_admin', 'cms/photo/enable', '_self', '0', '1506257963', '1506257963', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('320', '315', 'cms', '禁用', '', 'module_admin', 'cms/photo/disable', '_self', '0', '1506257963', '1506257963', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('321', '315', 'cms', '快速编辑', '', 'module_admin', 'cms/photo/quickedit', '_self', '0', '1506257963', '1506257963', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('322', '214', 'cms', '文章管理', 'fa fa-fw fa-th-list', 'module_admin', 'cms/news/index', '_self', '0', '1507196333', '1507196461', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('323', '322', 'cms', '新增', '', 'module_admin', 'cms/news/add', '_self', '0', '1507196333', '1507196333', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('324', '322', 'cms', '编辑', '', 'module_admin', 'cms/news/edit', '_self', '0', '1507196333', '1507196333', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('325', '322', 'cms', '删除', '', 'module_admin', 'cms/news/delete', '_self', '0', '1507196333', '1507196333', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('326', '322', 'cms', '启用', '', 'module_admin', 'cms/news/enable', '_self', '0', '1507196333', '1507196333', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('327', '322', 'cms', '禁用', '', 'module_admin', 'cms/news/disable', '_self', '0', '1507196333', '1507196333', '100', '0', '1', '');
+INSERT INTO `ab_admin_menu` VALUES ('328', '322', 'cms', '快速编辑', '', 'module_admin', 'cms/news/quickedit', '_self', '0', '1507196333', '1507196333', '100', '0', '1', '');
 
 -- ----------------------------
 -- Table structure for ab_admin_module
@@ -604,7 +639,7 @@ CREATE TABLE `ab_admin_module` (
 -- ----------------------------
 INSERT INTO `ab_admin_module` VALUES ('1', 'admin', '系统', 'fa fa-fw fa-gear', '系统模块，DolphinPHP的核心模块', 'DolphinPHP', 'http://www.dolphinphp.com', '', '', '1.0.0', 'admin.dolphinphp.module', '1', '1468204902', '1468204902', '100', '1');
 INSERT INTO `ab_admin_module` VALUES ('2', 'user', '用户', 'fa fa-fw fa-user', '用户模块，DolphinPHP自带模块', 'DolphinPHP', 'http://www.dolphinphp.com', '', '', '1.0.0', 'user.dolphinphp.module', '1', '1468204902', '1468204902', '100', '1');
-INSERT INTO `ab_admin_module` VALUES ('3', 'cms', '门户', 'fa fa-fw fa-newspaper-o', '门户模块', 'CaiWeiMing', 'http://www.dolphinphp.com', '{\"summary\":0,\"contact\":\"<div class=\\\"font-s13 push\\\"><strong>\\u6cb3\\u6e90\\u5e02\\u5353\\u9510\\u79d1\\u6280\\u6709\\u9650\\u516c\\u53f8<\\/strong><br \\/>\\r\\n\\u5730\\u5740\\uff1a\\u6cb3\\u6e90\\u5e02\\u6c5f\\u4e1c\\u65b0\\u533a\\u4e1c\\u73af\\u8def\\u6c47\\u901a\\u82d1D3-H232<br \\/>\\r\\n\\u7535\\u8bdd\\uff1a0762-8910006<br \\/>\\r\\n\\u90ae\\u7bb1\\uff1aadmin@zrthink.com<\\/div>\",\"meta_head\":\"\",\"meta_foot\":\"\",\"support_status\":1,\"support_color\":\"rgba(0,158,232,1)\",\"support_wx\":\"\",\"support_extra\":\"\"}', '{\"group\":{\"tab_title\":\"\\u680f\\u76ee\\u6388\\u6743\",\"table_name\":\"cms_column\",\"primary_key\":\"id\",\"parent_id\":\"pid\",\"node_name\":\"name\"}}', '1.0.0', 'cms.ming.module', '0', '0', '0', '100', '1');
+INSERT INTO `ab_admin_module` VALUES ('3', 'cms', '门户', 'fa fa-fw fa-newspaper-o', '门户模块', 'CaiWeiMing', 'http://www.dolphinphp.com', '{\"summary\":\"0\",\"contact\":\"<div class=\\\"font-s13 push\\\"><strong>\\u4e34\\u6c82\\u5e02\\u963f\\u5b9d\\u5316\\u5986\\u5b66\\u6821<\\/strong><br \\/>\\r\\n\\u5730\\u5740\\uff1a\\u4e34\\u6c82\\u5e02<br \\/>\\r\\n\\u7535\\u8bdd\\uff1a5321516<br \\/>\\r\\n\\u90ae\\u7bb1\\uff1aadmin@zrthink.comsss<\\/div>\\r\\n\",\"meta_head\":\"\",\"meta_foot\":\"\",\"support_status\":\"1\",\"support_color\":\"rgba(0,158,232,1)\",\"support_wx\":\"\",\"support_extra\":\"\"}', '{\"group\":{\"tab_title\":\"\\u680f\\u76ee\\u6388\\u6743\",\"table_name\":\"cms_column\",\"primary_key\":\"id\",\"parent_id\":\"pid\",\"node_name\":\"name\"}}', '1.0.0', 'cms.ming.module', '0', '0', '0', '100', '1');
 
 -- ----------------------------
 -- Table structure for ab_admin_packet
@@ -711,7 +746,7 @@ CREATE TABLE `ab_admin_user` (
 -- ----------------------------
 -- Records of ab_admin_user
 -- ----------------------------
-INSERT INTO `ab_admin_user` VALUES ('1', 'admin', '超级管理员', '$2y$10$Brw6wmuSLIIx3Yabid8/Wu5l8VQ9M/H/CG3C9RqN9dUCwZW3ljGOK', '', '0', '', '0', '0', '0.00', '0', '1', '0', '0', '1476065410', '1506008283', '1506008283', '2130706433', '100', '1');
+INSERT INTO `ab_admin_user` VALUES ('1', 'admin', '超级管理员', '$2y$10$Brw6wmuSLIIx3Yabid8/Wu5l8VQ9M/H/CG3C9RqN9dUCwZW3ljGOK', '', '0', '', '0', '0', '0.00', '0', '1', '0', '0', '1476065410', '1507195681', '1507195681', '2130706433', '100', '1');
 
 -- ----------------------------
 -- Table structure for ab_cms_advert
@@ -733,12 +768,14 @@ CREATE TABLE `ab_cms_advert` (
   `update_time` int(11) unsigned DEFAULT '0' COMMENT '更新时间',
   `status` tinyint(2) unsigned DEFAULT '0' COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='广告表';
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='广告表';
 
 -- ----------------------------
 -- Records of ab_cms_advert
 -- ----------------------------
 INSERT INTO `ab_cms_advert` VALUES ('2', '1', '', '2', '0', '0', '0', 'banner图', '11', 'http://www.baidu.com', null, '1506009338', '1506009338', '1');
+INSERT INTO `ab_cms_advert` VALUES ('3', '2', '', '2', '0', '0', '0', 'kepianbnner', '13', 'http://baidu.com', null, '1506258509', '1506258509', '1');
+INSERT INTO `ab_cms_advert` VALUES ('4', '3', '', '2', '0', '0', '0', 'newsbanner', '11', 'http://baidu.com', null, '1507209728', '1507209728', '1');
 
 -- ----------------------------
 -- Table structure for ab_cms_advert_type
@@ -751,12 +788,14 @@ CREATE TABLE `ab_cms_advert_type` (
   `update_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
   `status` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='广告分类表';
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='广告分类表';
 
 -- ----------------------------
 -- Records of ab_cms_advert_type
 -- ----------------------------
 INSERT INTO `ab_cms_advert_type` VALUES ('1', '首页banner图', '1506008558', '1506008558', '1');
+INSERT INTO `ab_cms_advert_type` VALUES ('2', '客片banner图片', '1506258431', '1506258431', '1');
+INSERT INTO `ab_cms_advert_type` VALUES ('3', '新闻列表页banner图', '1507209692', '1507209692', '1');
 
 -- ----------------------------
 -- Table structure for ab_cms_column
@@ -976,6 +1015,83 @@ INSERT INTO `ab_cms_nav` VALUES ('4', 'news', '新闻活动', '1505922653', '150
 INSERT INTO `ab_cms_nav` VALUES ('5', 'contact', '阿宝加盟', '1505922669', '1505922669', '1', '5', null);
 
 -- ----------------------------
+-- Table structure for ab_cms_news
+-- ----------------------------
+DROP TABLE IF EXISTS `ab_cms_news`;
+CREATE TABLE `ab_cms_news` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(64) NOT NULL DEFAULT '' COMMENT '单页标题',
+  `content` mediumtext NOT NULL COMMENT '单页内容',
+  `keywords` varchar(32) NOT NULL DEFAULT '' COMMENT '关键词',
+  `description` varchar(250) NOT NULL DEFAULT '' COMMENT '页面描述',
+  `cover` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '单页封面',
+  `view` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '阅读量',
+  `create_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `update_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
+  `status` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '状态',
+  `is_index` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=56 DEFAULT CHARSET=utf8 COMMENT='单页表';
+
+-- ----------------------------
+-- Records of ab_cms_news
+-- ----------------------------
+INSERT INTO `ab_cms_news` VALUES ('2', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('3', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('4', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('5', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('6', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('7', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('8', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('9', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('10', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('11', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('12', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('13', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('14', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('15', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('16', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('17', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '5', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('18', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('19', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('20', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('21', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('22', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('23', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('24', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('25', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('26', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('27', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('28', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('29', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('30', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('31', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('32', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('33', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('34', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('35', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('36', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('37', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('38', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('39', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('40', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('41', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('42', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('43', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('44', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('45', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('46', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('47', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('48', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('49', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('50', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('51', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('52', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('53', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('54', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+INSERT INTO `ab_cms_news` VALUES ('55', '这是个测试好吧', '<p style=\"text-align: center; \">这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p style=\"text-align: center; \"><br></p><p>这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧</p><p><br></p>', '这是个测试好吧', '这是个测试好吧这是个测试好吧这是个测试好吧这是个测试好吧', '1', '0', '0', '0', '1', '1');
+
+-- ----------------------------
 -- Table structure for ab_cms_page
 -- ----------------------------
 DROP TABLE IF EXISTS `ab_cms_page`;
@@ -992,11 +1108,12 @@ CREATE TABLE `ab_cms_page` (
   `update_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
   `status` tinyint(2) unsigned NOT NULL DEFAULT '0' COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='单页表';
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='单页表';
 
 -- ----------------------------
 -- Records of ab_cms_page
 -- ----------------------------
+INSERT INTO `ab_cms_page` VALUES ('1', '联系我们', '<p style=\"text-align: center; \"><br></p><p style=\"text-align: center; \"><br></p><p style=\"text-align: center; \"><img src=\"/public/uploads/images/20170926/ed3eee11c4ffa9268eddc0fded2f3650.jpeg\" alt=\"1275176278752419\" style=\"max-width:100%;\"><br></p><p style=\"text-align: center; \"><br></p><p style=\"text-align: center; \"><br></p><p style=\"text-align: center;\"><img src=\"/public/uploads/images/20170924/bc696eb5606a542a3eca6b1ba1f4a681.jpg\" alt=\"8171965707611468\" style=\"max-width:100%;\"><br></p><p><br></p>', '', '', '', '14', '0', '1506390552', '1506391437', '1');
 
 -- ----------------------------
 -- Table structure for ab_cms_slider
@@ -1050,11 +1167,85 @@ CREATE TABLE `ab_config` (
   `name` varchar(255) NOT NULL DEFAULT '' COMMENT '名称',
   `data` longtext NOT NULL COMMENT '数据',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商城配置表ok';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='商城配置表ok';
 
 -- ----------------------------
 -- Records of ab_config
 -- ----------------------------
+INSERT INTO `ab_config` VALUES ('1', 'contact', 's:166:\"<div class=\"font-s13 push\"><strong>临沂市阿宝化妆学校</strong><br />\r\n地址：临沂市<br />\r\n电话：5321516<br />\r\n邮箱：admin@zrthink.comsss</div>\r\n\";');
+
+-- ----------------------------
+-- Table structure for ab_photo
+-- ----------------------------
+DROP TABLE IF EXISTS `ab_photo`;
+CREATE TABLE `ab_photo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `is_index` tinyint(1) NOT NULL DEFAULT '0',
+  `description` varchar(255) DEFAULT NULL,
+  `src` varchar(255) DEFAULT NULL,
+  `w_time` int(10) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of ab_photo
+-- ----------------------------
+INSERT INTO `ab_photo` VALUES ('21', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('22', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('23', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('24', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('25', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('26', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('27', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('28', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('29', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('30', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('31', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('32', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('33', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('34', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('35', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('36', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('37', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('38', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('39', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('40', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('41', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('42', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('43', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('44', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('45', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('46', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('47', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('48', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('49', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('50', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('51', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('52', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('53', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('54', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('55', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('56', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('57', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('58', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('59', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('60', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('61', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('62', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('63', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('64', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('65', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('66', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('67', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('68', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('69', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('70', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('71', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('72', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('73', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
+INSERT INTO `ab_photo` VALUES ('74', '测试一个客片', '0', '测试一个客片测试一个客片测试一个客片测试一个客片', '12', '1506258375', '1');
 
 -- ----------------------------
 -- Table structure for ab_theme
