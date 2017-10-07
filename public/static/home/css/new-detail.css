@@ -1,0 +1,83 @@
+@charset "utf-8";
+.dynamic-detalis{
+    width: 1040px;
+    margin:20px auto 50px;
+    padding: 60px;
+    background: #fff;
+}
+.dynamic-detalis-content{
+    width: 100%;
+}
+.dynamic-detalis-content h2{
+    width: 100%;
+    height: 36px;
+    font-size: 28px;
+    color: #333;
+    line-height: 36px;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 50px;
+}
+.dynamic-detalis-content label{
+    width: 100%;
+    height: 20px;
+    display: block;
+    font-size: 14px;
+    color: #999;
+    line-height: 20px;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 30px;
+    padding-bottom: 25px;
+}
+.dynamic-detalis-content label span{
+    margin-right: 30px;
+}
+.dynamic-detalis-content label span a{
+    color: #999;
+}
+.dynamic-detalis-content label span a:hover{
+    color: #f60;
+}
+.dynamic-detalis-content label span.last{
+    margin-right: 0;
+}
+.dynamic-detalis-content p{
+    width: 100%;
+    color: #666;
+    font-size: 16px;
+    line-height: 36px;
+    padding: 25px 0;
+    text-indent: 2em;
+}
+.dynamic-detalis-content img{
+    width: 650px;
+    height: 460px;
+    margin-left: 135px;
+}
+.dynamic-detalis-footer{
+    width: 100%;
+    margin: 25px auto 0;
+    border-top: 1px #d2d2d2 solid;
+    padding-top: 50px;
+}
+.dynamic-detalis-footer a{
+    height: 30px;
+    display: block;
+    color: #717171;
+    font-size: 14px;
+    line-height: 30px;
+    margin-top: 25px;
+}
+.dynamic-detalis-footer a span{
+    width: 70px;
+    height: 30px;
+    color: #fff;
+    display: inline-block;
+    background: #ff6600;
+    margin-right: 20px;
+    text-align: center;
+}
+.dynamic-detalis-footer a:hover{
+    text-decoration:underline;
+}
